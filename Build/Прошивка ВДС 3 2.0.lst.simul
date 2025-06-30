@@ -1,0 +1,2299 @@
+***********************************************************************
+*
+*	CODE GENERATION LISTING FOR: *	COMPILER VERSION: 5.20.0.36
+*
+***********************************************************************
+
+**************************************************
+	List function block: R_TRIG
+**************************************************
+
+FUNCTION_BLOCK R_TRIG
+
+	{ DE:"<HTML>The output Q will remain FALSE as long as the input variable CLK is FALSE.<br>
+As soon as CLK returns TRUE, Q will first return TRUE.<br><br>
+This means each time the function is called up, Q will return FALSE until CLK has falling edge followed by an rising edge.<br><br>
+<img src= r_trig.png>" }
+
+        VAR_INPUT
+clk : BOOL;	{ DE:"Input for edge detection" }
+	END_VAR
+
+        VAR_OUTPUT
+q : BOOL;	{ DE:"Raising edge output" }
+	END_VAR
+
+        VAR
+m : BOOL := TRUE;
+	END_VAR
+
+END_FUNCTION_BLOCK
+
+05E143D0  55                            push ebp
+05E143D1  8B EB                         mov ebp, ebx
+05E143D3  57                            push edi
+
+#0		{SRC:R_TRIG}
+#1		
+#2			LD		clk
+(*) UNDEF
+05E143D4  33 C0                         xor eax, eax
+05E143D6  8A 45 01                      mov al, 1[ebp]
+
+#3			ANDN	m
+(*) BOOL
+05E143D9  33 C9                         xor ecx, ecx
+05E143DB  8A 4D 00                      mov cl, [ebp]
+05E143DE  84 C9                         test cl, cl
+05E143E0  0F 94 C1                      sete cl
+05E143E3  23 C1                         and eax, ecx
+
+#4			ST		q
+(*) BOOL
+05E143E5  84 C0                         test al, al
+05E143E7  0F 95 45 02                   setne 2[ebp]
+
+#5		
+#6			LD		clk
+(*) UNDEF
+05E143EB  33 C0                         xor eax, eax
+05E143ED  8A 45 01                      mov al, 1[ebp]
+
+#7			ST		m
+(*) BOOL
+05E143F0  84 C0                         test al, al
+05E143F2  0F 95 45 00                   setne [ebp]
+
+05E143F6  5F                            pop edi
+05E143F7  5D                            pop ebp
+
+05E143F8  C3                            ret
+
+
+Frame allocation:
+
+	0000 bit  0: VAR m
+	0001 bit  0: VAR clk
+	0002 bit  0: VAR q
+
+END_FUNCTION_BLOCK
+**************************************************
+	List function block: TON
+**************************************************
+
+FUNCTION_BLOCK TON
+
+	{ DE:"<HTML>The TON block produces a delayed output Q of the input IN. The delay time is expressed in milliseconds on the PT input.</br></br>
+<img src= tonscheme.png>
+<ul>
+<li>if IN is FALSE Q is false</li>
+<li>Q becomes TRUE as IN remains TRUE for PT milliseconds</li>
+<li>Q remains TRUE until IN remains TRUE</li>
+</ul>" }
+
+        VAR_INPUT
+IN : BOOL;	{ DE:"Timer input source" }
+PT : UDINT;	{ DE:"Preset time value (ms)" }
+	END_VAR
+
+        VAR_OUTPUT
+Q : BOOL;	{ DE:"Timer output" }
+ET : UDINT;	{ DE:"Timer current value (ms)" }
+	END_VAR
+
+        VAR_EXTERNAL
+	{G:"System_Timers"}
+sysTimer AT %MD0.0 : UDINT;	{ DE:"System timer [ms]" }
+	END_VAR
+
+        VAR
+timStart : UDINT;	{ DE:"Time value at start of counting" }
+	END_VAR
+
+END_FUNCTION_BLOCK
+
+05E143F9  55                            push ebp
+05E143FA  8B EB                         mov ebp, ebx
+05E143FC  57                            push edi
+
+#0		{SRC:TON}
+#1		
+#2			(*	Check if in counting	*)
+#3		
+#4			LD		IN
+(*) UNDEF
+05E143FD  33 C0                         xor eax, eax
+05E143FF  8A 45 04                      mov al, 4[ebp]
+
+#5			JMPCN	lReset
+(-) BOOL
+05E14402  84 C0                         test al, al
+05E14404  90 74 61 90 90 90             je 05E14468H
+
+#6		
+#7			(*	Check if Q is TRUE *)
+#8			LD		Q
+(*) UNDEF
+05E1440A  33 C0                         xor eax, eax
+05E1440C  8A 45 09                      mov al, 9[ebp]
+
+#9			RETC
+#10			
+(-) BOOL
+05E1440F  84 C0                         test al, al
+05E14411  90 75 6A 90 90 90             jne 05E1447EH
+
+#11			(*	Check if already in counting *)
+#12			LD		timStart
+(*) UNDEF
+05E14417  8B 45 00                      mov eax, [ebp]
+
+#13			EQ		0
+(*) UDINT
+05E1441A  3D 00 00 00 00                cmp eax, 0
+05E1441F  0F 94 C0                      sete al
+05E14422  25 FF 00 00 00                and eax, 0FFh
+
+#14			JMPCN	lUpdate
+(-) BOOL
+05E14427  84 C0                         test al, al
+05E14429  90 74 0C 90 90 90             je 05E14438H
+
+#15		
+#16			(*	Start of counting *)
+#17			LD		sysTimer
+(*) UNDEF
+05E1442F  8B 05 CC CC CC CC             mov eax, [CCCCCCCCH] ; %M0+0
+
+#18			ST		timStart
+(*) UDINT
+05E14435  89 45 00                      mov [ebp], eax
+
+#19			
+#20		lUpdate:
+#21		
+#22			(*	Update timer and check if time elapsed *)
+#23			LD		sysTimer
+(*) UNDEF
+05E14438  8B 05 CC CC CC CC             mov eax, [CCCCCCCCH] ; %M0+0
+
+#24			SUB		timStart
+(*) UDINT
+05E1443E  2B 45 00                      sub eax, [ebp]
+
+#25			ST		ET
+(*) UDINT
+05E14441  89 45 0A                      mov 10[ebp], eax
+
+#26			GE		PT
+(*) UDINT
+05E14444  3B 45 05                      cmp eax, [ebp+5]
+05E14447  0F 93 C0                      setae al
+05E1444A  25 FF 00 00 00                and eax, 0FFh
+
+#27			ST		Q
+(*) BOOL
+05E1444F  84 C0                         test al, al
+05E14451  0F 95 45 09                   setne 9[ebp]
+
+#28			RETCN
+#29		
+(-) BOOL
+05E14455  84 C0                         test al, al
+05E14457  90 74 24 90 90 90             je 05E1447EH
+
+#30			(*	Limit actual time value *)
+#31			LD		PT
+(*) UNDEF
+05E1445D  8B 45 05                      mov eax, 5[ebp]
+
+#32			ST		ET
+(*) UDINT
+05E14460  89 45 0A                      mov 10[ebp], eax
+
+#33			RET
+#34		
+(-) UDINT
+05E14463  EB 19 90 90 90                jmp 05E1447EH
+
+#35		lReset:
+#36		
+#37			(*	Reset status *)
+#38			LD		0
+(*) UNDEF
+05E14468  B8 00 00 00 00                mov eax, 00H
+
+#39			ST		ET
+(*) USINT
+05E1446D  89 45 0A                      mov 10[ebp], eax
+
+#40			ST		timStart
+(*) UDINT
+05E14470  89 45 00                      mov [ebp], eax
+
+#41			LD		FALSE
+(*) UNDEF
+05E14473  B8 00 00 00 00                mov eax, 00H
+
+#42			ST		Q
+(*) BOOL
+05E14478  84 C0                         test al, al
+05E1447A  0F 95 45 09                   setne 9[ebp]
+
+05E1447E  5F                            pop edi
+05E1447F  5D                            pop ebp
+
+05E14480  C3                            ret
+
+
+Frame allocation:
+
+	0000       : VAR timStart
+	0004 bit  0: VAR IN
+	0005       : VAR PT
+	0009 bit  0: VAR Q
+	000A       : VAR ET
+
+END_FUNCTION_BLOCK
+**************************************************
+	List program: ATS_mdb
+**************************************************
+
+PROGRAM ATS_mdb
+
+        VAR
+res_eta_lcr : UINT;
+resp_eta_lcr : ARRAY[0..3] OF INT;
+res : INT;
+xTON : TON;
+	END_VAR
+
+END_PROGRAM
+
+05E14490  55                            push ebp
+05E14491  8B EC                         mov ebp, esp
+05E14493  60                            pushad
+
+#0		{SRC:ATS_mdb}
+#1		(*$WAITSWITCH$*)
+#2		
+#3			(* res := sysMbMRTU_FC03(	addr := 1, 
+#4											base := 257, // 256
+#5											no := 4, 
+#6											object := ADR(resp_eta_lcr), 
+#7											timeout := 200); *)
+#8			ADR		resp_eta_lcr	{LNXT:2|8|-1}
+(*) UDINT
+05E14494  B8 CC CC CC CC                mov eax, CCCCCCCCH ; $$DATA$$+12
+
+#9			ST		$$TMP0	{LNXT:2|8|-1}
+(*) @INT
+05E14499  89 05 CC CC CC CC             mov [CCCCCCCCH], eax ; $$DATA$$+20
+
+#10			LDP0		1	{LNXT:2|8|-1}
+(*) @INT
+#11			sysMbMRTU_FC03		257, 4, $$TMP0, 200	{LNXT:2|8|-1}
+(*) @INT
+05E1449F  68 C8 00 00 00                push 200
+05E144A4  FF 35 CC CC CC CC             push [CCCCCCCCH] ; $$DATA$$+20
+05E144AA  68 04 00 00 00                push 4
+05E144AF  68 01 01 00 00                push 257
+05E144B4  68 01 00 00 00                push 1
+05E144B9  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; sysMbMRTU_FC03
+05E144BE  FF D1                         call ecx
+05E144C0  81 C4 14 00 00 00             add esp, 20
+
+#12			ST		res	{LNXT:2|8|-1}
+(*) UINT
+05E144C6  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+24
+
+#13		
+#14			(* ATS22_DUT.Ready 	:= to_bool(resp_eta_lcr[0] And 16#01); *)
+#15			LD		resp_eta_lcr[0]	{LNXT:8|9|-1}
+(*) UNDEF
+05E144CD  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+
+#16			AND		16#01	{LNXT:8|9|-1}
+(*) INT
+05E144D4  25 01 00 00 00                and eax, 00000001H
+
+#17			to_bool	{LNXT:8|9|-1}
+(*) INT
+05E144D9  66 85 C0                      test ax, ax
+05E144DC  0F 95 C0                      setne al
+
+#18			ST		ATS22_DUT.Ready	{LNXT:8|9|-1}
+(*) BOOL
+05E144DF  84 C0                         test al, al
+05E144E1  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+26
+
+#19		
+#20			(* ATS22_DUT.On 		:= to_bool(resp_eta_lcr[0] And 16#02); *)
+#21			LD		resp_eta_lcr[0]	{LNXT:9|10|-1}
+(*) UNDEF
+05E144E8  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+
+#22			AND		16#02	{LNXT:9|10|-1}
+(*) INT
+05E144EF  25 02 00 00 00                and eax, 00000002H
+
+#23			to_bool	{LNXT:9|10|-1}
+(*) INT
+05E144F4  66 85 C0                      test ax, ax
+05E144F7  0F 95 C0                      setne al
+
+#24			ST		ATS22_DUT.On	{LNXT:9|10|-1}
+(*) BOOL
+05E144FA  84 C0                         test al, al
+05E144FC  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+27
+
+#25		
+#26			(* ATS22_DUT.Trip 		:= to_bool(resp_eta_lcr[0] And 16#04); *)
+#27			LD		resp_eta_lcr[0]	{LNXT:10|11|-1}
+(*) UNDEF
+05E14503  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+
+#28			AND		16#04	{LNXT:10|11|-1}
+(*) INT
+05E1450A  25 04 00 00 00                and eax, 00000004H
+
+#29			to_bool	{LNXT:10|11|-1}
+(*) INT
+05E1450F  66 85 C0                      test ax, ax
+05E14512  0F 95 C0                      setne al
+
+#30			ST		ATS22_DUT.Trip	{LNXT:10|11|-1}
+(*) BOOL
+05E14515  84 C0                         test al, al
+05E14517  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+28
+
+#31		
+#32			(* ATS22_DUT.Warning 	:= to_bool(resp_eta_lcr[0] And 16#08); *)
+#33			LD		resp_eta_lcr[0]	{LNXT:11|12|-1}
+(*) UNDEF
+05E1451E  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+
+#34			AND		16#08	{LNXT:11|12|-1}
+(*) INT
+05E14525  25 08 00 00 00                and eax, 00000008H
+
+#35			to_bool	{LNXT:11|12|-1}
+(*) INT
+05E1452A  66 85 C0                      test ax, ax
+05E1452D  0F 95 C0                      setne al
+
+#36			ST		ATS22_DUT.Warning	{LNXT:11|12|-1}
+(*) BOOL
+05E14530  84 C0                         test al, al
+05E14532  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+29
+
+#37		
+#38			(* ATS22_DUT.LI3 		:= to_bool(resp_eta_lcr[0] And 16#20); *)
+#39			LD		resp_eta_lcr[0]	{LNXT:12|13|-1}
+(*) UNDEF
+05E14539  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+
+#40			AND		16#20	{LNXT:12|13|-1}
+(*) INT
+05E14540  25 20 00 00 00                and eax, 00000020H
+
+#41			to_bool	{LNXT:12|13|-1}
+(*) INT
+05E14545  66 85 C0                      test ax, ax
+05E14548  0F 95 C0                      setne al
+
+#42			ST		ATS22_DUT.LI3	{LNXT:12|13|-1}
+(*) BOOL
+05E1454B  84 C0                         test al, al
+05E1454D  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+30
+
+#43		
+#44			(* ATS22_DUT.LI2 		:= to_bool(resp_eta_lcr[0] And 16#40); *)
+#45			LD		resp_eta_lcr[0]	{LNXT:13|14|-1}
+(*) UNDEF
+05E14554  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+
+#46			AND		16#40	{LNXT:13|14|-1}
+(*) INT
+05E1455B  25 40 00 00 00                and eax, 00000040H
+
+#47			to_bool	{LNXT:13|14|-1}
+(*) INT
+05E14560  66 85 C0                      test ax, ax
+05E14563  0F 95 C0                      setne al
+
+#48			ST		ATS22_DUT.LI2	{LNXT:13|14|-1}
+(*) BOOL
+05E14566  84 C0                         test al, al
+05E14568  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+31
+
+#49		
+#50			(* ATS22_DUT.LI1 		:= to_bool(resp_eta_lcr[0] And 16#80); *)
+#51			LD		resp_eta_lcr[0]	{LNXT:14|17|-1}
+(*) UNDEF
+05E1456F  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+
+#52			AND		16#80	{LNXT:14|17|-1}
+(*) INT
+05E14576  25 80 00 00 00                and eax, 00000080H
+
+#53			to_bool	{LNXT:14|17|-1}
+(*) INT
+05E1457B  66 85 C0                      test ax, ax
+05E1457E  0F 95 C0                      setne al
+
+#54			ST		ATS22_DUT.LI1	{LNXT:14|17|-1}
+(*) BOOL
+05E14581  84 C0                         test al, al
+05E14583  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+32
+
+#55		
+#56			(* ATS_State_bits.0 := ATS22_DUT.Ready; *)
+#57			MOVE		ATS22_DUT.Ready,ATS_State_bits.0	{LNXT:17|18|-1}
+(*) BOOL
+05E1458A  33 C0                         xor eax, eax
+05E1458C  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+26
+05E14592  84 C0                         test al, al
+05E14594  90 75 11 90 90 90             jne 00000014H@
+05E1459A  66 0F BA 35 CC CC CC CC 00    btr word ptr [CCCCCCCCH], 0 ; %M110+16
+05E145A3  EB 0C 90 90 90                jmp 0000000EH@
+05E145A8  66 0F BA 2D CC CC CC CC 00    bts word ptr [CCCCCCCCH], 0 ; %M110+16
+
+#58		
+#59			(* ATS_State_bits.1 := ATS22_DUT.On And i_run_ats; *)
+#60			LD		ATS22_DUT.On	{LNXT:18|19|-1}
+(*) UNDEF
+05E145B1  33 C0                         xor eax, eax
+05E145B3  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+27
+
+#61			AND		i_run_ats	{LNXT:18|19|-1}
+(*) BOOL
+05E145B9  33 C9                         xor ecx, ecx
+05E145BB  8A 0D CC CC CC CC             mov cl, [CCCCCCCCH] ; $$DATA$$+52
+05E145C1  23 C1                         and eax, ecx
+
+#62			ST		ATS_State_bits.1	{LNXT:18|19|-1}
+(*) BOOL
+05E145C3  84 C0                         test al, al
+05E145C5  90 75 11 90 90 90             jne 00000014H@
+05E145CB  66 0F BA 35 CC CC CC CC 01    btr word ptr [CCCCCCCCH], 1 ; %M110+16
+05E145D4  EB 0C 90 90 90                jmp 0000000EH@
+05E145D9  66 0F BA 2D CC CC CC CC 01    bts word ptr [CCCCCCCCH], 1 ; %M110+16
+
+#63		
+#64			(* ATS_State_bits.2 := ATS22_DUT.Trip Or Not i_no_alm_ats ; *)
+#65			LD		i_no_alm_ats	{LNXT:19|20|-1}
+(*) UNDEF
+05E145E2  33 C0                         xor eax, eax
+05E145E4  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+53
+
+#66			NOT	{LNXT:19|20|-1}
+(*) BOOL
+05E145EA  84 C0                         test al, al
+05E145EC  0F 94 C0                      sete al
+
+#67			OR		ATS22_DUT.Trip	{LNXT:19|20|-1}
+(*) BOOL
+05E145EF  33 C9                         xor ecx, ecx
+05E145F1  8A 0D CC CC CC CC             mov cl, [CCCCCCCCH] ; $$DATA$$+28
+05E145F7  0B C1                         or eax, ecx
+
+#68			ST		ATS_State_bits.2	{LNXT:19|20|-1}
+(*) BOOL
+05E145F9  84 C0                         test al, al
+05E145FB  90 75 11 90 90 90             jne 00000014H@
+05E14601  66 0F BA 35 CC CC CC CC 02    btr word ptr [CCCCCCCCH], 2 ; %M110+16
+05E1460A  EB 0C 90 90 90                jmp 0000000EH@
+05E1460F  66 0F BA 2D CC CC CC CC 02    bts word ptr [CCCCCCCCH], 2 ; %M110+16
+
+#69		
+#70			(* ATS_State_bits.3 := ATS22_DUT.Warning; *)
+#71			MOVE		ATS22_DUT.Warning,ATS_State_bits.3	{LNXT:20|21|-1}
+(*) BOOL
+05E14618  33 C0                         xor eax, eax
+05E1461A  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+29
+05E14620  84 C0                         test al, al
+05E14622  90 75 11 90 90 90             jne 00000014H@
+05E14628  66 0F BA 35 CC CC CC CC 03    btr word ptr [CCCCCCCCH], 3 ; %M110+16
+05E14631  EB 0C 90 90 90                jmp 0000000EH@
+05E14636  66 0F BA 2D CC CC CC CC 03    bts word ptr [CCCCCCCCH], 3 ; %M110+16
+
+#72		
+#73			(* ATS_State_bits.4 := ATS22_DUT.Local; *)
+#74			MOVE		ATS22_DUT.Local,ATS_State_bits.4	{LNXT:21|22|-1}
+(*) BOOL
+05E1463F  33 C0                         xor eax, eax
+05E14641  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+34
+05E14647  84 C0                         test al, al
+05E14649  90 75 11 90 90 90             jne 00000014H@
+05E1464F  66 0F BA 35 CC CC CC CC 04    btr word ptr [CCCCCCCCH], 4 ; %M110+16
+05E14658  EB 0C 90 90 90                jmp 0000000EH@
+05E1465D  66 0F BA 2D CC CC CC CC 04    bts word ptr [CCCCCCCCH], 4 ; %M110+16
+
+#75		
+#76			(* ATS_State_bits.5 := ATS22_DUT.Ramping; *)
+#77			MOVE		ATS22_DUT.Ramping,ATS_State_bits.5	{LNXT:22|23|-1}
+(*) BOOL
+05E14666  33 C0                         xor eax, eax
+05E14668  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+35
+05E1466E  84 C0                         test al, al
+05E14670  90 75 11 90 90 90             jne 00000014H@
+05E14676  66 0F BA 35 CC CC CC CC 05    btr word ptr [CCCCCCCCH], 5 ; %M110+16
+05E1467F  EB 0C 90 90 90                jmp 0000000EH@
+05E14684  66 0F BA 2D CC CC CC CC 05    bts word ptr [CCCCCCCCH], 5 ; %M110+16
+
+#78		
+#79			(* ATS_State_bits.6 := ATS22_DUT.LI1; *)
+#80			MOVE		ATS22_DUT.LI1,ATS_State_bits.6	{LNXT:23|24|-1}
+(*) BOOL
+05E1468D  33 C0                         xor eax, eax
+05E1468F  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+32
+05E14695  84 C0                         test al, al
+05E14697  90 75 11 90 90 90             jne 00000014H@
+05E1469D  66 0F BA 35 CC CC CC CC 06    btr word ptr [CCCCCCCCH], 6 ; %M110+16
+05E146A6  EB 0C 90 90 90                jmp 0000000EH@
+05E146AB  66 0F BA 2D CC CC CC CC 06    bts word ptr [CCCCCCCCH], 6 ; %M110+16
+
+#81		
+#82			(* ATS_State_bits.7 := ATS22_DUT.LI2; *)
+#83			MOVE		ATS22_DUT.LI2,ATS_State_bits.7	{LNXT:24|25|-1}
+(*) BOOL
+05E146B4  33 C0                         xor eax, eax
+05E146B6  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+31
+05E146BC  84 C0                         test al, al
+05E146BE  90 75 11 90 90 90             jne 00000014H@
+05E146C4  66 0F BA 35 CC CC CC CC 07    btr word ptr [CCCCCCCCH], 7 ; %M110+16
+05E146CD  EB 0C 90 90 90                jmp 0000000EH@
+05E146D2  66 0F BA 2D CC CC CC CC 07    bts word ptr [CCCCCCCCH], 7 ; %M110+16
+
+#84		
+#85			(* ATS_State_bits.8 := ATS22_DUT.LI3; *)
+#86			MOVE		ATS22_DUT.LI3,ATS_State_bits.8	{LNXT:25|28|-1}
+(*) BOOL
+05E146DB  33 C0                         xor eax, eax
+05E146DD  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+30
+05E146E3  84 C0                         test al, al
+05E146E5  90 75 11 90 90 90             jne 00000014H@
+05E146EB  66 0F BA 35 CC CC CC CC 08    btr word ptr [CCCCCCCCH], 8 ; %M110+16
+05E146F4  EB 0C 90 90 90                jmp 0000000EH@
+05E146F9  66 0F BA 2D CC CC CC CC 08    bts word ptr [CCCCCCCCH], 8 ; %M110+16
+
+#87		
+#88			(* ATS_State_bits.9 := i_pb_loc; *)
+#89			MOVE		i_pb_loc,ATS_State_bits.9	{LNXT:28|29|-1}
+(*) BOOL
+05E14702  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+54
+05E14709  66 85 C0                      test ax, ax
+05E1470C  90 75 11 90 90 90             jne 00000014H@
+05E14712  66 0F BA 35 CC CC CC CC 09    btr word ptr [CCCCCCCCH], 9 ; %M110+16
+05E1471B  EB 0C 90 90 90                jmp 0000000EH@
+05E14720  66 0F BA 2D CC CC CC CC 09    bts word ptr [CCCCCCCCH], 9 ; %M110+16
+
+#90		
+#91			(* ATS_State_bits.10 := i_pb_rem; *)
+#92			MOVE		i_pb_rem,ATS_State_bits.10	{LNXT:29|31|-1}
+(*) INT
+05E14729  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+56
+05E14730  66 85 C0                      test ax, ax
+05E14733  90 75 11 90 90 90             jne 00000014H@
+05E14739  66 0F BA 35 CC CC CC CC 0A    btr word ptr [CCCCCCCCH], 10 ; %M110+16
+05E14742  EB 0C 90 90 90                jmp 0000000EH@
+05E14747  66 0F BA 2D CC CC CC CC 0A    bts word ptr [CCCCCCCCH], 10 ; %M110+16
+
+#93		
+#94		
+#95			(* IF i_pb_loc AND not i_pb_rem *)
+#96			LD		i_pb_rem	{LNXT:31|-1|-1}
+(*) UNDEF
+05E14750  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+56
+
+#97			NOT	{LNXT:31|-1|-1}
+(*) INT
+05E14757  66 F7 D0                      not ax
+
+#98			AND(		i_pb_loc	{LNXT:31|-1|-1}
+(*) INT
+05E1475A  50                            push eax
+05E1475B  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+54
+
+#99			NOT	{LNXT:31|-1|-1}
+(*) INT
+05E14762  66 F7 D0                      not ax
+
+#100			)	{LNXT:31|-1|-1}
+(*) INT
+05E14765  8B C8                         mov ecx, eax
+05E14767  58                            pop eax
+05E14768  23 C1                         and eax, ecx
+
+#101			JMPCN	$label0	{LNXT:31|32|34}
+(-) INT
+05E1476A  66 85 C0                      test ax, ax
+05E1476D  90 74 27 90 90 90             je 05E14797H
+
+#102		
+#103			(* THEN *)
+#104		
+#105				(* ATS_State_bits.11 := TRUE; *)
+#106				MOVE		TRUE,ATS_State_bits.11	{LNXT:32|34|-1}
+(*) INT
+05E14773  B8 01 00 00 00                mov eax, 01H
+05E14778  84 C0                         test al, al
+05E1477A  90 75 11 90 90 90             jne 00000014H@
+05E14780  66 0F BA 35 CC CC CC CC 0B    btr word ptr [CCCCCCCCH], 11 ; %M110+16
+05E14789  EB 0C 90 90 90                jmp 0000000EH@
+05E1478E  66 0F BA 2D CC CC CC CC 0B    bts word ptr [CCCCCCCCH], 11 ; %M110+16
+
+#107		
+#108		$label0:
+#109			(* END_IF *)
+#110		
+#111		
+#112			(* IF i_pb_loc AND i_pb_rem *)
+#113			LD		i_pb_loc	{LNXT:34|-1|-1}
+(*) UNDEF
+05E14797  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+54
+
+#114			NOT	{LNXT:34|-1|-1}
+(*) INT
+05E1479E  66 F7 D0                      not ax
+
+#115			AND		i_pb_rem	{LNXT:34|-1|-1}
+(*) INT
+05E147A1  0F BF 0D CC CC CC CC          movsx ecx, word ptr [CCCCCCCCH] ; $$DATA$$+56
+05E147A8  23 C1                         and eax, ecx
+
+#116			JMPCN	$label1	{LNXT:34|35|37}
+(-) INT
+05E147AA  66 85 C0                      test ax, ax
+05E147AD  90 74 27 90 90 90             je 05E147D7H
+
+#117		
+#118			(* THEN *)
+#119		
+#120				(* ATS_State_bits.11 := FALSE; *)
+#121				MOVE		FALSE,ATS_State_bits.11	{LNXT:35|37|-1}
+(*) INT
+05E147B3  B8 00 00 00 00                mov eax, 00H
+05E147B8  84 C0                         test al, al
+05E147BA  90 75 11 90 90 90             jne 00000014H@
+05E147C0  66 0F BA 35 CC CC CC CC 0B    btr word ptr [CCCCCCCCH], 11 ; %M110+16
+05E147C9  EB 0C 90 90 90                jmp 0000000EH@
+05E147CE  66 0F BA 2D CC CC CC CC 0B    bts word ptr [CCCCCCCCH], 11 ; %M110+16
+
+#122		
+#123		$label1:
+#124			(* END_IF *)
+#125		
+#126		
+#127			(* IF i_pb_loc AND not i_pb_rem *)
+#128			LD		i_pb_rem	{LNXT:37|-1|-1}
+(*) UNDEF
+05E147D7  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+56
+
+#129			NOT	{LNXT:37|-1|-1}
+(*) INT
+05E147DE  66 F7 D0                      not ax
+
+#130			AND		i_pb_loc	{LNXT:37|-1|-1}
+(*) INT
+05E147E1  0F BF 0D CC CC CC CC          movsx ecx, word ptr [CCCCCCCCH] ; $$DATA$$+54
+05E147E8  23 C1                         and eax, ecx
+
+#131			JMPCN	$label2	{LNXT:37|38|43}
+(-) INT
+05E147EA  66 85 C0                      test ax, ax
+05E147ED  90 74 27 90 90 90             je 05E14817H
+
+#132		
+#133			(* THEN *)
+#134		
+#135				(* ATS_State_bits.11 := FALSE; *)
+#136				MOVE		FALSE,ATS_State_bits.11	{LNXT:38|43|-1}
+(*) INT
+05E147F3  B8 00 00 00 00                mov eax, 00H
+05E147F8  84 C0                         test al, al
+05E147FA  90 75 11 90 90 90             jne 00000014H@
+05E14800  66 0F BA 35 CC CC CC CC 0B    btr word ptr [CCCCCCCCH], 11 ; %M110+16
+05E14809  EB 0C 90 90 90                jmp 0000000EH@
+05E1480E  66 0F BA 2D CC CC CC CC 0B    bts word ptr [CCCCCCCCH], 11 ; %M110+16
+
+#137		
+#138		$label2:
+#139			(* END_IF *)
+#140		
+#141			(* ATS22_DUT.EtaCurrent := to_byte(SHR(resp_eta_lcr[0] AND 16#3F00, 16#08) * 200 / 63); *)
+#142			LD		resp_eta_lcr[0]	{LNXT:43|44|-1}
+(*) UNDEF
+05E14817  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+
+#143			AND		16#3F00	{LNXT:43|44|-1}
+(*) INT
+05E1481E  25 00 3F 00 00                and eax, 00003F00H
+
+#144			SHR		16#08	{LNXT:43|44|-1}
+(*) INT
+05E14823  C1 E8 08                      shr eax, 8
+
+#145			MUL		200	{LNXT:43|44|-1}
+(*) DINT
+05E14826  B9 C8 00 00 00                mov ecx, 200
+05E1482B  F7 E9                         imul ecx
+
+#146			DIV		63	{LNXT:43|44|-1}
+(*) DINT
+05E1482D  99                            cdq
+05E1482E  B9 3F 00 00 00                mov ecx, 63
+05E14833  F7 F9                         idiv ecx
+
+#147			to_byte	{LNXT:43|44|-1}
+(*) DINT
+#148			ST		ATS22_DUT.EtaCurrent	{LNXT:43|44|-1}
+(*) BYTE
+05E14835  88 05 CC CC CC CC             mov [CCCCCCCCH], al ; $$DATA$$+33
+
+#149		
+#150			(* ATS_Current_prsnt	 := ATS22_DUT.EtaCurrent; *)
+#151			MOVE		ATS22_DUT.EtaCurrent,ATS_Current_prsnt	{LNXT:44|46|-1}
+(*) BYTE
+05E1483B  33 C0                         xor eax, eax
+05E1483D  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+33
+05E14843  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; %M110+18
+
+#152		
+#153			(* ATS22_DUT.Local 	:= to_bool(resp_eta_lcr[0] And 16#4000); *)
+#154			LD		resp_eta_lcr[0]	{LNXT:46|47|-1}
+(*) UNDEF
+05E1484A  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+
+#155			AND		16#4000	{LNXT:46|47|-1}
+(*) INT
+05E14851  25 00 40 00 00                and eax, 00004000H
+
+#156			to_bool	{LNXT:46|47|-1}
+(*) INT
+05E14856  66 85 C0                      test ax, ax
+05E14859  0F 95 C0                      setne al
+
+#157			ST		ATS22_DUT.Local	{LNXT:46|47|-1}
+(*) BOOL
+05E1485C  84 C0                         test al, al
+05E1485E  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+34
+
+#158		
+#159			(* ATS22_DUT.Ramping 	:= to_bool(resp_eta_lcr[0] And 16#8000); *)
+#160			LD		resp_eta_lcr[0]	{LNXT:47|49|-1}
+(*) UNDEF
+05E14865  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+
+#161			AND		16#8000	{LNXT:47|49|-1}
+(*) INT
+05E1486C  25 00 80 00 00                and eax, 00008000H
+
+#162			to_bool	{LNXT:47|49|-1}
+(*) INT
+05E14871  66 85 C0                      test ax, ax
+05E14874  0F 95 C0                      setne al
+
+#163			ST		ATS22_DUT.Ramping	{LNXT:47|49|-1}
+(*) BOOL
+05E14877  84 C0                         test al, al
+05E14879  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+35
+
+#164		
+#165			(* ATS22_DUT.Lcr1 := resp_eta_lcr[1]; *)
+#166			MOVE		resp_eta_lcr[1],ATS22_DUT.Lcr1	{LNXT:49|50|-1}
+(*) BOOL
+05E14880  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+14
+05E14887  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+36
+
+#167		
+#168			(* ATS22_DUT.Lcr2 := resp_eta_lcr[2]; *)
+#169			MOVE		resp_eta_lcr[2],ATS22_DUT.Lcr2	{LNXT:50|51|-1}
+(*) INT
+05E1488E  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+16
+05E14895  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+38
+
+#170		
+#171			(* ATS22_DUT.Lcr3 := resp_eta_lcr[3]; *)
+#172			MOVE		resp_eta_lcr[3],ATS22_DUT.Lcr3	{LNXT:51|53|-1}
+(*) INT
+05E1489C  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+18
+05E148A3  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+40
+
+#173		
+#174			(* ATS_Current_L1 := ATS22_DUT.Lcr1; *)
+#175			MOVE		ATS22_DUT.Lcr1,ATS_Current_L1	{LNXT:53|54|-1}
+(*) INT
+05E148AA  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+36
+05E148B1  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; %M110+20
+
+#176		
+#177			(* ATS_Current_L2 := ATS22_DUT.Lcr2; *)
+#178			MOVE		ATS22_DUT.Lcr2,ATS_Current_L2	{LNXT:54|55|-1}
+(*) INT
+05E148B8  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+38
+05E148BF  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; %M110+22
+
+#179		
+#180			(* ATS_Current_L3 := ATS22_DUT.Lcr3; *)
+#181			MOVE		ATS22_DUT.Lcr3,ATS_Current_L3	{LNXT:55|57|-1}
+(*) INT
+05E148C6  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+40
+05E148CD  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; %M110+24
+
+#182		
+#183			(* res := sysMbMRTU_FC03(	addr := 1, 
+#184											base := 261, // 260
+#185											no := 1, 
+#186											object := ADR(resp_eta_lcr), 
+#187											timeout := 200); *)
+#188			ADR		resp_eta_lcr	{LNXT:57|63|-1}
+(*) INT
+05E148D4  B8 CC CC CC CC                mov eax, CCCCCCCCH ; $$DATA$$+12
+
+#189			ST		$$TMP0	{LNXT:57|63|-1}
+(*) @INT
+05E148D9  89 05 CC CC CC CC             mov [CCCCCCCCH], eax ; $$DATA$$+20
+
+#190			LDP0		1	{LNXT:57|63|-1}
+(*) @INT
+#191			sysMbMRTU_FC03		261, 1, $$TMP0, 200	{LNXT:57|63|-1}
+(*) @INT
+05E148DF  68 C8 00 00 00                push 200
+05E148E4  FF 35 CC CC CC CC             push [CCCCCCCCH] ; $$DATA$$+20
+05E148EA  68 01 00 00 00                push 1
+05E148EF  68 05 01 00 00                push 261
+05E148F4  68 01 00 00 00                push 1
+05E148F9  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; sysMbMRTU_FC03
+05E148FE  FF D1                         call ecx
+05E14900  81 C4 14 00 00 00             add esp, 20
+
+#192			ST		res	{LNXT:57|63|-1}
+(*) UINT
+05E14906  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+24
+
+#193		
+#194			(* ATS22_DUT.LcrVoltage	:= resp_eta_lcr[0]; *)
+#195			MOVE		resp_eta_lcr[0],ATS22_DUT.LcrVoltage	{LNXT:63|64|-1}
+(*) UINT
+05E1490D  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+05E14914  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+42
+
+#196		
+#197			(* ATS_Voltage := ATS22_DUT.LcrVoltage; *)
+#198			MOVE		ATS22_DUT.LcrVoltage,ATS_Voltage	{LNXT:64|68|-1}
+(*) INT
+05E1491B  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+42
+05E14922  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; %M110+36
+
+#199		
+#200			(* res := sysMbMRTU_FC03(	addr := 1, 
+#201											base := 280, // 279
+#202											no := 1, 
+#203											object := ADR(resp_eta_lcr), 
+#204											timeout := 200); *)
+#205			ADR		resp_eta_lcr	{LNXT:68|74|-1}
+(*) INT
+05E14929  B8 CC CC CC CC                mov eax, CCCCCCCCH ; $$DATA$$+12
+
+#206			ST		$$TMP0	{LNXT:68|74|-1}
+(*) @INT
+05E1492E  89 05 CC CC CC CC             mov [CCCCCCCCH], eax ; $$DATA$$+20
+
+#207			LDP0		1	{LNXT:68|74|-1}
+(*) @INT
+#208			sysMbMRTU_FC03		280, 1, $$TMP0, 200	{LNXT:68|74|-1}
+(*) @INT
+05E14934  68 C8 00 00 00                push 200
+05E14939  FF 35 CC CC CC CC             push [CCCCCCCCH] ; $$DATA$$+20
+05E1493F  68 01 00 00 00                push 1
+05E14944  68 18 01 00 00                push 280
+05E14949  68 01 00 00 00                push 1
+05E1494E  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; sysMbMRTU_FC03
+05E14953  FF D1                         call ecx
+05E14955  81 C4 14 00 00 00             add esp, 20
+
+#209			ST		res	{LNXT:68|74|-1}
+(*) UINT
+05E1495B  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+24
+
+#210		
+#211			(* ATS22_DUT.LastFLT 	:= resp_eta_lcr[0]; *)
+#212			MOVE		resp_eta_lcr[0],ATS22_DUT.LastFLT	{LNXT:74|75|-1}
+(*) UINT
+05E14962  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+05E14969  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+44
+
+#213		
+#214			(* ATS_Last_FaultCode := ATS22_DUT.LastFLT; *)
+#215			MOVE		ATS22_DUT.LastFLT,ATS_Last_FaultCode	{LNXT:75|78|-1}
+(*) INT
+05E14970  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+44
+05E14977  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; %M110+26
+
+#216		
+#217			(* res := sysMbMRTU_FC03(	addr := 1, 
+#218											base := 274, // 273
+#219											no := 3, 
+#220											object := ADR(resp_eta_lcr), 
+#221											timeout := 200); *)
+#222			ADR		resp_eta_lcr	{LNXT:78|84|-1}
+(*) INT
+05E1497E  B8 CC CC CC CC                mov eax, CCCCCCCCH ; $$DATA$$+12
+
+#223			ST		$$TMP0	{LNXT:78|84|-1}
+(*) @INT
+05E14983  89 05 CC CC CC CC             mov [CCCCCCCCH], eax ; $$DATA$$+20
+
+#224			LDP0		1	{LNXT:78|84|-1}
+(*) @INT
+#225			sysMbMRTU_FC03		274, 3, $$TMP0, 200	{LNXT:78|84|-1}
+(*) @INT
+05E14989  68 C8 00 00 00                push 200
+05E1498E  FF 35 CC CC CC CC             push [CCCCCCCCH] ; $$DATA$$+20
+05E14994  68 03 00 00 00                push 3
+05E14999  68 12 01 00 00                push 274
+05E1499E  68 01 00 00 00                push 1
+05E149A3  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; sysMbMRTU_FC03
+05E149A8  FF D1                         call ecx
+05E149AA  81 C4 14 00 00 00             add esp, 20
+
+#226			ST		res	{LNXT:78|84|-1}
+(*) UINT
+05E149B0  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+24
+
+#227		
+#228		
+#229			(* IF res <> 0 *)
+#230			LD		res	{LNXT:84|-1|-1}
+(*) UNDEF
+05E149B7  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+24
+
+#231			NE		0	{LNXT:84|-1|-1}
+(*) INT
+05E149BE  3D 00 00 00 00                cmp eax, 0
+05E149C3  0F 95 C0                      setne al
+05E149C6  25 FF 00 00 00                and eax, 0FFh
+
+#232			JMPCN	$label3	{LNXT:84|84|86}
+(-) BOOL
+05E149CB  84 C0                         test al, al
+05E149CD  90 74 27 90 90 90             je 05E149F7H
+
+#233		
+#234			(* THEN *)
+#235		
+#236				(* Alarms.6 := true; *)
+#237				MOVE		true,Alarms.6	{LNXT:84|86|-1}
+(*) BOOL
+05E149D3  B8 01 00 00 00                mov eax, 01H
+05E149D8  84 C0                         test al, al
+05E149DA  90 75 11 90 90 90             jne 00000014H@
+05E149E0  66 0F BA 35 CC CC CC CC 06    btr word ptr [CCCCCCCCH], 6 ; %M110+32
+05E149E9  EB 0C 90 90 90                jmp 0000000EH@
+05E149EE  66 0F BA 2D CC CC CC CC 06    bts word ptr [CCCCCCCCH], 6 ; %M110+32
+
+#238		
+#239		$label3:
+#240			(* END_IF *)
+#241		
+#242			(* ATS22_DUT.MotRunTime 		:= resp_eta_lcr[0]; *)
+#243			MOVE		resp_eta_lcr[0],ATS22_DUT.MotRunTime	{LNXT:86|87|-1}
+(*) WORD
+05E149F7  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+12
+05E149FE  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+46
+
+#244		
+#245			(* ATS22_DUT.MotStartCnt 		:= resp_eta_lcr[1]; *)
+#246			MOVE		resp_eta_lcr[1],ATS22_DUT.MotStartCnt	{LNXT:87|88|-1}
+(*) INT
+05E14A05  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+14
+05E14A0C  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+48
+
+#247		
+#248			(* ATS22_DUT.MotLastStartTime 	:= resp_eta_lcr[2]; *)
+#249			MOVE		resp_eta_lcr[2],ATS22_DUT.MotLastStartTime	{LNXT:88|90|-1}
+(*) INT
+05E14A13  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+16
+05E14A1A  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+50
+
+#250		
+#251			(* ATS_RunTime_Hors	:= to_word(ATS22_DUT.MotRunTime); *)
+#252			LDP0		ATS22_DUT.MotRunTime	{LNXT:90|91|-1}
+(*) INT
+#253			to_word	{LNXT:90|91|-1}
+(*) INT
+05E14A21  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+46
+
+#254			ST		ATS_RunTime_Hors	{LNXT:90|91|-1}
+(*) WORD
+05E14A28  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; %M110+28
+
+#255		
+#256			(* ATS_OnTimes_Cnt		:= to_word(ATS22_DUT.MotStartCnt); *)
+#257			LDP0		ATS22_DUT.MotStartCnt	{LNXT:91|2|-1}
+(*) WORD
+#258			to_word	{LNXT:91|2|-1}
+(*) WORD
+05E14A2F  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+48
+
+#259			ST		ATS_OnTimes_Cnt	{LNXT:91|2|-1}
+(*) WORD
+05E14A36  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; %M110+30
+
+05E14A3D  61                            popad
+05E14A3E  5D                            pop ebp
+
+05E14A3F  C3                            ret
+
+END_PROGRAM
+
+
+**************************************************
+	Target variable image generation
+**************************************************
+
+
+*** INPUT:
+05E14A40  8A 0D CC CC CC CC             mov cl, [CCCCCCCCH] ; %I0+7
+05E14A46  88 0D CC CC CC CC             mov [CCCCCCCCH], cl ; $$DATA$$+52
+
+05E14A4C  8A 0D CC CC CC CC             mov cl, [CCCCCCCCH] ; %I0+6
+05E14A52  88 0D CC CC CC CC             mov [CCCCCCCCH], cl ; $$DATA$$+53
+
+05E14A58  66 8B 0D CC CC CC CC          mov cx, [CCCCCCCCH] ; %I1+12
+05E14A5F  66 89 0D CC CC CC CC          mov [CCCCCCCCH], cx ; $$DATA$$+54
+
+05E14A66  66 8B 0D CC CC CC CC          mov cx, [CCCCCCCCH] ; %I1+14
+05E14A6D  66 89 0D CC CC CC CC          mov [CCCCCCCCH], cx ; $$DATA$$+56
+
+05E14A74  C3                            ret
+
+
+*** OUTPUT:
+05E14A75  C3                            ret
+
+
+
+**************************************************
+	Task Background init code
+**************************************************
+
+05E14A76  55                            push ebp
+05E14A77  8B EC                         mov ebp, esp
+
+05E14A79  8B E5                         mov esp, ebp
+05E14A7B  5D                            pop ebp
+
+05E14A7C  C3                            ret
+
+**************************************************
+	List program: sr_init_counters
+**************************************************
+
+PROGRAM sr_init_counters
+
+END_PROGRAM
+
+05E14A90  55                            push ebp
+05E14A91  8B EC                         mov ebp, esp
+05E14A93  60                            pushad
+
+#0		{SRC:sr_init_counters}
+#1		(*$WAITSWITCH$*)
+#2		
+#3			(* kw_counter 	:= epprom_kw_cnt; *)
+#4			MOVE		epprom_kw_cnt,kw_counter	{LNXT:1|2|-1}
+(*) UDINT
+05E14A94  8B 05 CC CC CC CC             mov eax, [CCCCCCCCH] ; %M101+0
+05E14A9A  89 05 CC CC CC CC             mov [CCCCCCCCH], eax ; %M110+4
+
+#5		
+#6			(* q_counter	:= epprom_q_cnt; *)
+#7			MOVE		epprom_q_cnt,q_counter	{LNXT:2|1|-1}
+(*) DWORD
+05E14AA0  8B 05 CC CC CC CC             mov eax, [CCCCCCCCH] ; %M101+4
+05E14AA6  89 05 CC CC CC CC             mov [CCCCCCCCH], eax ; %M110+8
+
+05E14AAC  61                            popad
+05E14AAD  5D                            pop ebp
+
+05E14AAE  C3                            ret
+
+END_PROGRAM
+
+
+**************************************************
+	Target variable image generation
+**************************************************
+
+
+*** INPUT:
+05E14AAF  C3                            ret
+
+
+*** OUTPUT:
+05E14AB0  C3                            ret
+
+
+
+**************************************************
+	Task Boot init code
+**************************************************
+
+05E14AB1  55                            push ebp
+05E14AB2  8B EC                         mov ebp, esp
+
+05E14AB4  8B E5                         mov esp, ebp
+05E14AB6  5D                            pop ebp
+
+05E14AB7  C3                            ret
+
+**************************************************
+	List program: InitParDB
+**************************************************
+
+PROGRAM InitParDB
+
+        VAR
+warningsKiller : USINT;
+dummyCrc32 : UDINT;
+	END_VAR
+
+END_PROGRAM
+
+05E14AD0  55                            push ebp
+05E14AD1  8B EC                         mov ebp, esp
+05E14AD3  60                            pushad
+
+#0		{SRC:InitParDB}
+#1		(*$WAITSWITCH$*)
+#2		
+#3			(* dummyCrc32 := 802318113; *)
+#4			MOVE		802318113,dummyCrc32	{LNXT:3|5|-1}
+(*) UDINT
+05E14AD4  B8 21 67 D2 2F                mov eax, 2FD26721H
+05E14AD9  89 05 CC CC CC CC             mov [CCCCCCCCH], eax ; $$DATA$$+60
+
+#5		
+#6			(* warningsKiller := sysDBase_SetExtTable( ADR( $$ParDB ), $$ParDBLength ); *)
+#7			ADR		$$ParDB	{LNXT:5|3|-1}
+(*) UDINT
+05E14ADF  B8 CC CC CC CC                mov eax, CCCCCCCCH ; $$CODE$$+288
+
+#8			sysDBase_SetExtTable		$$ParDBLength	{LNXT:5|3|-1}
+(*) @USINT
+05E14AE4  68 12 00 00 00                push 18
+05E14AE9  8B C8                         mov ecx, eax
+05E14AEB  51                            push ecx
+05E14AEC  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; sysDBase_SetExtTable
+05E14AF1  FF D1                         call ecx
+05E14AF3  81 C4 08 00 00 00             add esp, 8
+
+#9			ST		warningsKiller	{LNXT:5|3|-1}
+(*) USINT
+05E14AF9  88 05 CC CC CC CC             mov [CCCCCCCCH], al ; $$DATA$$+59
+
+05E14AFF  61                            popad
+05E14B00  5D                            pop ebp
+
+05E14B01  C3                            ret
+
+END_PROGRAM
+
+
+**************************************************
+	Target variable image generation
+**************************************************
+
+
+*** INPUT:
+05E14B02  C3                            ret
+
+
+*** OUTPUT:
+05E14B03  C3                            ret
+
+
+
+**************************************************
+	Task Serv init code
+**************************************************
+
+05E14B04  55                            push ebp
+05E14B05  8B EC                         mov ebp, esp
+
+05E14B07  8B E5                         mov esp, ebp
+05E14B09  5D                            pop ebp
+
+05E14B0A  C3                            ret
+
+**************************************************
+	List program: sr_pressure
+**************************************************
+
+PROGRAM sr_pressure
+
+        VAR
+tmp_test : INT;
+	END_VAR
+
+END_PROGRAM
+
+05E14B20  55                            push ebp
+05E14B21  8B EC                         mov ebp, esp
+05E14B23  60                            pushad
+
+#0		{SRC:sr_pressure}
+#1		(*$WAITSWITCH$*)
+#2		
+#3			(* Pressure := to_int(to_real(i_adc_pressure ) / 10); *)
+#4			LDP0		i_adc_pressure	{LNXT:3|3|-1}
+(*) UDINT
+#5			to_real	{LNXT:3|3|-1}
+(*) UDINT
+05E14B24  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+120
+05E14B2B  50                            push eax
+05E14B2C  DB 04 24                      fild dword ptr [esp]
+05E14B2F  58                            pop eax
+
+#6			DIV		10	{LNXT:3|3|-1}
+(*) REAL
+05E14B30  68 0A 00 00 00                push 10
+05E14B35  DA 34 24                      fidiv [esp]
+05E14B38  81 C4 04 00 00 00             add esp, 4
+
+#7			to_int	{LNXT:3|3|-1}
+(*) REAL
+05E14B3E  81 EC 08 00 00 00             sub esp, 8
+05E14B44  DF 3C 24                      fistp qword ptr [esp]
+05E14B47  58                            pop eax
+05E14B48  81 C4 04 00 00 00             add esp, 4
+
+#8			ST		Pressure	{LNXT:3|3|-1}
+(*) INT
+05E14B4E  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; %M110+0
+
+END_PROGRAM
+**************************************************
+	List program: sr_counters
+**************************************************
+
+PROGRAM sr_counters
+
+        VAR
+kw_trig : R_TRIG;
+q_trig : R_TRIG;
+kw_pulses_per_acs : UINT;
+q_pulses_per_acs : UINT;
+test_freq : UDINT;
+	END_VAR
+
+END_PROGRAM
+
+#0		{SRC:sr_counters}
+#1		(*$WAITSWITCH$*)
+#2		
+#3			(* kw_pulses_per_acs 	:= 8000; *)
+#4			MOVE		8000,kw_pulses_per_acs	{LNXT:2|3|-1}
+(*) UDINT
+05E14B55  B8 40 1F 00 00                mov eax, 1F40H
+05E14B5A  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+116
+
+#5		
+#6			(* q_pulses_per_acs	:= 1; *)
+#7			MOVE		1,q_pulses_per_acs	{LNXT:3|6|-1}
+(*) UINT
+05E14B61  B8 01 00 00 00                mov eax, 01H
+05E14B66  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; $$DATA$$+118
+
+#8		
+#9		
+#10			(* IF fdi_kw_cnt >= kw_pulses_per_acs *)
+#11			LD		fdi_kw_cnt	{LNXT:6|-1|-1}
+(*) UNDEF
+05E14B6D  8B 05 CC CC CC CC             mov eax, [CCCCCCCCH] ; %M5+0
+
+#12			GE		kw_pulses_per_acs	{LNXT:6|-1|-1}
+(*) UDINT
+05E14B73  33 C9                         xor ecx, ecx
+05E14B75  66 8B 0D CC CC CC CC          mov cx, [CCCCCCCCH] ; $$DATA$$+116
+05E14B7C  3B C1                         cmp eax, ecx
+05E14B7E  0F 93 C0                      setae al
+05E14B81  25 FF 00 00 00                and eax, 0FFh
+
+#13			JMPCN	$label0	{LNXT:6|7|12}
+(-) BOOL
+05E14B86  84 C0                         test al, al
+05E14B88  90 74 22 90 90 90             je 05E14BADH
+
+#14		
+#15			(* THEN *)
+#16		
+#17				(* kw_counter := kw_counter + 1; *)
+#18				LD		kw_counter	{LNXT:7|8|-1}
+(*) UNDEF
+05E14B8E  8B 05 CC CC CC CC             mov eax, [CCCCCCCCH] ; %M110+4
+
+#19				ADD		1	{LNXT:7|8|-1}
+(*) DWORD
+05E14B94  05 01 00 00 00                add eax, 1
+
+#20				ST		kw_counter	{LNXT:7|8|-1}
+(*) DWORD
+05E14B99  89 05 CC CC CC CC             mov [CCCCCCCCH], eax ; %M110+4
+
+#21		
+#22				(* fdi_kw_reset := true; *)
+#23				MOVE		true,fdi_kw_reset	{LNXT:8|12|-1}
+(*) DWORD
+05E14B9F  B8 01 00 00 00                mov eax, 01H
+05E14BA4  84 C0                         test al, al
+05E14BA6  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; %M50+0
+
+#24		
+#25		$label0:
+#26			(* END_IF *)
+#27		
+#28			(* kw_value := to_int((3600 * to_real(fdi_kw_freq)) / (to_real(kw_pulses_per_acs) / 10)); *)
+#29			LDP0		fdi_kw_freq	{LNXT:12|15|-1}
+(*) BOOL
+#30			to_real	{LNXT:12|15|-1}
+(*) BOOL
+05E14BAD  8B 05 CC CC CC CC             mov eax, [CCCCCCCCH] ; %M5+4
+05E14BB3  68 00 00 00 00                push 0
+05E14BB8  50                            push eax
+05E14BB9  DF 2C 24                      fild qword ptr [esp]
+05E14BBC  81 C4 08 00 00 00             add esp, 8
+
+#31			MUL		3600	{LNXT:12|15|-1}
+(*) REAL
+05E14BC2  68 10 0E 00 00                push 3600
+05E14BC7  DA 0C 24                      fimul [esp]
+05E14BCA  81 C4 04 00 00 00             add esp, 4
+
+#32			DIV(		0	{LNXT:12|15|-1}
+(*) REAL
+05E14BD0  81 EC 04 00 00 00             sub esp, 4
+05E14BD6  D9 1C 24                      fstp dword ptr [esp]
+05E14BD9  B8 00 00 00 00                mov eax, 00H
+
+#33			LDP0		kw_pulses_per_acs	{LNXT:12|15|-1}
+(*) USINT
+#34			to_real	{LNXT:12|15|-1}
+(*) USINT
+05E14BDE  33 C0                         xor eax, eax
+05E14BE0  66 8B 05 CC CC CC CC          mov ax, [CCCCCCCCH] ; $$DATA$$+116
+05E14BE7  68 00 00 00 00                push 0
+05E14BEC  50                            push eax
+05E14BED  DF 2C 24                      fild qword ptr [esp]
+05E14BF0  81 C4 08 00 00 00             add esp, 8
+
+#35			DIV		10	{LNXT:12|15|-1}
+(*) REAL
+05E14BF6  68 0A 00 00 00                push 10
+05E14BFB  DA 34 24                      fidiv [esp]
+05E14BFE  81 C4 04 00 00 00             add esp, 4
+
+#36			)	{LNXT:12|15|-1}
+(*) REAL
+05E14C04  81 EC 04 00 00 00             sub esp, 4
+05E14C0A  D9 1C 24                      fstp dword ptr [esp]
+05E14C0D  D9 44 24 04                   fld dword ptr 4[esp]
+05E14C11  D8 34 24                      fdiv dword ptr [esp]
+05E14C14  81 C4 08 00 00 00             add esp, 8
+
+#37			to_int	{LNXT:12|15|-1}
+(*) REAL
+05E14C1A  81 EC 08 00 00 00             sub esp, 8
+05E14C20  DF 3C 24                      fistp qword ptr [esp]
+05E14C23  58                            pop eax
+05E14C24  81 C4 04 00 00 00             add esp, 4
+
+#38			ST		kw_value	{LNXT:12|15|-1}
+(*) INT
+05E14C2A  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; %M110+12
+
+#39		
+#40		
+#41			(* IF fdi_q_cnt >= q_pulses_per_acs *)
+#42			LD		fdi_q_cnt	{LNXT:15|-1|-1}
+(*) UNDEF
+05E14C31  8B 05 CC CC CC CC             mov eax, [CCCCCCCCH] ; %M500+0
+
+#43			GE		q_pulses_per_acs	{LNXT:15|-1|-1}
+(*) UDINT
+05E14C37  33 C9                         xor ecx, ecx
+05E14C39  66 8B 0D CC CC CC CC          mov cx, [CCCCCCCCH] ; $$DATA$$+118
+05E14C40  3B C1                         cmp eax, ecx
+05E14C42  0F 93 C0                      setae al
+05E14C45  25 FF 00 00 00                and eax, 0FFh
+
+#44			JMPCN	$label1	{LNXT:15|16|20}
+(-) BOOL
+05E14C4A  84 C0                         test al, al
+05E14C4C  90 74 22 90 90 90             je 05E14C71H
+
+#45		
+#46			(* THEN *)
+#47		
+#48				(* q_counter := q_counter + 1; *)
+#49				LD		q_counter	{LNXT:16|17|-1}
+(*) UNDEF
+05E14C52  8B 05 CC CC CC CC             mov eax, [CCCCCCCCH] ; %M110+8
+
+#50				ADD		1	{LNXT:16|17|-1}
+(*) DWORD
+05E14C58  05 01 00 00 00                add eax, 1
+
+#51				ST		q_counter	{LNXT:16|17|-1}
+(*) DWORD
+05E14C5D  89 05 CC CC CC CC             mov [CCCCCCCCH], eax ; %M110+8
+
+#52		
+#53				(* fdi_q_reset := true; *)
+#54				MOVE		true,fdi_q_reset	{LNXT:17|20|-1}
+(*) DWORD
+05E14C63  B8 01 00 00 00                mov eax, 01H
+05E14C68  84 C0                         test al, al
+05E14C6A  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; %M550+0
+
+#55		
+#56		$label1:
+#57			(* END_IF *)
+#58		
+#59			(* q_value := to_int((3600 * to_real(fdi_q_freq)) / (to_real(q_pulses_per_acs) / 1)); *)
+#60			LDP0		fdi_q_freq	{LNXT:20|2|-1}
+(*) BOOL
+#61			to_real	{LNXT:20|2|-1}
+(*) BOOL
+05E14C71  8B 05 CC CC CC CC             mov eax, [CCCCCCCCH] ; %M500+4
+05E14C77  68 00 00 00 00                push 0
+05E14C7C  50                            push eax
+05E14C7D  DF 2C 24                      fild qword ptr [esp]
+05E14C80  81 C4 08 00 00 00             add esp, 8
+
+#62			MUL		3600	{LNXT:20|2|-1}
+(*) REAL
+05E14C86  68 10 0E 00 00                push 3600
+05E14C8B  DA 0C 24                      fimul [esp]
+05E14C8E  81 C4 04 00 00 00             add esp, 4
+
+#63			DIV(		0	{LNXT:20|2|-1}
+(*) REAL
+05E14C94  81 EC 04 00 00 00             sub esp, 4
+05E14C9A  D9 1C 24                      fstp dword ptr [esp]
+05E14C9D  B8 00 00 00 00                mov eax, 00H
+
+#64			LDP0		q_pulses_per_acs	{LNXT:20|2|-1}
+(*) USINT
+#65			to_real	{LNXT:20|2|-1}
+(*) USINT
+05E14CA2  33 C0                         xor eax, eax
+05E14CA4  66 8B 05 CC CC CC CC          mov ax, [CCCCCCCCH] ; $$DATA$$+118
+05E14CAB  68 00 00 00 00                push 0
+05E14CB0  50                            push eax
+05E14CB1  DF 2C 24                      fild qword ptr [esp]
+05E14CB4  81 C4 08 00 00 00             add esp, 8
+
+#66			DIV		1	{LNXT:20|2|-1}
+(*) REAL
+05E14CBA  68 01 00 00 00                push 1
+05E14CBF  DA 34 24                      fidiv [esp]
+05E14CC2  81 C4 04 00 00 00             add esp, 4
+
+#67			)	{LNXT:20|2|-1}
+(*) REAL
+05E14CC8  81 EC 04 00 00 00             sub esp, 4
+05E14CCE  D9 1C 24                      fstp dword ptr [esp]
+05E14CD1  D9 44 24 04                   fld dword ptr 4[esp]
+05E14CD5  D8 34 24                      fdiv dword ptr [esp]
+05E14CD8  81 C4 08 00 00 00             add esp, 8
+
+#68			to_int	{LNXT:20|2|-1}
+(*) REAL
+05E14CDE  81 EC 08 00 00 00             sub esp, 8
+05E14CE4  DF 3C 24                      fistp qword ptr [esp]
+05E14CE7  58                            pop eax
+05E14CE8  81 C4 04 00 00 00             add esp, 4
+
+#69			ST		q_value	{LNXT:20|2|-1}
+(*) INT
+05E14CEE  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; %M110+14
+
+END_PROGRAM
+**************************************************
+	List program: sr_save_counters
+**************************************************
+
+PROGRAM sr_save_counters
+
+        VAR
+power_err : R_TRIG;
+ton_start_up : TON;
+res_q : BOOL;
+res_kw : BOOL;
+	END_VAR
+
+END_PROGRAM
+
+#0		{SRC:sr_save_counters}
+#1		(*$WAITSWITCH$*)
+#2		
+#3			(* ton_start_up *)
+#4			MOVE		true,ton_start_up.IN	{LNXT:1|-1|-1}
+(*) UDINT
+05E14CF5  B8 01 00 00 00                mov eax, 01H
+05E14CFA  84 C0                         test al, al
+05E14CFC  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+126
+
+#5			MOVE		5000,ton_start_up.PT	{LNXT:1|-1|-1}
+(*) BOOL
+05E14D03  B8 88 13 00 00                mov eax, 1388H
+05E14D08  89 05 CC CC CC CC             mov [CCCCCCCCH], eax ; $$DATA$$+127
+
+#6			CAL		ton_start_up	{LNXT:1|2|-1}
+(*) UDINT
+05E14D0E  50                            push eax
+05E14D0F  BB CC CC CC CC                mov ebx, CCCCCCCCH ; $$DATA$$+122
+05E14D14  E8 E0 F6 FF FF                call 05E143F9H ; $$CODE$$+17401
+05E14D19  58                            pop eax
+
+#7		
+#8			(* power_err *)
+#9			LD		ton_start_up.Q	{LNXT:2|-1|-1}
+(*) UNDEF
+05E14D1A  33 C0                         xor eax, eax
+05E14D1C  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+131
+
+#10			AND		i_rnpp	{LNXT:2|-1|-1}
+(*) BOOL
+05E14D22  33 C9                         xor ecx, ecx
+05E14D24  8A 0D CC CC CC CC             mov cl, [CCCCCCCCH] ; $$DATA$$+109
+05E14D2A  23 C1                         and eax, ecx
+
+#11			ST		power_err.clk	{LNXT:2|-1|-1}
+(*) BOOL
+05E14D2C  84 C0                         test al, al
+05E14D2E  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+145
+
+#12			CAL		power_err	{LNXT:2|3|-1}
+(*) BOOL
+05E14D35  50                            push eax
+05E14D36  BB CC CC CC CC                mov ebx, CCCCCCCCH ; $$DATA$$+144
+05E14D3B  E8 90 F6 FF FF                call 05E143D0H ; $$CODE$$+17360
+05E14D40  58                            pop eax
+
+#13		
+#14		
+#15			(* IF power_err.q *)
+#16			LD		power_err.q	{LNXT:3|-1|-1}
+(*) UNDEF
+05E14D41  33 C0                         xor eax, eax
+05E14D43  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+146
+
+#17			JMPCN	$label0	{LNXT:3|4|1}
+(-) BOOL
+05E14D49  84 C0                         test al, al
+05E14D4B  0F 84 82 00 00 00             je 05E14DD3H
+
+#18		
+#19			(* THEN *)
+#20		
+#21		
+#22				(* IF epprom_q_cnt <> q_counter *)
+#23				LD		epprom_q_cnt	{LNXT:4|-1|-1}
+(*) UNDEF
+05E14D51  8B 05 CC CC CC CC             mov eax, [CCCCCCCCH] ; %M101+4
+
+#24				NE		q_counter	{LNXT:4|-1|-1}
+(*) DWORD
+05E14D57  3B 05 CC CC CC CC             cmp eax, [CCCCCCCCH] ; %M110+8
+05E14D5D  0F 95 C0                      setne al
+05E14D60  25 FF 00 00 00                and eax, 0FFh
+
+#25				JMPCN	$label1	{LNXT:4|4|5}
+(-) BOOL
+05E14D65  84 C0                         test al, al
+05E14D67  90 74 28 90 90 90             je 05E14D92H
+
+#26		
+#27				(* THEN *)
+#28		
+#29					(* res_q := sysWriteParUINT(ADR(epprom_q_cnt), q_counter); *)
+#30					ADR		epprom_q_cnt	{LNXT:4|5|-1}
+(*) BOOL
+05E14D6D  B8 CC CC CC CC                mov eax, CCCCCCCCH ; %M101+4
+
+#31					sysWriteParUINT		q_counter	{LNXT:4|5|-1}
+(*) @DWORD
+05E14D72  8B 0D CC CC CC CC             mov ecx, [CCCCCCCCH] ; %M110+8
+05E14D78  51                            push ecx
+05E14D79  8B C8                         mov ecx, eax
+05E14D7B  51                            push ecx
+05E14D7C  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; sysWriteParUINT
+05E14D81  FF D1                         call ecx
+05E14D83  81 C4 08 00 00 00             add esp, 8
+
+#32					ST		res_q	{LNXT:4|5|-1}
+(*) BOOL
+05E14D89  84 C0                         test al, al
+05E14D8B  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+155
+
+#33		
+#34		$label1:
+#35				(* END_IF *)
+#36		
+#37		
+#38				(* IF epprom_kw_cnt <> kw_counter *)
+#39				LD		epprom_kw_cnt	{LNXT:5|-1|-1}
+(*) UNDEF
+05E14D92  8B 05 CC CC CC CC             mov eax, [CCCCCCCCH] ; %M101+0
+
+#40				NE		kw_counter	{LNXT:5|-1|-1}
+(*) DWORD
+05E14D98  3B 05 CC CC CC CC             cmp eax, [CCCCCCCCH] ; %M110+4
+05E14D9E  0F 95 C0                      setne al
+05E14DA1  25 FF 00 00 00                and eax, 0FFh
+
+#41				JMPCN	$label2	{LNXT:5|5|1}
+(-) BOOL
+05E14DA6  84 C0                         test al, al
+05E14DA8  90 74 28 90 90 90             je 05E14DD3H
+
+#42		
+#43				(* THEN *)
+#44		
+#45					(* res_kw := sysWriteParUINT(ADR(epprom_kw_cnt), kw_counter); *)
+#46					ADR		epprom_kw_cnt	{LNXT:5|1|-1}
+(*) BOOL
+05E14DAE  B8 CC CC CC CC                mov eax, CCCCCCCCH ; %M101+0
+
+#47					sysWriteParUINT		kw_counter	{LNXT:5|1|-1}
+(*) @DWORD
+05E14DB3  8B 0D CC CC CC CC             mov ecx, [CCCCCCCCH] ; %M110+4
+05E14DB9  51                            push ecx
+05E14DBA  8B C8                         mov ecx, eax
+05E14DBC  51                            push ecx
+05E14DBD  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; sysWriteParUINT
+05E14DC2  FF D1                         call ecx
+05E14DC4  81 C4 08 00 00 00             add esp, 8
+
+#48					ST		res_kw	{LNXT:5|1|-1}
+(*) BOOL
+05E14DCA  84 C0                         test al, al
+05E14DCC  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+156
+
+END_PROGRAM
+**************************************************
+	List program: sr_ATS_Ctrl
+**************************************************
+
+PROGRAM sr_ATS_Ctrl
+
+        VAR
+TON_StartUp_1 : TON;
+TON_StartUp_2 : TON;
+	END_VAR
+
+END_PROGRAM
+
+#0		{SRC:sr_ATS_Ctrl}
+#1		(*$WAITSWITCH$*)
+#2		
+#3			(* TON_StartUp_1 *)
+#4			MOVE		q_start_ats,TON_StartUp_1.IN	{LNXT:2|-1|-1}
+(*) UDINT
+05E14DD3  33 C0                         xor eax, eax
+05E14DD5  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; %Q1+7
+05E14DDB  84 C0                         test al, al
+05E14DDD  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+68
+
+#5			MOVE		20000,TON_StartUp_1.PT	{LNXT:2|-1|-1}
+(*) BOOL
+05E14DE4  B8 20 4E 00 00                mov eax, 4E20H
+05E14DE9  89 05 CC CC CC CC             mov [CCCCCCCCH], eax ; $$DATA$$+69
+
+#6			CAL		TON_StartUp_1	{LNXT:2|3|-1}
+(*) UDINT
+05E14DEF  50                            push eax
+05E14DF0  BB CC CC CC CC                mov ebx, CCCCCCCCH ; $$DATA$$+64
+05E14DF5  E8 FF F5 FF FF                call 05E143F9H ; $$CODE$$+17401
+05E14DFA  58                            pop eax
+
+#7		
+#8			(* TON_StartUp_2 *)
+#9			MOVE		TON_StartUp_1.Q,TON_StartUp_2.IN	{LNXT:3|-1|-1}
+(*) UDINT
+05E14DFB  33 C0                         xor eax, eax
+05E14DFD  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+73
+05E14E03  84 C0                         test al, al
+05E14E05  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; $$DATA$$+90
+
+#10			MOVE		1000,TON_StartUp_2.PT	{LNXT:3|-1|-1}
+(*) BOOL
+05E14E0C  B8 E8 03 00 00                mov eax, 03E8H
+05E14E11  89 05 CC CC CC CC             mov [CCCCCCCCH], eax ; $$DATA$$+91
+
+#11			CAL		TON_StartUp_2	{LNXT:3|5|-1}
+(*) UDINT
+05E14E17  50                            push eax
+05E14E18  BB CC CC CC CC                mov ebx, CCCCCCCCH ; $$DATA$$+86
+05E14E1D  E8 D7 F5 FF FF                call 05E143F9H ; $$CODE$$+17401
+05E14E22  58                            pop eax
+
+#12		
+#13		
+#14			(* IF q_start_ats *)
+#15			LD		q_start_ats	{LNXT:5|-1|-1}
+(*) UNDEF
+05E14E23  33 C0                         xor eax, eax
+05E14E25  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; %Q1+7
+
+#16			JMPCN	$label0	{LNXT:5|6|15}
+(-) BOOL
+05E14E2B  84 C0                         test al, al
+05E14E2D  0F 84 86 00 00 00             je 05E14EB9H
+
+#17		
+#18			(* THEN *)
+#19		
+#20		
+#21				(* IF i_sns_pressure And TON_StartUp_1.Q *)
+#22				LD		i_sns_pressure	{LNXT:6|-1|-1}
+(*) UNDEF
+05E14E33  33 C0                         xor eax, eax
+05E14E35  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+58
+
+#23				NOT	{LNXT:6|-1|-1}
+(*) BOOL
+05E14E3B  84 C0                         test al, al
+05E14E3D  0F 94 C0                      sete al
+
+#24				AND		TON_StartUp_1.Q	{LNXT:6|-1|-1}
+(*) BOOL
+05E14E40  33 C9                         xor ecx, ecx
+05E14E42  8A 0D CC CC CC CC             mov cl, [CCCCCCCCH] ; $$DATA$$+73
+05E14E48  23 C1                         and eax, ecx
+
+#25				JMPCN	$label1	{LNXT:6|7|9}
+(-) BOOL
+05E14E4A  84 C0                         test al, al
+05E14E4C  90 74 27 90 90 90             je 05E14E76H
+
+#26		
+#27				(* THEN *)
+#28		
+#29					(* Alarms.0 := True; *)
+#30					MOVE		True,Alarms.0	{LNXT:7|9|-1}
+(*) BOOL
+05E14E52  B8 01 00 00 00                mov eax, 01H
+05E14E57  84 C0                         test al, al
+05E14E59  90 75 11 90 90 90             jne 00000014H@
+05E14E5F  66 0F BA 35 CC CC CC CC 00    btr word ptr [CCCCCCCCH], 0 ; %M110+32
+05E14E68  EB 0C 90 90 90                jmp 0000000EH@
+05E14E6D  66 0F BA 2D CC CC CC CC 00    bts word ptr [CCCCCCCCH], 0 ; %M110+32
+
+#31		
+#32		$label1:
+#33				(* END_IF *)
+#34		
+#35		
+#36				(* IF i_sns_pressure And TON_StartUp_2.Q *)
+#37				LD		i_sns_pressure	{LNXT:9|-1|-1}
+(*) UNDEF
+05E14E76  33 C0                         xor eax, eax
+05E14E78  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+58
+
+#38				NOT	{LNXT:9|-1|-1}
+(*) BOOL
+05E14E7E  84 C0                         test al, al
+05E14E80  0F 94 C0                      sete al
+
+#39				AND		TON_StartUp_2.Q	{LNXT:9|-1|-1}
+(*) BOOL
+05E14E83  33 C9                         xor ecx, ecx
+05E14E85  8A 0D CC CC CC CC             mov cl, [CCCCCCCCH] ; $$DATA$$+95
+05E14E8B  23 C1                         and eax, ecx
+
+#40				JMPCN	$label2	{LNXT:9|10|15}
+(-) BOOL
+05E14E8D  84 C0                         test al, al
+05E14E8F  90 74 27 90 90 90             je 05E14EB9H
+
+#41		
+#42				(* THEN *)
+#43		
+#44					(* Alarms.1 := True; *)
+#45					MOVE		True,Alarms.1	{LNXT:10|15|-1}
+(*) BOOL
+05E14E95  B8 01 00 00 00                mov eax, 01H
+05E14E9A  84 C0                         test al, al
+05E14E9C  90 75 11 90 90 90             jne 00000014H@
+05E14EA2  66 0F BA 35 CC CC CC CC 01    btr word ptr [CCCCCCCCH], 1 ; %M110+32
+05E14EAB  EB 0C 90 90 90                jmp 0000000EH@
+05E14EB0  66 0F BA 2D CC CC CC CC 01    bts word ptr [CCCCCCCCH], 1 ; %M110+32
+
+#46		
+#47		$label2:
+#48				(* END_IF *)
+#49		
+#50		$label0:
+#51			(* END_IF *)
+#52		
+#53			(* Alarms.2 := i_sns_door; *)
+#54			MOVE		i_sns_door,Alarms.2	{LNXT:15|18|-1}
+(*) WORD
+05E14EB9  33 C0                         xor eax, eax
+05E14EBB  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+108
+05E14EC1  84 C0                         test al, al
+05E14EC3  90 75 11 90 90 90             jne 00000014H@
+05E14EC9  66 0F BA 35 CC CC CC CC 02    btr word ptr [CCCCCCCCH], 2 ; %M110+32
+05E14ED2  EB 0C 90 90 90                jmp 0000000EH@
+05E14ED7  66 0F BA 2D CC CC CC CC 02    bts word ptr [CCCCCCCCH], 2 ; %M110+32
+
+#55		
+#56			(* Alarms.3 := i_rnpp; *)
+#57			MOVE		i_rnpp,Alarms.3	{LNXT:18|21|-1}
+(*) BOOL
+05E14EE0  33 C0                         xor eax, eax
+05E14EE2  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+109
+05E14EE8  84 C0                         test al, al
+05E14EEA  90 75 11 90 90 90             jne 00000014H@
+05E14EF0  66 0F BA 35 CC CC CC CC 03    btr word ptr [CCCCCCCCH], 3 ; %M110+32
+05E14EF9  EB 0C 90 90 90                jmp 0000000EH@
+05E14EFE  66 0F BA 2D CC CC CC CC 03    bts word ptr [CCCCCCCCH], 3 ; %M110+32
+
+#58		
+#59			(* Alarms.4 :=  Not i_qf_ats; *)
+#60			LD		i_qf_ats	{LNXT:21|24|-1}
+(*) UNDEF
+05E14F07  33 C0                         xor eax, eax
+05E14F09  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+110
+
+#61			NOT	{LNXT:21|24|-1}
+(*) BOOL
+05E14F0F  84 C0                         test al, al
+05E14F11  0F 94 C0                      sete al
+
+#62			ST		Alarms.4	{LNXT:21|24|-1}
+(*) BOOL
+05E14F14  84 C0                         test al, al
+05E14F16  90 75 11 90 90 90             jne 00000014H@
+05E14F1C  66 0F BA 35 CC CC CC CC 04    btr word ptr [CCCCCCCCH], 4 ; %M110+32
+05E14F25  EB 0C 90 90 90                jmp 0000000EH@
+05E14F2A  66 0F BA 2D CC CC CC CC 04    bts word ptr [CCCCCCCCH], 4 ; %M110+32
+
+#63		
+#64			(* Alarms.5 := i_no_alm_ats; *)
+#65			MOVE		i_no_alm_ats,Alarms.5	{LNXT:24|27|-1}
+(*) BOOL
+05E14F33  33 C0                         xor eax, eax
+05E14F35  8A 05 CC CC CC CC             mov al, [CCCCCCCCH] ; $$DATA$$+111
+05E14F3B  84 C0                         test al, al
+05E14F3D  90 75 11 90 90 90             jne 00000014H@
+05E14F43  66 0F BA 35 CC CC CC CC 05    btr word ptr [CCCCCCCCH], 5 ; %M110+32
+05E14F4C  EB 0C 90 90 90                jmp 0000000EH@
+05E14F51  66 0F BA 2D CC CC CC CC 05    bts word ptr [CCCCCCCCH], 5 ; %M110+32
+
+#66		
+#67			(* Alarms.7 := i_sns_dry = 1; *)
+#68			LD		i_sns_dry	{LNXT:27|33|-1}
+(*) UNDEF
+05E14F5A  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+112
+
+#69			EQ		1	{LNXT:27|33|-1}
+(*) INT
+05E14F61  3D 01 00 00 00                cmp eax, 1
+05E14F66  0F 94 C0                      sete al
+05E14F69  25 FF 00 00 00                and eax, 0FFh
+
+#70			ST		Alarms.7	{LNXT:27|33|-1}
+(*) BOOL
+05E14F6E  84 C0                         test al, al
+05E14F70  90 75 11 90 90 90             jne 00000014H@
+05E14F76  66 0F BA 35 CC CC CC CC 07    btr word ptr [CCCCCCCCH], 7 ; %M110+32
+05E14F7F  EB 0C 90 90 90                jmp 0000000EH@
+05E14F84  66 0F BA 2D CC CC CC CC 07    bts word ptr [CCCCCCCCH], 7 ; %M110+32
+
+#71		
+#72		
+#73			(* IF i_pb_rem = 1 And Not Alarms.0 And Not Alarms.3 And Not Alarms.4 And Not Alarms.5 And Not Alarms.7 *)
+#74			LD		Alarms.7	{LNXT:33|-1|-1}
+(*) UNDEF
+05E14F8D  33 C0                         xor eax, eax
+05E14F8F  66 8B 05 CC CC CC CC          mov ax, [CCCCCCCCH] ; %M110+32
+05E14F96  C1 E8 07                      shr eax, 7
+05E14F99  25 01 00 00 00                and eax, 1
+
+#75			NOT	{LNXT:33|-1|-1}
+(*) BOOL
+05E14F9E  84 C0                         test al, al
+05E14FA0  0F 94 C0                      sete al
+
+#76			AND(		Alarms.5	{LNXT:33|-1|-1}
+(*) BOOL
+05E14FA3  50                            push eax
+05E14FA4  33 C0                         xor eax, eax
+05E14FA6  66 8B 05 CC CC CC CC          mov ax, [CCCCCCCCH] ; %M110+32
+05E14FAD  C1 E8 05                      shr eax, 5
+05E14FB0  25 01 00 00 00                and eax, 1
+
+#77			NOT	{LNXT:33|-1|-1}
+(*) BOOL
+05E14FB5  84 C0                         test al, al
+05E14FB7  0F 94 C0                      sete al
+
+#78			AND(		Alarms.4	{LNXT:33|-1|-1}
+(*) BOOL
+05E14FBA  50                            push eax
+05E14FBB  33 C0                         xor eax, eax
+05E14FBD  66 8B 05 CC CC CC CC          mov ax, [CCCCCCCCH] ; %M110+32
+05E14FC4  C1 E8 04                      shr eax, 4
+05E14FC7  25 01 00 00 00                and eax, 1
+
+#79			NOT	{LNXT:33|-1|-1}
+(*) BOOL
+05E14FCC  84 C0                         test al, al
+05E14FCE  0F 94 C0                      sete al
+
+#80			AND(		Alarms.3	{LNXT:33|-1|-1}
+(*) BOOL
+05E14FD1  50                            push eax
+05E14FD2  33 C0                         xor eax, eax
+05E14FD4  66 8B 05 CC CC CC CC          mov ax, [CCCCCCCCH] ; %M110+32
+05E14FDB  C1 E8 03                      shr eax, 3
+05E14FDE  25 01 00 00 00                and eax, 1
+
+#81			NOT	{LNXT:33|-1|-1}
+(*) BOOL
+05E14FE3  84 C0                         test al, al
+05E14FE5  0F 94 C0                      sete al
+
+#82			AND(		Alarms.0	{LNXT:33|-1|-1}
+(*) BOOL
+05E14FE8  50                            push eax
+05E14FE9  33 C0                         xor eax, eax
+05E14FEB  66 8B 05 CC CC CC CC          mov ax, [CCCCCCCCH] ; %M110+32
+05E14FF2  25 01 00 00 00                and eax, 1
+
+#83			NOT	{LNXT:33|-1|-1}
+(*) BOOL
+05E14FF7  84 C0                         test al, al
+05E14FF9  0F 94 C0                      sete al
+
+#84			AND(		i_pb_rem	{LNXT:33|-1|-1}
+(*) BOOL
+05E14FFC  50                            push eax
+05E14FFD  0F BF 05 CC CC CC CC          movsx eax, word ptr [CCCCCCCCH] ; $$DATA$$+114
+
+#85			EQ		1	{LNXT:33|-1|-1}
+(*) INT
+05E15004  3D 01 00 00 00                cmp eax, 1
+05E15009  0F 94 C0                      sete al
+05E1500C  25 FF 00 00 00                and eax, 0FFh
+
+#86			)	{LNXT:33|-1|-1}
+(*) BOOL
+05E15011  8B C8                         mov ecx, eax
+05E15013  58                            pop eax
+05E15014  23 C1                         and eax, ecx
+
+#87			)	{LNXT:33|-1|-1}
+(*) BOOL
+05E15016  8B C8                         mov ecx, eax
+05E15018  58                            pop eax
+05E15019  23 C1                         and eax, ecx
+
+#88			)	{LNXT:33|-1|-1}
+(*) BOOL
+05E1501B  8B C8                         mov ecx, eax
+05E1501D  58                            pop eax
+05E1501E  23 C1                         and eax, ecx
+
+#89			)	{LNXT:33|-1|-1}
+(*) BOOL
+05E15020  8B C8                         mov ecx, eax
+05E15022  58                            pop eax
+05E15023  23 C1                         and eax, ecx
+
+#90			)	{LNXT:33|-1|-1}
+(*) BOOL
+05E15025  8B C8                         mov ecx, eax
+05E15027  58                            pop eax
+05E15028  23 C1                         and eax, ecx
+
+#91			JMPCN	$label3	{LNXT:33|35|42}
+(-) BOOL
+05E1502A  84 C0                         test al, al
+05E1502C  90 74 44 90 90 90             je 05E15073H
+
+#92		
+#93			(* THEN *)
+#94		
+#95		
+#96				(* IF CMD.0 = True *)
+#97				LD		CMD.0	{LNXT:35|-1|-1}
+(*) UNDEF
+05E15032  33 C0                         xor eax, eax
+05E15034  66 8B 05 CC CC CC CC          mov ax, [CCCCCCCCH] ; %M110+34
+05E1503B  25 01 00 00 00                and eax, 1
+
+#98				EQ		True	{LNXT:35|-1|-1}
+(*) BOOL
+05E15040  35 00 00 00 00                xor eax, 00000000H
+
+#99				JMPCN	$label5	{LNXT:35|36|38}
+(-) BOOL
+05E15045  84 C0                         test al, al
+05E15047  90 74 16 90 90 90             je 05E15060H
+
+#100		
+#101				(* THEN *)
+#102		
+#103					(* q_start_ats := True; *)
+#104					MOVE		True,q_start_ats	{LNXT:36|57|-1}
+(*) BOOL
+05E1504D  B8 01 00 00 00                mov eax, 01H
+05E15052  84 C0                         test al, al
+05E15054  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; %Q1+7
+
+#105					JMP		$label6	{LNXT:35|36|38}
+(-) BOOL
+05E1505B  EB 11 90 90 90                jmp 05E1506EH
+
+#106		$label5:
+#107		
+#108				(* ELSE *)
+#109		
+#110					(* q_start_ats := False; *)
+#111					MOVE		False,q_start_ats	{LNXT:38|57|-1}
+(*) BOOL
+05E15060  B8 00 00 00 00                mov eax, 00H
+05E15065  84 C0                         test al, al
+05E15067  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; %Q1+7
+
+#112		
+#113		$label6:
+#114				(* END_IF *)
+#115				JMP		$label4	{LNXT:33|35|42}
+(-) BOOL
+05E1506E  EB 35 90 90 90                jmp 05E150A5H
+
+#116		$label3:
+#117		
+#118			(* ELSE *)
+#119		
+#120				(* CMD.0 := False; *)
+#121				MOVE		False,CMD.0	{LNXT:42|43|-1}
+(*) BOOL
+05E15073  B8 00 00 00 00                mov eax, 00H
+05E15078  84 C0                         test al, al
+05E1507A  90 75 11 90 90 90             jne 00000014H@
+05E15080  66 0F BA 35 CC CC CC CC 00    btr word ptr [CCCCCCCCH], 0 ; %M110+34
+05E15089  EB 0C 90 90 90                jmp 0000000EH@
+05E1508E  66 0F BA 2D CC CC CC CC 00    bts word ptr [CCCCCCCCH], 0 ; %M110+34
+
+#122		
+#123				(* q_start_ats := False; *)
+#124				MOVE		False,q_start_ats	{LNXT:43|57|-1}
+(*) WORD
+05E15097  B8 00 00 00 00                mov eax, 00H
+05E1509C  84 C0                         test al, al
+05E1509E  0F 95 05 CC CC CC CC          setne [CCCCCCCCH] ; %Q1+7
+
+#125		
+#126		$label4:
+#127			(* END_IF *)
+#128		
+#129		
+#130			(* IF CMD.1 *)
+#131			LD		CMD.1	{LNXT:57|-1|-1}
+(*) UNDEF
+05E150A5  33 C0                         xor eax, eax
+05E150A7  66 8B 05 CC CC CC CC          mov ax, [CCCCCCCCH] ; %M110+34
+05E150AE  C1 E8 01                      shr eax, 1
+05E150B1  25 01 00 00 00                and eax, 1
+
+#132			JMPCN	$label7	{LNXT:57|58|2}
+(-) BOOL
+05E150B6  84 C0                         test al, al
+05E150B8  90 74 33 90 90 90             je 05E150EEH
+
+#133		
+#134			(* THEN *)
+#135		
+#136				(* Alarms := 0; *)
+#137				MOVE		0,Alarms	{LNXT:58|59|-1}
+(*) BOOL
+05E150BE  B8 00 00 00 00                mov eax, 00H
+05E150C3  66 89 05 CC CC CC CC          mov [CCCCCCCCH], ax ; %M110+32
+
+#138		
+#139				(* CMD.1 := False; *)
+#140				MOVE		False,CMD.1	{LNXT:59|2|-1}
+(*) WORD
+05E150CA  B8 00 00 00 00                mov eax, 00H
+05E150CF  84 C0                         test al, al
+05E150D1  90 75 11 90 90 90             jne 00000014H@
+05E150D7  66 0F BA 35 CC CC CC CC 01    btr word ptr [CCCCCCCCH], 1 ; %M110+34
+05E150E0  EB 0C 90 90 90                jmp 0000000EH@
+05E150E5  66 0F BA 2D CC CC CC CC 01    bts word ptr [CCCCCCCCH], 1 ; %M110+34
+
+05E150EE  61                            popad
+05E150EF  5D                            pop ebp
+
+05E150F0  C3                            ret
+
+END_PROGRAM
+
+
+**************************************************
+	Target variable image generation
+**************************************************
+
+
+*** INPUT:
+05E150F1  8A 0D CC CC CC CC             mov cl, [CCCCCCCCH] ; %I0+2
+05E150F7  88 0D CC CC CC CC             mov [CCCCCCCCH], cl ; $$DATA$$+58
+
+05E150FD  8A 0D CC CC CC CC             mov cl, [CCCCCCCCH] ; %I0+3
+05E15103  88 0D CC CC CC CC             mov [CCCCCCCCH], cl ; $$DATA$$+108
+
+05E15109  8A 0D CC CC CC CC             mov cl, [CCCCCCCCH] ; %I0+4
+05E1510F  88 0D CC CC CC CC             mov [CCCCCCCCH], cl ; $$DATA$$+109
+
+05E15115  8A 0D CC CC CC CC             mov cl, [CCCCCCCCH] ; %I0+5
+05E1511B  88 0D CC CC CC CC             mov [CCCCCCCCH], cl ; $$DATA$$+110
+
+05E15121  8A 0D CC CC CC CC             mov cl, [CCCCCCCCH] ; %I0+6
+05E15127  88 0D CC CC CC CC             mov [CCCCCCCCH], cl ; $$DATA$$+111
+
+05E1512D  66 8B 0D CC CC CC CC          mov cx, [CCCCCCCCH] ; %I1+10
+05E15134  66 89 0D CC CC CC CC          mov [CCCCCCCCH], cx ; $$DATA$$+112
+
+05E1513B  66 8B 0D CC CC CC CC          mov cx, [CCCCCCCCH] ; %I1+14
+05E15142  66 89 0D CC CC CC CC          mov [CCCCCCCCH], cx ; $$DATA$$+114
+
+05E15149  66 8B 0D CC CC CC CC          mov cx, [CCCCCCCCH] ; %I1+0
+05E15150  66 89 0D CC CC CC CC          mov [CCCCCCCCH], cx ; $$DATA$$+120
+
+05E15157  C3                            ret
+
+
+*** OUTPUT:
+05E15158  C3                            ret
+
+
+
+**************************************************
+	Task Timed init code
+**************************************************
+
+05E15159  55                            push ebp
+05E1515A  8B EC                         mov ebp, esp
+
+Var init: V::SR_SAVE_COUNTERS.POWER_ERR.M = 1
+05E1515C  C6 05 CC CC CC CC 01          mov byte ptr [CCCCCCCCH], 01H ; $$DATA$$+144
+
+05E15163  8B E5                         mov esp, ebp
+05E15165  5D                            pop ebp
+
+05E15166  C3                            ret
+
+
+
+**************************************************
+	Global init code
+**************************************************
+
+05E15180  55                            push ebp
+05E15181  8B EC                         mov ebp, esp
+
+Var init: V:EMBEDDEDELEMENTS:$$POUCBARRAY$$BACKGROUND = 0
+05E15183  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; $$DATA$$+204
+05E15188  89 0D CC CC CC CC             mov [CCCCCCCCH], ecx ; $$DATA$$+160
+
+Var init: V:EMBEDDEDELEMENTS:$$POUCBARRAY$$BOOT = 0
+05E1518E  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; $$DATA$$+210
+05E15193  89 0D CC CC CC CC             mov [CCCCCCCCH], ecx ; $$DATA$$+168
+
+Var init: V:EMBEDDEDELEMENTS:$$POUCBARRAY$$SERV = 0
+05E15199  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; $$DATA$$+216
+05E1519E  89 0D CC CC CC CC             mov [CCCCCCCCH], ecx ; $$DATA$$+176
+
+Var init: V:EMBEDDEDELEMENTS:$$POUCBARRAY$$TIMED = 0
+05E151A4  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; $$DATA$$+222
+05E151A9  89 0D CC CC CC CC             mov [CCCCCCCCH], ecx ; $$DATA$$+184
+05E151AF  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; $$DATA$$+228
+05E151B4  89 0D CC CC CC CC             mov [CCCCCCCCH], ecx ; $$DATA$$+184
+05E151BA  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; $$DATA$$+234
+05E151BF  89 0D CC CC CC CC             mov [CCCCCCCCH], ecx ; $$DATA$$+184
+05E151C5  B9 CC CC CC CC                mov ecx, CCCCCCCCH ; $$DATA$$+240
+05E151CA  89 0D CC CC CC CC             mov [CCCCCCCCH], ecx ; $$DATA$$+184
+
+05E151D0  8B E5                         mov esp, ebp
+05E151D2  5D                            pop ebp
+
+05E151D3  C3                            ret
+
+
+
+**************************************************
+	Global RETAIN init code
+**************************************************
+
+05E151D4  55                            push ebp
+05E151D5  8B EC                         mov ebp, esp
+
+05E151D7  8B E5                         mov esp, ebp
+05E151D9  5D                            pop ebp
+
+05E151DA  C3                            ret
+
+
+
+**************************************************
+	Task $$VirtualTables init code
+**************************************************
+
+05E151DB  55                            push ebp
+05E151DC  8B EC                         mov ebp, esp
+
+05E151DE  8B E5                         mov esp, ebp
+05E151E0  5D                            pop ebp
+
+05E151E1  C3                            ret
+
+
+
+********************************************
+MEMORY MAP
+********************************************
+
+Code area type:          		       main code
+Start code area:          		0000000005E10000h
+End code area:            		0000000005E15AECh
+Code size:                		00005AECh
+
+Start local data area:    		0000000005C90000h
+End local data area:      		0000000005C900F6h
+Local data size:          		000000F6h
+
+Start retentive data area:		0000000000000000h
+End retentive data area:  		0000000000000000h
+Retentive data size:      		00000000h
+
+Start bit data area:      		0000000000000000h
+End bit data area:        		0000000000000000h
+Bit data size:            		00000000h
+
+
+
+********************************************
+CODE ID:                                38477084
+DEBUG MEMO ID:                          000034F7
+FULL MEMO ID:                           000074B3
+RELOCATION ADDR:                        0000000005E10000
+********************************************
