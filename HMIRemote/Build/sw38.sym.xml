@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?xml-stylesheet type ="text/xsl" href="file://C:/Users/Anton/AppData/Local/Temp/LLSymTab.xsl" version="1.0"?>
-<LLSymbolTable Version="1.4" Name="sw38" TargetID="M172P_596p12" CodeId="0xE428DA29" DebugMemoId="0x0000EDCB" MemoId="0x0000984C" DataRelocation="none" DbRelocation="patch" FunctRelocation="patch" dataAddrMode="byte" codeAddrMode="byte" NoIncrAlloc="false" is64bit="false" isBigEndian="false" dataSignature="0x1EF5E3E7">
+<LLSymbolTable Version="1.4" Name="sw38" TargetID="M172P_596p12" CodeId="0xE428DA29" DebugMemoId="0x0000EDCB" MemoId="0x0000984C" DataRelocation="none" DbRelocation="patch" FunctRelocation="patch" dataAddrMode="byte" codeAddrMode="byte" NoIncrAlloc="false" is64bit="false" isBigEndian="false" dataSignature="0x94CC3521">
 	<Resource Name="EWAD_HMI" Proc="ARMv7M"/>
 	<CaseSensitive>false</CaseSensitive>
 	<CompilerOptions FBExtCheck="true"/>
@@ -58,52 +58,54 @@
 		<Var Name="FBMAINEDIT_13" OrigName="fbmainEdit_13" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C804D4" Group="main_vars"/>
 		<Var Name="FBMAINSTRING_14" OrigName="fbmainString_14" Type="STATIC01" OrigType="Static01" Addr="0xA1C80528" Group="main_vars"/>
 		<Var Name="FBMAINEDIT_15" OrigName="fbmainEdit_15" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80564" Group="main_vars"/>
+		<Var Name="FBMAINEDIT_24" OrigName="fbmainEdit_24" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C805B8" Group="main_vars"/>
+		<Var Name="FBMAINSTRING_25" OrigName="fbmainString_25" Type="STATIC01" OrigType="Static01" Addr="0xA1C8060C" Group="main_vars"/>
 		<Var Name="FBMAIN" OrigName="fbmain" Type="DRAWMAIN" OrigType="Drawmain" Addr="0xA1C801A4" Group="main_vars"/>
-		<Var Name="FBSETUPRS2STRING_1" OrigName="fbSetupRS2String_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C805F4" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPRS2STRING_2" OrigName="fbSetupRS2String_2" Type="STATIC01" OrigType="Static01" Addr="0xA1C80630" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPRS2STRING_3" OrigName="fbSetupRS2String_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C8066C" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPRS2STRING_4" OrigName="fbSetupRS2String_4" Type="STATIC01" OrigType="Static01" Addr="0xA1C806A8" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPRS2STRING_5" OrigName="fbSetupRS2String_5" Type="STATIC01" OrigType="Static01" Addr="0xA1C806E4" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPRS2STRING_6" OrigName="fbSetupRS2String_6" Type="STATIC01" OrigType="Static01" Addr="0xA1C80720" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPRS2EDIT_7" OrigName="fbSetupRS2Edit_7" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C8075C" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPRS2EDIT_8" OrigName="fbSetupRS2Edit_8" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C807B0" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPRS2EDIT_9" OrigName="fbSetupRS2Edit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80804" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPRS2EDIT_10" OrigName="fbSetupRS2Edit_10" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80858" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPRS2EDIT_11" OrigName="fbSetupRS2Edit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C808AC" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPRS2EDIT_12" OrigName="fbSetupRS2Edit_12" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80900" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPRS2" OrigName="fbSetupRS2" Type="DRAWSETUPRS2" OrigType="DrawSetupRS2" Addr="0xA1C805B8" Group="SetupRS2_vars"/>
-		<Var Name="FBSETUPIPSTRING_1" OrigName="fbSetupIPString_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C80990" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPSTRING_2" OrigName="fbSetupIPString_2" Type="STATIC01" OrigType="Static01" Addr="0xA1C809CC" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPSTRING_3" OrigName="fbSetupIPString_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A08" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPSTRING_4" OrigName="fbSetupIPString_4" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A44" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_5" OrigName="fbSetupIPEdit_5" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80A80" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_6" OrigName="fbSetupIPEdit_6" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80AD4" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_7" OrigName="fbSetupIPEdit_7" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80B28" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_8" OrigName="fbSetupIPEdit_8" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80B7C" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_9" OrigName="fbSetupIPEdit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80BD0" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_10" OrigName="fbSetupIPEdit_10" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80C24" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_11" OrigName="fbSetupIPEdit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80C78" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_12" OrigName="fbSetupIPEdit_12" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80CCC" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_13" OrigName="fbSetupIPEdit_13" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80D20" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_14" OrigName="fbSetupIPEdit_14" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80D74" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_15" OrigName="fbSetupIPEdit_15" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80DC8" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_16" OrigName="fbSetupIPEdit_16" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80E1C" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_17" OrigName="fbSetupIPEdit_17" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80E70" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_18" OrigName="fbSetupIPEdit_18" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80EC4" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_19" OrigName="fbSetupIPEdit_19" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80F18" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIPEDIT_20" OrigName="fbSetupIPEdit_20" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80F6C" Group="SetupIP_vars"/>
-		<Var Name="FBSETUPIP" OrigName="fbSetupIP" Type="DRAWSETUPIP" OrigType="DrawSetupIP" Addr="0xA1C80954" Group="SetupIP_vars"/>
-		<Var Name="FBUPDATECOUNTERSTRING_1" OrigName="fbupdateCounterString_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C80FFC" Group="updateCounter_vars"/>
-		<Var Name="FBUPDATECOUNTEREDIT_2" OrigName="fbupdateCounterEdit_2" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C81038" Group="updateCounter_vars"/>
-		<Var Name="FBUPDATECOUNTERSTRING_3" OrigName="fbupdateCounterString_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C8108C" Group="updateCounter_vars"/>
-		<Var Name="FBUPDATECOUNTEREDIT_4" OrigName="fbupdateCounterEdit_4" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C810C8" Group="updateCounter_vars"/>
-		<Var Name="FBUPDATECOUNTERBUTTON_5" OrigName="fbupdateCounterButton_5" Type="BUTTON02" OrigType="Button02" Addr="0xA1C8111C" Group="updateCounter_vars"/>
-		<Var Name="FBUPDATECOUNTER" OrigName="fbupdateCounter" Type="DRAWUPDATECOUNTER" OrigType="DrawupdateCounter" Addr="0xA1C80FC0" Group="updateCounter_vars"/>
-		<Var Name="FBREFRFIRST" OrigName="fbRefrfirst" Type="REFRFIRST" OrigType="Refrfirst" Addr="0xA1C81164" Group="first_vars"/>
-		<Var Name="FBREFRMAIN" OrigName="fbRefrmain" Type="REFRMAIN" OrigType="Refrmain" Addr="0xA1C81178" Group="main_vars"/>
-		<Var Name="FBREFRSETUPRS2" OrigName="fbRefrSetupRS2" Type="REFRSETUPRS2" OrigType="RefrSetupRS2" Addr="0xA1C8118C" Group="SetupRS2_vars"/>
-		<Var Name="FBREFRSETUPIP" OrigName="fbRefrSetupIP" Type="REFRSETUPIP" OrigType="RefrSetupIP" Addr="0xA1C811A0" Group="SetupIP_vars"/>
-		<Var Name="FBREFRUPDATECOUNTER" OrigName="fbRefrupdateCounter" Type="REFRUPDATECOUNTER" OrigType="RefrupdateCounter" Addr="0xA1C811B4" Group="updateCounter_vars"/>
+		<Var Name="FBSETUPRS2STRING_1" OrigName="fbSetupRS2String_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C80684" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPRS2STRING_2" OrigName="fbSetupRS2String_2" Type="STATIC01" OrigType="Static01" Addr="0xA1C806C0" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPRS2STRING_3" OrigName="fbSetupRS2String_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C806FC" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPRS2STRING_4" OrigName="fbSetupRS2String_4" Type="STATIC01" OrigType="Static01" Addr="0xA1C80738" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPRS2STRING_5" OrigName="fbSetupRS2String_5" Type="STATIC01" OrigType="Static01" Addr="0xA1C80774" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPRS2STRING_6" OrigName="fbSetupRS2String_6" Type="STATIC01" OrigType="Static01" Addr="0xA1C807B0" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPRS2EDIT_7" OrigName="fbSetupRS2Edit_7" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C807EC" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPRS2EDIT_8" OrigName="fbSetupRS2Edit_8" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80840" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPRS2EDIT_9" OrigName="fbSetupRS2Edit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80894" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPRS2EDIT_10" OrigName="fbSetupRS2Edit_10" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C808E8" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPRS2EDIT_11" OrigName="fbSetupRS2Edit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C8093C" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPRS2EDIT_12" OrigName="fbSetupRS2Edit_12" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80990" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPRS2" OrigName="fbSetupRS2" Type="DRAWSETUPRS2" OrigType="DrawSetupRS2" Addr="0xA1C80648" Group="SetupRS2_vars"/>
+		<Var Name="FBSETUPIPSTRING_1" OrigName="fbSetupIPString_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A20" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPSTRING_2" OrigName="fbSetupIPString_2" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A5C" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPSTRING_3" OrigName="fbSetupIPString_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A98" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPSTRING_4" OrigName="fbSetupIPString_4" Type="STATIC01" OrigType="Static01" Addr="0xA1C80AD4" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_5" OrigName="fbSetupIPEdit_5" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80B10" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_6" OrigName="fbSetupIPEdit_6" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80B64" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_7" OrigName="fbSetupIPEdit_7" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80BB8" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_8" OrigName="fbSetupIPEdit_8" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80C0C" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_9" OrigName="fbSetupIPEdit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80C60" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_10" OrigName="fbSetupIPEdit_10" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80CB4" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_11" OrigName="fbSetupIPEdit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80D08" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_12" OrigName="fbSetupIPEdit_12" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80D5C" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_13" OrigName="fbSetupIPEdit_13" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80DB0" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_14" OrigName="fbSetupIPEdit_14" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80E04" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_15" OrigName="fbSetupIPEdit_15" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80E58" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_16" OrigName="fbSetupIPEdit_16" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80EAC" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_17" OrigName="fbSetupIPEdit_17" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80F00" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_18" OrigName="fbSetupIPEdit_18" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80F54" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_19" OrigName="fbSetupIPEdit_19" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80FA8" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIPEDIT_20" OrigName="fbSetupIPEdit_20" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80FFC" Group="SetupIP_vars"/>
+		<Var Name="FBSETUPIP" OrigName="fbSetupIP" Type="DRAWSETUPIP" OrigType="DrawSetupIP" Addr="0xA1C809E4" Group="SetupIP_vars"/>
+		<Var Name="FBUPDATECOUNTERSTRING_1" OrigName="fbupdateCounterString_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C8108C" Group="updateCounter_vars"/>
+		<Var Name="FBUPDATECOUNTEREDIT_2" OrigName="fbupdateCounterEdit_2" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C810C8" Group="updateCounter_vars"/>
+		<Var Name="FBUPDATECOUNTERSTRING_3" OrigName="fbupdateCounterString_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C8111C" Group="updateCounter_vars"/>
+		<Var Name="FBUPDATECOUNTEREDIT_4" OrigName="fbupdateCounterEdit_4" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C81158" Group="updateCounter_vars"/>
+		<Var Name="FBUPDATECOUNTERBUTTON_5" OrigName="fbupdateCounterButton_5" Type="BUTTON02" OrigType="Button02" Addr="0xA1C811AC" Group="updateCounter_vars"/>
+		<Var Name="FBUPDATECOUNTER" OrigName="fbupdateCounter" Type="DRAWUPDATECOUNTER" OrigType="DrawupdateCounter" Addr="0xA1C81050" Group="updateCounter_vars"/>
+		<Var Name="FBREFRFIRST" OrigName="fbRefrfirst" Type="REFRFIRST" OrigType="Refrfirst" Addr="0xA1C811F4" Group="first_vars"/>
+		<Var Name="FBREFRMAIN" OrigName="fbRefrmain" Type="REFRMAIN" OrigType="Refrmain" Addr="0xA1C81208" Group="main_vars"/>
+		<Var Name="FBREFRSETUPRS2" OrigName="fbRefrSetupRS2" Type="REFRSETUPRS2" OrigType="RefrSetupRS2" Addr="0xA1C8121C" Group="SetupRS2_vars"/>
+		<Var Name="FBREFRSETUPIP" OrigName="fbRefrSetupIP" Type="REFRSETUPIP" OrigType="RefrSetupIP" Addr="0xA1C81230" Group="SetupIP_vars"/>
+		<Var Name="FBREFRUPDATECOUNTER" OrigName="fbRefrupdateCounter" Type="REFRUPDATECOUNTER" OrigType="RefrupdateCounter" Addr="0xA1C81244" Group="updateCounter_vars"/>
 		<Var Name="SYSLANGID" OrigName="sysLangID" Type="WORD" OrigType="WORD" Addr="0x10000262" Descr="HMI active Language ID" Group="Ungrouped_vars" RelocationRecord="%M99+0" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="99" DataBlockIndex="0" Access="3"/>
 		<Var Name="SYSLOCALLEDS" OrigName="sysLocalLeds" Type="USINT" OrigType="USINT" Addr="0x10000406" Descr="Local Leds Status. ..." Group="Led_and_Backlight_Status" RelocationRecord="%Q2+0" OnDataBlock="true" DataBlockType="Q" DBDataType="B" DataBlockNumber="2" DataBlockIndex="0" Access="3" Dims="3"/>
 		<Var Name="SYSBACKLIGHT" OrigName="sysBacklight" Type="USINT" OrigType="USINT" Addr="0x10000409" Descr="Backlight Status. ..." Group="Led_and_Backlight_Status" RelocationRecord="%Q3+0" OnDataBlock="true" DataBlockType="Q" DBDataType="B" DataBlockNumber="3" DataBlockIndex="0" Access="3"/>
@@ -113,19 +115,19 @@
 		<Var Name="SYSKEYPRESSED" OrigName="sysKeyPressed" Type="DWORD" OrigType="DWORD" Addr="0xA000000C" Descr="Last key pressed code. ..." Group="Keyboard" RelocationRecord="%M3104+0" OnDataBlock="true" DataBlockType="M" DBDataType="B" DataBlockNumber="3104" DataBlockIndex="0" Access="3"/>
 		<Var Name="SYSCURRENTSELECTEDPOSITION" OrigName="sysCurrentSelectedPosition" Type="UINT" OrigType="UINT" Addr="0xA00006A4" Descr="Current selected position into current page order." Group="Keyboard" RelocationRecord="%M3105+0" OnDataBlock="true" DataBlockType="M" DBDataType="B" DataBlockNumber="3105" DataBlockIndex="0" Access="1"/>
 		<Var Name="$$CODEBASE$$" OrigName="$$CODEBASE$$" Type="UDINT" OrigType="UDINT" Addr="0xA1B00000"/>
-		<Var Name="$$CODESTART$$" OrigName="$$CODESTART$$" Type="UDINT" OrigType="UDINT" Addr="0xA1B00AEA"/>
-		<Var Name="$$CODESIZE$$" OrigName="$$CODESIZE$$" Type="UDINT" OrigType="UDINT" Addr="0xA1B0B5D0"/>
+		<Var Name="$$CODESTART$$" OrigName="$$CODESTART$$" Type="UDINT" OrigType="UDINT" Addr="0xA1B00B16"/>
+		<Var Name="$$CODESIZE$$" OrigName="$$CODESIZE$$" Type="UDINT" OrigType="UDINT" Addr="0xA1B0B9F8"/>
 		<Var Name="$$CODEEND$$" OrigName="$$CODEEND$$" Type="UDINT" OrigType="UDINT" Addr="0xA1C80000"/>
-		<Var Name="$$DATASIZE$$" OrigName="$$DATASIZE$$" Type="UDINT" OrigType="UDINT" Addr="0xA1C811C8"/>
+		<Var Name="$$DATASIZE$$" OrigName="$$DATASIZE$$" Type="UDINT" OrigType="UDINT" Addr="0xA1C81258"/>
 		<Var Name="$$AUXDATASIZE$$" OrigName="$$AUXDATASIZE$$" Type="UDINT" OrigType="UDINT" Addr="0x0"/>
 		<Var Name="$$BITDATASIZE$$" OrigName="$$BITDATASIZE$$" Type="UDINT" OrigType="UDINT" Addr="0x0"/>
 		<Var Name="$$RITDATASIZE$$" OrigName="$$RITDATASIZE$$" Type="UDINT" OrigType="UDINT" Addr="0x0"/>
 	</GlobalVars>
 	<Programs>
-		<Prog Name="PAGEDRAW" OrigName="PageDraw" SrcType="3" CodeAddr="0xA1B07D50" HashCode="6544FEE5">
+		<Prog Name="PAGEDRAW" OrigName="PageDraw" SrcType="3" CodeAddr="0xA1B07FC0" HashCode="6544FEE5">
 			<Var Name="RES" OrigName="res" Type="USINT" OrigType="USINT" Addr="0xA1C8000C"/>
 		</Prog>
-		<Prog Name="PAGEREFRESH" OrigName="PageRefresh" SrcType="3" CodeAddr="0xA1B080A0" HashCode="3EA2DE16">
+		<Prog Name="PAGEREFRESH" OrigName="PageRefresh" SrcType="3" CodeAddr="0xA1B08310" HashCode="3EA2DE16">
 			<Var Name="RES" OrigName="res" Type="USINT" OrigType="USINT" Addr="0xA1C80017"/>
 		</Prog>
 	</Programs>
@@ -157,7 +159,7 @@
 			<Var Name="MEMTRANSP" OrigName="memTransp" Type="BOOL" OrigType="BOOL" Addr="0x6[1]" Attribs="relative" Descr="Transparency status"/>
 			<Var Name="MEMSEL" OrigName="memSel" Type="BOOL" OrigType="BOOL" Addr="0x6[2]" Attribs="relative" Descr="Transparency status"/>
 		</FBlock>
-		<FBlock Name="DRAWBACKPAGE" OrigName="DrawBackPage" SrcType="3" FrameSize="8" CodeAddr="0xA1B04B58" HashCode="C2147C5A">
+		<FBlock Name="DRAWBACKPAGE" OrigName="DrawBackPage" SrcType="3" FrameSize="8" CodeAddr="0xA1B04B88" HashCode="C2147C5A">
 			<VarI Name="ISOPENING" OrigName="IsOpening" Type="BOOL" OrigType="BOOL" Addr="0x6[0]" Attribs="relative"/>
 			<VarI Name="CURRPAGEID" OrigName="CurrPageId" Type="UINT" OrigType="UINT" Addr="0x6[2]" Attribs="relative"/>
 			<VarO Name="BACKPAGEID" OrigName="BackPageId" Type="UINT" OrigType="UINT" Addr="0x6[4]" Attribs="relative"/>
@@ -217,7 +219,7 @@
 			<VarI Name="NUMCHARS" OrigName="numChars" Type="UINT" OrigType="UINT" Addr="0x6[56]" Attribs="relative" Descr="Number of printable chars"/>
 			<Var Name="MEMVIS" OrigName="memVis" Type="BOOL" OrigType="BOOL" Addr="0x6[0]" Attribs="relative" Descr="Visibility status"/>
 		</FBlock>
-		<FBlock Name="REFRFIRST" OrigName="Refrfirst" SrcType="3" FrameSize="20" CodeAddr="0xA1B04DCC" HashCode="84528041">
+		<FBlock Name="REFRFIRST" OrigName="Refrfirst" SrcType="3" FrameSize="20" CodeAddr="0xA1B04DFC" HashCode="84528041">
 			<Var Name="RES" OrigName="res" Type="USINT" OrigType="USINT" Addr="0x6[0]" Attribs="relative"/>
 			<Var Name="PAGID" OrigName="pagID" Type="UINT" OrigType="UINT" Addr="0x6[2]" Attribs="relative"/>
 			<Var Name="N" OrigName="n" Type="USINT" OrigType="USINT" Addr="0x6[4]" Attribs="relative"/>
@@ -235,7 +237,7 @@
 			<VarExt Name="FBFIRSTBUTTON_4" OrigName="fbfirstButton_4" Type="BUTTON02" OrigType="Button02" Addr="0xA1C8015C" Group="first_vars"/>
 			<VarExt Name="$WAITREFRESH" OrigName="$waitRefresh" Type="BOOL" OrigType="BOOL" Addr="0xA1C8000D" Group="Sets"/>
 		</FBlock>
-		<FBlock Name="DRAWFIRST" OrigName="Drawfirst" SrcType="3" FrameSize="60" CodeAddr="0xA1B05710" HashCode="B8702AC2">
+		<FBlock Name="DRAWFIRST" OrigName="Drawfirst" SrcType="3" FrameSize="60" CodeAddr="0xA1B0575C" HashCode="FE15224A">
 			<VarO Name="UIOUTVAR" OrigName="uiOutVar" Type="UINT" OrigType="UINT" Addr="0x6[50]" Attribs="relative"/>
 			<Var Name="RES" OrigName="res" Type="USINT" OrigType="USINT" Addr="0x6[0]" Attribs="relative"/>
 			<Var Name="BSTATREDRW" OrigName="bStatRedrw" Type="BOOL" OrigType="BOOL" Addr="0x6[1]" Attribs="relative"/>
@@ -271,7 +273,7 @@
 			<VarExt Name="FBFIRSTBUTTON_4" OrigName="fbfirstButton_4" Type="BUTTON02" OrigType="Button02" Addr="0xA1C8015C" Group="first_vars"/>
 			<VarExt Name="$WAITREFRESH" OrigName="$waitRefresh" Type="BOOL" OrigType="BOOL" Addr="0xA1C8000D" Group="Sets"/>
 		</FBlock>
-		<FBlock Name="REFRMAIN" OrigName="Refrmain" SrcType="3" FrameSize="20" CodeAddr="0xA1B04E7C" HashCode="CCB5D70C">
+		<FBlock Name="REFRMAIN" OrigName="Refrmain" SrcType="3" FrameSize="20" CodeAddr="0xA1B04EAC" HashCode="25D27B47">
 			<Var Name="RES" OrigName="res" Type="USINT" OrigType="USINT" Addr="0x6[0]" Attribs="relative"/>
 			<Var Name="PAGID" OrigName="pagID" Type="UINT" OrigType="UINT" Addr="0x6[2]" Attribs="relative"/>
 			<Var Name="N" OrigName="n" Type="USINT" OrigType="USINT" Addr="0x6[4]" Attribs="relative"/>
@@ -291,15 +293,17 @@
 			<VarExt Name="FBMAINSTRING_10" OrigName="fbmainString_10" Type="STATIC01" OrigType="Static01" Addr="0xA1C80408" Group="main_vars"/>
 			<VarExt Name="FBMAINSTRING_12" OrigName="fbmainString_12" Type="STATIC01" OrigType="Static01" Addr="0xA1C80498" Group="main_vars"/>
 			<VarExt Name="FBMAINSTRING_14" OrigName="fbmainString_14" Type="STATIC01" OrigType="Static01" Addr="0xA1C80528" Group="main_vars"/>
+			<VarExt Name="FBMAINSTRING_25" OrigName="fbmainString_25" Type="STATIC01" OrigType="Static01" Addr="0xA1C8060C" Group="main_vars"/>
 			<VarExt Name="FBMAINEDIT_1" OrigName="fbmainEdit_1" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C801E0" Group="main_vars"/>
 			<VarExt Name="FBMAINEDIT_5" OrigName="fbmainEdit_5" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C802E8" Group="main_vars"/>
 			<VarExt Name="FBMAINEDIT_9" OrigName="fbmainEdit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C803B4" Group="main_vars"/>
 			<VarExt Name="FBMAINEDIT_11" OrigName="fbmainEdit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80444" Group="main_vars"/>
 			<VarExt Name="FBMAINEDIT_13" OrigName="fbmainEdit_13" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C804D4" Group="main_vars"/>
 			<VarExt Name="FBMAINEDIT_15" OrigName="fbmainEdit_15" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80564" Group="main_vars"/>
+			<VarExt Name="FBMAINEDIT_24" OrigName="fbmainEdit_24" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C805B8" Group="main_vars"/>
 			<VarExt Name="$WAITREFRESH" OrigName="$waitRefresh" Type="BOOL" OrigType="BOOL" Addr="0xA1C8000D" Group="Sets"/>
 		</FBlock>
-		<FBlock Name="REFRSETUPIP" OrigName="RefrSetupIP" SrcType="3" FrameSize="20" CodeAddr="0xA1B04FDC" HashCode="51D5FC2D">
+		<FBlock Name="REFRSETUPIP" OrigName="RefrSetupIP" SrcType="3" FrameSize="20" CodeAddr="0xA1B05028" HashCode="51D5FC2D">
 			<Var Name="RES" OrigName="res" Type="USINT" OrigType="USINT" Addr="0x6[0]" Attribs="relative"/>
 			<Var Name="PAGID" OrigName="pagID" Type="UINT" OrigType="UINT" Addr="0x6[2]" Attribs="relative"/>
 			<Var Name="N" OrigName="n" Type="USINT" OrigType="USINT" Addr="0x6[4]" Attribs="relative"/>
@@ -311,29 +315,29 @@
 			<Var Name="RY2" OrigName="ry2" Type="UINT" OrigType="UINT" Addr="0x6[18]" Attribs="relative"/>
 			<VarExt Name="GUICALLSTACK" OrigName="guiCallStack" Type="UINT" OrigType="UINT" Addr="0xA1C80018" Group="Call_stack" Dims="10"/>
 			<VarExt Name="GISTACKPTR" OrigName="giStackPtr" Type="INT" OrigType="INT" Addr="0xA1C8000E" Group="Call_stack"/>
-			<VarExt Name="FBSETUPIPSTRING_1" OrigName="fbSetupIPString_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C80990" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPSTRING_2" OrigName="fbSetupIPString_2" Type="STATIC01" OrigType="Static01" Addr="0xA1C809CC" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPSTRING_3" OrigName="fbSetupIPString_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A08" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPSTRING_4" OrigName="fbSetupIPString_4" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A44" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_5" OrigName="fbSetupIPEdit_5" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80A80" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_6" OrigName="fbSetupIPEdit_6" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80AD4" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_7" OrigName="fbSetupIPEdit_7" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80B28" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_8" OrigName="fbSetupIPEdit_8" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80B7C" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_9" OrigName="fbSetupIPEdit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80BD0" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_10" OrigName="fbSetupIPEdit_10" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80C24" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_11" OrigName="fbSetupIPEdit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80C78" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_12" OrigName="fbSetupIPEdit_12" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80CCC" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_13" OrigName="fbSetupIPEdit_13" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80D20" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_14" OrigName="fbSetupIPEdit_14" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80D74" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_15" OrigName="fbSetupIPEdit_15" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80DC8" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_16" OrigName="fbSetupIPEdit_16" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80E1C" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_17" OrigName="fbSetupIPEdit_17" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80E70" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_18" OrigName="fbSetupIPEdit_18" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80EC4" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_19" OrigName="fbSetupIPEdit_19" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80F18" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_20" OrigName="fbSetupIPEdit_20" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80F6C" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPSTRING_1" OrigName="fbSetupIPString_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A20" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPSTRING_2" OrigName="fbSetupIPString_2" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A5C" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPSTRING_3" OrigName="fbSetupIPString_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A98" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPSTRING_4" OrigName="fbSetupIPString_4" Type="STATIC01" OrigType="Static01" Addr="0xA1C80AD4" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_5" OrigName="fbSetupIPEdit_5" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80B10" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_6" OrigName="fbSetupIPEdit_6" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80B64" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_7" OrigName="fbSetupIPEdit_7" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80BB8" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_8" OrigName="fbSetupIPEdit_8" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80C0C" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_9" OrigName="fbSetupIPEdit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80C60" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_10" OrigName="fbSetupIPEdit_10" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80CB4" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_11" OrigName="fbSetupIPEdit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80D08" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_12" OrigName="fbSetupIPEdit_12" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80D5C" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_13" OrigName="fbSetupIPEdit_13" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80DB0" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_14" OrigName="fbSetupIPEdit_14" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80E04" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_15" OrigName="fbSetupIPEdit_15" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80E58" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_16" OrigName="fbSetupIPEdit_16" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80EAC" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_17" OrigName="fbSetupIPEdit_17" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80F00" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_18" OrigName="fbSetupIPEdit_18" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80F54" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_19" OrigName="fbSetupIPEdit_19" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80FA8" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_20" OrigName="fbSetupIPEdit_20" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80FFC" Group="SetupIP_vars"/>
 			<VarExt Name="$WAITREFRESH" OrigName="$waitRefresh" Type="BOOL" OrigType="BOOL" Addr="0xA1C8000D" Group="Sets"/>
 		</FBlock>
-		<FBlock Name="REFRSETUPRS2" OrigName="RefrSetupRS2" SrcType="3" FrameSize="20" CodeAddr="0xA1B053F4" HashCode="59D175E3">
+		<FBlock Name="REFRSETUPRS2" OrigName="RefrSetupRS2" SrcType="3" FrameSize="20" CodeAddr="0xA1B05440" HashCode="59D175E3">
 			<Var Name="RES" OrigName="res" Type="USINT" OrigType="USINT" Addr="0x6[0]" Attribs="relative"/>
 			<Var Name="PAGID" OrigName="pagID" Type="UINT" OrigType="UINT" Addr="0x6[2]" Attribs="relative"/>
 			<Var Name="N" OrigName="n" Type="USINT" OrigType="USINT" Addr="0x6[4]" Attribs="relative"/>
@@ -345,21 +349,21 @@
 			<Var Name="RY2" OrigName="ry2" Type="UINT" OrigType="UINT" Addr="0x6[18]" Attribs="relative"/>
 			<VarExt Name="GUICALLSTACK" OrigName="guiCallStack" Type="UINT" OrigType="UINT" Addr="0xA1C80018" Group="Call_stack" Dims="10"/>
 			<VarExt Name="GISTACKPTR" OrigName="giStackPtr" Type="INT" OrigType="INT" Addr="0xA1C8000E" Group="Call_stack"/>
-			<VarExt Name="FBSETUPRS2STRING_1" OrigName="fbSetupRS2String_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C805F4" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2STRING_2" OrigName="fbSetupRS2String_2" Type="STATIC01" OrigType="Static01" Addr="0xA1C80630" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2STRING_3" OrigName="fbSetupRS2String_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C8066C" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2STRING_4" OrigName="fbSetupRS2String_4" Type="STATIC01" OrigType="Static01" Addr="0xA1C806A8" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2STRING_5" OrigName="fbSetupRS2String_5" Type="STATIC01" OrigType="Static01" Addr="0xA1C806E4" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2STRING_6" OrigName="fbSetupRS2String_6" Type="STATIC01" OrigType="Static01" Addr="0xA1C80720" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2EDIT_7" OrigName="fbSetupRS2Edit_7" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C8075C" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2EDIT_8" OrigName="fbSetupRS2Edit_8" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C807B0" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2EDIT_9" OrigName="fbSetupRS2Edit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80804" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2EDIT_10" OrigName="fbSetupRS2Edit_10" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80858" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2EDIT_11" OrigName="fbSetupRS2Edit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C808AC" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2EDIT_12" OrigName="fbSetupRS2Edit_12" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80900" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2STRING_1" OrigName="fbSetupRS2String_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C80684" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2STRING_2" OrigName="fbSetupRS2String_2" Type="STATIC01" OrigType="Static01" Addr="0xA1C806C0" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2STRING_3" OrigName="fbSetupRS2String_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C806FC" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2STRING_4" OrigName="fbSetupRS2String_4" Type="STATIC01" OrigType="Static01" Addr="0xA1C80738" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2STRING_5" OrigName="fbSetupRS2String_5" Type="STATIC01" OrigType="Static01" Addr="0xA1C80774" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2STRING_6" OrigName="fbSetupRS2String_6" Type="STATIC01" OrigType="Static01" Addr="0xA1C807B0" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2EDIT_7" OrigName="fbSetupRS2Edit_7" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C807EC" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2EDIT_8" OrigName="fbSetupRS2Edit_8" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80840" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2EDIT_9" OrigName="fbSetupRS2Edit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80894" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2EDIT_10" OrigName="fbSetupRS2Edit_10" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C808E8" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2EDIT_11" OrigName="fbSetupRS2Edit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C8093C" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2EDIT_12" OrigName="fbSetupRS2Edit_12" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80990" Group="SetupRS2_vars"/>
 			<VarExt Name="$WAITREFRESH" OrigName="$waitRefresh" Type="BOOL" OrigType="BOOL" Addr="0xA1C8000D" Group="Sets"/>
 		</FBlock>
-		<FBlock Name="DRAWMAIN" OrigName="Drawmain" SrcType="3" FrameSize="60" CodeAddr="0xA1B05CB0" HashCode="1D50D492">
+		<FBlock Name="DRAWMAIN" OrigName="Drawmain" SrcType="3" FrameSize="60" CodeAddr="0xA1B05CFC" HashCode="B0CD639D">
 			<VarO Name="UIOUTVAR" OrigName="uiOutVar" Type="UINT" OrigType="UINT" Addr="0x6[50]" Attribs="relative"/>
 			<Var Name="RES" OrigName="res" Type="USINT" OrigType="USINT" Addr="0x6[0]" Attribs="relative"/>
 			<Var Name="BSTATREDRW" OrigName="bStatRedrw" Type="BOOL" OrigType="BOOL" Addr="0x6[1]" Attribs="relative"/>
@@ -397,15 +401,17 @@
 			<VarExt Name="FBMAINSTRING_10" OrigName="fbmainString_10" Type="STATIC01" OrigType="Static01" Addr="0xA1C80408" Group="main_vars"/>
 			<VarExt Name="FBMAINSTRING_12" OrigName="fbmainString_12" Type="STATIC01" OrigType="Static01" Addr="0xA1C80498" Group="main_vars"/>
 			<VarExt Name="FBMAINSTRING_14" OrigName="fbmainString_14" Type="STATIC01" OrigType="Static01" Addr="0xA1C80528" Group="main_vars"/>
+			<VarExt Name="FBMAINSTRING_25" OrigName="fbmainString_25" Type="STATIC01" OrigType="Static01" Addr="0xA1C8060C" Group="main_vars"/>
 			<VarExt Name="FBMAINEDIT_1" OrigName="fbmainEdit_1" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C801E0" Group="main_vars"/>
 			<VarExt Name="FBMAINEDIT_5" OrigName="fbmainEdit_5" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C802E8" Group="main_vars"/>
 			<VarExt Name="FBMAINEDIT_9" OrigName="fbmainEdit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C803B4" Group="main_vars"/>
 			<VarExt Name="FBMAINEDIT_11" OrigName="fbmainEdit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80444" Group="main_vars"/>
 			<VarExt Name="FBMAINEDIT_13" OrigName="fbmainEdit_13" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C804D4" Group="main_vars"/>
 			<VarExt Name="FBMAINEDIT_15" OrigName="fbmainEdit_15" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80564" Group="main_vars"/>
+			<VarExt Name="FBMAINEDIT_24" OrigName="fbmainEdit_24" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C805B8" Group="main_vars"/>
 			<VarExt Name="$WAITREFRESH" OrigName="$waitRefresh" Type="BOOL" OrigType="BOOL" Addr="0xA1C8000D" Group="Sets"/>
 		</FBlock>
-		<FBlock Name="DRAWSETUPIP" OrigName="DrawSetupIP" SrcType="3" FrameSize="60" CodeAddr="0xA1B064DC" HashCode="7AC7146F">
+		<FBlock Name="DRAWSETUPIP" OrigName="DrawSetupIP" SrcType="3" FrameSize="60" CodeAddr="0xA1B06748" HashCode="A05229AB">
 			<VarO Name="UIOUTVAR" OrigName="uiOutVar" Type="UINT" OrigType="UINT" Addr="0x6[50]" Attribs="relative"/>
 			<Var Name="RES" OrigName="res" Type="USINT" OrigType="USINT" Addr="0x6[0]" Attribs="relative"/>
 			<Var Name="BSTATREDRW" OrigName="bStatRedrw" Type="BOOL" OrigType="BOOL" Addr="0x6[1]" Attribs="relative"/>
@@ -435,29 +441,29 @@
 			<VarExt Name="GUICALLSTACK" OrigName="guiCallStack" Type="UINT" OrigType="UINT" Addr="0xA1C80018" Group="Call_stack" Dims="10"/>
 			<VarExt Name="GISTACKPTR" OrigName="giStackPtr" Type="INT" OrigType="INT" Addr="0xA1C8000E" Group="Call_stack"/>
 			<VarExt Name="FBBACKPAGE" OrigName="fbBackPage" Type="DRAWBACKPAGE" OrigType="DrawBackPage" Addr="0xA1C80068" Group="Back_page_manager"/>
-			<VarExt Name="FBSETUPIPSTRING_1" OrigName="fbSetupIPString_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C80990" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPSTRING_2" OrigName="fbSetupIPString_2" Type="STATIC01" OrigType="Static01" Addr="0xA1C809CC" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPSTRING_3" OrigName="fbSetupIPString_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A08" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPSTRING_4" OrigName="fbSetupIPString_4" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A44" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_5" OrigName="fbSetupIPEdit_5" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80A80" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_6" OrigName="fbSetupIPEdit_6" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80AD4" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_7" OrigName="fbSetupIPEdit_7" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80B28" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_8" OrigName="fbSetupIPEdit_8" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80B7C" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_9" OrigName="fbSetupIPEdit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80BD0" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_10" OrigName="fbSetupIPEdit_10" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80C24" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_11" OrigName="fbSetupIPEdit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80C78" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_12" OrigName="fbSetupIPEdit_12" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80CCC" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_13" OrigName="fbSetupIPEdit_13" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80D20" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_14" OrigName="fbSetupIPEdit_14" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80D74" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_15" OrigName="fbSetupIPEdit_15" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80DC8" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_16" OrigName="fbSetupIPEdit_16" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80E1C" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_17" OrigName="fbSetupIPEdit_17" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80E70" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_18" OrigName="fbSetupIPEdit_18" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80EC4" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_19" OrigName="fbSetupIPEdit_19" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80F18" Group="SetupIP_vars"/>
-			<VarExt Name="FBSETUPIPEDIT_20" OrigName="fbSetupIPEdit_20" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80F6C" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPSTRING_1" OrigName="fbSetupIPString_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A20" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPSTRING_2" OrigName="fbSetupIPString_2" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A5C" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPSTRING_3" OrigName="fbSetupIPString_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C80A98" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPSTRING_4" OrigName="fbSetupIPString_4" Type="STATIC01" OrigType="Static01" Addr="0xA1C80AD4" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_5" OrigName="fbSetupIPEdit_5" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80B10" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_6" OrigName="fbSetupIPEdit_6" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80B64" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_7" OrigName="fbSetupIPEdit_7" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80BB8" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_8" OrigName="fbSetupIPEdit_8" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80C0C" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_9" OrigName="fbSetupIPEdit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80C60" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_10" OrigName="fbSetupIPEdit_10" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80CB4" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_11" OrigName="fbSetupIPEdit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80D08" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_12" OrigName="fbSetupIPEdit_12" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80D5C" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_13" OrigName="fbSetupIPEdit_13" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80DB0" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_14" OrigName="fbSetupIPEdit_14" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80E04" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_15" OrigName="fbSetupIPEdit_15" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80E58" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_16" OrigName="fbSetupIPEdit_16" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80EAC" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_17" OrigName="fbSetupIPEdit_17" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80F00" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_18" OrigName="fbSetupIPEdit_18" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80F54" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_19" OrigName="fbSetupIPEdit_19" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80FA8" Group="SetupIP_vars"/>
+			<VarExt Name="FBSETUPIPEDIT_20" OrigName="fbSetupIPEdit_20" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80FFC" Group="SetupIP_vars"/>
 			<VarExt Name="$WAITREFRESH" OrigName="$waitRefresh" Type="BOOL" OrigType="BOOL" Addr="0xA1C8000D" Group="Sets"/>
 		</FBlock>
-		<FBlock Name="DRAWSETUPRS2" OrigName="DrawSetupRS2" SrcType="3" FrameSize="60" CodeAddr="0xA1B06F10" HashCode="B9FD277D">
+		<FBlock Name="DRAWSETUPRS2" OrigName="DrawSetupRS2" SrcType="3" FrameSize="60" CodeAddr="0xA1B0717C" HashCode="32BA5F17">
 			<VarO Name="UIOUTVAR" OrigName="uiOutVar" Type="UINT" OrigType="UINT" Addr="0x6[50]" Attribs="relative"/>
 			<Var Name="RES" OrigName="res" Type="USINT" OrigType="USINT" Addr="0x6[0]" Attribs="relative"/>
 			<Var Name="BSTATREDRW" OrigName="bStatRedrw" Type="BOOL" OrigType="BOOL" Addr="0x6[1]" Attribs="relative"/>
@@ -487,21 +493,21 @@
 			<VarExt Name="GUICALLSTACK" OrigName="guiCallStack" Type="UINT" OrigType="UINT" Addr="0xA1C80018" Group="Call_stack" Dims="10"/>
 			<VarExt Name="GISTACKPTR" OrigName="giStackPtr" Type="INT" OrigType="INT" Addr="0xA1C8000E" Group="Call_stack"/>
 			<VarExt Name="FBBACKPAGE" OrigName="fbBackPage" Type="DRAWBACKPAGE" OrigType="DrawBackPage" Addr="0xA1C80068" Group="Back_page_manager"/>
-			<VarExt Name="FBSETUPRS2STRING_1" OrigName="fbSetupRS2String_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C805F4" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2STRING_2" OrigName="fbSetupRS2String_2" Type="STATIC01" OrigType="Static01" Addr="0xA1C80630" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2STRING_3" OrigName="fbSetupRS2String_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C8066C" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2STRING_4" OrigName="fbSetupRS2String_4" Type="STATIC01" OrigType="Static01" Addr="0xA1C806A8" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2STRING_5" OrigName="fbSetupRS2String_5" Type="STATIC01" OrigType="Static01" Addr="0xA1C806E4" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2STRING_6" OrigName="fbSetupRS2String_6" Type="STATIC01" OrigType="Static01" Addr="0xA1C80720" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2EDIT_7" OrigName="fbSetupRS2Edit_7" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C8075C" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2EDIT_8" OrigName="fbSetupRS2Edit_8" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C807B0" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2EDIT_9" OrigName="fbSetupRS2Edit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80804" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2EDIT_10" OrigName="fbSetupRS2Edit_10" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80858" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2EDIT_11" OrigName="fbSetupRS2Edit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C808AC" Group="SetupRS2_vars"/>
-			<VarExt Name="FBSETUPRS2EDIT_12" OrigName="fbSetupRS2Edit_12" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80900" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2STRING_1" OrigName="fbSetupRS2String_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C80684" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2STRING_2" OrigName="fbSetupRS2String_2" Type="STATIC01" OrigType="Static01" Addr="0xA1C806C0" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2STRING_3" OrigName="fbSetupRS2String_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C806FC" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2STRING_4" OrigName="fbSetupRS2String_4" Type="STATIC01" OrigType="Static01" Addr="0xA1C80738" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2STRING_5" OrigName="fbSetupRS2String_5" Type="STATIC01" OrigType="Static01" Addr="0xA1C80774" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2STRING_6" OrigName="fbSetupRS2String_6" Type="STATIC01" OrigType="Static01" Addr="0xA1C807B0" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2EDIT_7" OrigName="fbSetupRS2Edit_7" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C807EC" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2EDIT_8" OrigName="fbSetupRS2Edit_8" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80840" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2EDIT_9" OrigName="fbSetupRS2Edit_9" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80894" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2EDIT_10" OrigName="fbSetupRS2Edit_10" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C808E8" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2EDIT_11" OrigName="fbSetupRS2Edit_11" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C8093C" Group="SetupRS2_vars"/>
+			<VarExt Name="FBSETUPRS2EDIT_12" OrigName="fbSetupRS2Edit_12" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C80990" Group="SetupRS2_vars"/>
 			<VarExt Name="$WAITREFRESH" OrigName="$waitRefresh" Type="BOOL" OrigType="BOOL" Addr="0xA1C8000D" Group="Sets"/>
 		</FBlock>
-		<FBlock Name="REFRUPDATECOUNTER" OrigName="RefrupdateCounter" SrcType="3" FrameSize="20" CodeAddr="0xA1B055F0" HashCode="33A0B70F">
+		<FBlock Name="REFRUPDATECOUNTER" OrigName="RefrupdateCounter" SrcType="3" FrameSize="20" CodeAddr="0xA1B0563C" HashCode="33A0B70F">
 			<Var Name="RES" OrigName="res" Type="USINT" OrigType="USINT" Addr="0x6[0]" Attribs="relative"/>
 			<Var Name="PAGID" OrigName="pagID" Type="UINT" OrigType="UINT" Addr="0x6[2]" Attribs="relative"/>
 			<Var Name="N" OrigName="n" Type="USINT" OrigType="USINT" Addr="0x6[4]" Attribs="relative"/>
@@ -513,14 +519,14 @@
 			<Var Name="RY2" OrigName="ry2" Type="UINT" OrigType="UINT" Addr="0x6[18]" Attribs="relative"/>
 			<VarExt Name="GUICALLSTACK" OrigName="guiCallStack" Type="UINT" OrigType="UINT" Addr="0xA1C80018" Group="Call_stack" Dims="10"/>
 			<VarExt Name="GISTACKPTR" OrigName="giStackPtr" Type="INT" OrigType="INT" Addr="0xA1C8000E" Group="Call_stack"/>
-			<VarExt Name="FBUPDATECOUNTERSTRING_1" OrigName="fbupdateCounterString_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C80FFC" Group="updateCounter_vars"/>
-			<VarExt Name="FBUPDATECOUNTERSTRING_3" OrigName="fbupdateCounterString_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C8108C" Group="updateCounter_vars"/>
-			<VarExt Name="FBUPDATECOUNTEREDIT_2" OrigName="fbupdateCounterEdit_2" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C81038" Group="updateCounter_vars"/>
-			<VarExt Name="FBUPDATECOUNTEREDIT_4" OrigName="fbupdateCounterEdit_4" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C810C8" Group="updateCounter_vars"/>
-			<VarExt Name="FBUPDATECOUNTERBUTTON_5" OrigName="fbupdateCounterButton_5" Type="BUTTON02" OrigType="Button02" Addr="0xA1C8111C" Group="updateCounter_vars"/>
+			<VarExt Name="FBUPDATECOUNTERSTRING_1" OrigName="fbupdateCounterString_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C8108C" Group="updateCounter_vars"/>
+			<VarExt Name="FBUPDATECOUNTERSTRING_3" OrigName="fbupdateCounterString_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C8111C" Group="updateCounter_vars"/>
+			<VarExt Name="FBUPDATECOUNTEREDIT_2" OrigName="fbupdateCounterEdit_2" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C810C8" Group="updateCounter_vars"/>
+			<VarExt Name="FBUPDATECOUNTEREDIT_4" OrigName="fbupdateCounterEdit_4" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C81158" Group="updateCounter_vars"/>
+			<VarExt Name="FBUPDATECOUNTERBUTTON_5" OrigName="fbupdateCounterButton_5" Type="BUTTON02" OrigType="Button02" Addr="0xA1C811AC" Group="updateCounter_vars"/>
 			<VarExt Name="$WAITREFRESH" OrigName="$waitRefresh" Type="BOOL" OrigType="BOOL" Addr="0xA1C8000D" Group="Sets"/>
 		</FBlock>
-		<FBlock Name="DRAWUPDATECOUNTER" OrigName="DrawupdateCounter" SrcType="3" FrameSize="60" CodeAddr="0xA1B076E4" HashCode="75DE42A7">
+		<FBlock Name="DRAWUPDATECOUNTER" OrigName="DrawupdateCounter" SrcType="3" FrameSize="60" CodeAddr="0xA1B07950" HashCode="922F36ED">
 			<VarO Name="UIOUTVAR" OrigName="uiOutVar" Type="UINT" OrigType="UINT" Addr="0x6[50]" Attribs="relative"/>
 			<Var Name="RES" OrigName="res" Type="USINT" OrigType="USINT" Addr="0x6[0]" Attribs="relative"/>
 			<Var Name="BSTATREDRW" OrigName="bStatRedrw" Type="BOOL" OrigType="BOOL" Addr="0x6[1]" Attribs="relative"/>
@@ -550,11 +556,11 @@
 			<VarExt Name="GUICALLSTACK" OrigName="guiCallStack" Type="UINT" OrigType="UINT" Addr="0xA1C80018" Group="Call_stack" Dims="10"/>
 			<VarExt Name="GISTACKPTR" OrigName="giStackPtr" Type="INT" OrigType="INT" Addr="0xA1C8000E" Group="Call_stack"/>
 			<VarExt Name="FBBACKPAGE" OrigName="fbBackPage" Type="DRAWBACKPAGE" OrigType="DrawBackPage" Addr="0xA1C80068" Group="Back_page_manager"/>
-			<VarExt Name="FBUPDATECOUNTERSTRING_1" OrigName="fbupdateCounterString_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C80FFC" Group="updateCounter_vars"/>
-			<VarExt Name="FBUPDATECOUNTERSTRING_3" OrigName="fbupdateCounterString_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C8108C" Group="updateCounter_vars"/>
-			<VarExt Name="FBUPDATECOUNTEREDIT_2" OrigName="fbupdateCounterEdit_2" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C81038" Group="updateCounter_vars"/>
-			<VarExt Name="FBUPDATECOUNTEREDIT_4" OrigName="fbupdateCounterEdit_4" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C810C8" Group="updateCounter_vars"/>
-			<VarExt Name="FBUPDATECOUNTERBUTTON_5" OrigName="fbupdateCounterButton_5" Type="BUTTON02" OrigType="Button02" Addr="0xA1C8111C" Group="updateCounter_vars"/>
+			<VarExt Name="FBUPDATECOUNTERSTRING_1" OrigName="fbupdateCounterString_1" Type="STATIC01" OrigType="Static01" Addr="0xA1C8108C" Group="updateCounter_vars"/>
+			<VarExt Name="FBUPDATECOUNTERSTRING_3" OrigName="fbupdateCounterString_3" Type="STATIC01" OrigType="Static01" Addr="0xA1C8111C" Group="updateCounter_vars"/>
+			<VarExt Name="FBUPDATECOUNTEREDIT_2" OrigName="fbupdateCounterEdit_2" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C810C8" Group="updateCounter_vars"/>
+			<VarExt Name="FBUPDATECOUNTEREDIT_4" OrigName="fbupdateCounterEdit_4" Type="EDITBOX01" OrigType="EditBox01" Addr="0xA1C81158" Group="updateCounter_vars"/>
+			<VarExt Name="FBUPDATECOUNTERBUTTON_5" OrigName="fbupdateCounterButton_5" Type="BUTTON02" OrigType="Button02" Addr="0xA1C811AC" Group="updateCounter_vars"/>
 			<VarExt Name="$WAITREFRESH" OrigName="$waitRefresh" Type="BOOL" OrigType="BOOL" Addr="0xA1C8000D" Group="Sets"/>
 		</FBlock>
 	</FunctionBlocks>

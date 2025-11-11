@@ -28,77 +28,79 @@ VAR_GLOBAL
 	{G:"main_vars"}
 	fbmain : Drawmain;
 	fbRefrmain : Refrmain;
-	fbmainString_2 : Static01 := (x:=5, y:=5, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00001, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=6);
-	fbmainString_3 : Static01 := (wHnd:=1, x:=81, y:=5, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00002, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=6);
-	fbmainString_4 : Static01 := (wHnd:=2, x:=6, y:=17, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00003, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=6);
-	fbmainString_6 : Static01 := (wHnd:=3, x:=82, y:=17, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00004, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=5);
-	fbmainString_8 : Static01 := (wHnd:=4, x:=5, y:=30, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00005, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbmainString_10 : Static01 := (wHnd:=5, x:=50, y:=30, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00006, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbmainString_12 : Static01 := (wHnd:=6, x:=91, y:=30, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00007, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbmainString_14 : Static01 := (wHnd:=7, x:=5, y:=46, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00008, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbmainEdit_1 : EditBox01 := (wHnd:=8, x1:=45, y1:=5, x2:=74, y2:=12, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00230000, order:=1, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyInt, format:=16#2100000C);
-	fbmainEdit_5 : EditBox01 := (wHnd:=9, x1:=44, y1:=17, x2:=79, y2:=24, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00230300, order:=2, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUDInt, format:=16#4000000C);
-	fbmainEdit_9 : EditBox01 := (wHnd:=10, x1:=21, y1:=30, x2:=38, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00230900, order:=3, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyInt, format:=16#00000024, pCanSel:=1);
-	fbmainEdit_11 : EditBox01 := (wHnd:=11, x1:=65, y1:=30, x2:=82, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00230A00, order:=4, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyInt, format:=16#00000024, pCanSel:=1);
-	fbmainEdit_13 : EditBox01 := (wHnd:=12, x1:=106, y1:=30, x2:=123, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00230B00, order:=5, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyInt, format:=16#00000024, pCanSel:=1);
-	fbmainEdit_15 : EditBox01 := (wHnd:=13, x1:=19, y1:=46, x2:=36, y2:=53, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00231100, order:=6, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyInt, format:=16#00000024, pCanSel:=1);
+	fbmainString_2 : Static01 := (x:=2, y:=36, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00001, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=6);
+	fbmainString_3 : Static01 := (wHnd:=1, x:=37, y:=46, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00002, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=6);
+	fbmainString_4 : Static01 := (wHnd:=2, x:=1, y:=11, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00003, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=9);
+	fbmainString_6 : Static01 := (wHnd:=3, x:=55, y:=21, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00004, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=5);
+	fbmainString_8 : Static01 := (wHnd:=4, x:=92, y:=24, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00005, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbmainString_10 : Static01 := (wHnd:=5, x:=92, y:=38, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00006, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbmainString_12 : Static01 := (wHnd:=6, x:=92, y:=52, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00007, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbmainString_14 : Static01 := (wHnd:=7, x:=60, y:=4, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00008, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbmainString_25 : Static01 := (wHnd:=8, x:=95, y:=5, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00009, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=2);
+	fbmainEdit_1 : EditBox01 := (wHnd:=9, x1:=3, y1:=45, x2:=32, y2:=52, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00230000, order:=1, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyInt, format:=16#2100000C);
+	fbmainEdit_5 : EditBox01 := (wHnd:=10, x1:=3, y1:=20, x2:=50, y2:=27, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00230300, order:=2, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUDInt, format:=16#4000000C);
+	fbmainEdit_9 : EditBox01 := (wHnd:=11, x1:=108, y1:=24, x2:=125, y2:=31, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00230900, order:=3, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyInt, format:=16#00000024, pCanSel:=1);
+	fbmainEdit_11 : EditBox01 := (wHnd:=12, x1:=107, y1:=38, x2:=124, y2:=45, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00230A00, order:=4, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyInt, format:=16#00000024, pCanSel:=1);
+	fbmainEdit_13 : EditBox01 := (wHnd:=13, x1:=107, y1:=52, x2:=124, y2:=59, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00230B00, order:=5, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyInt, format:=16#00000024, pCanSel:=1);
+	fbmainEdit_15 : EditBox01 := (wHnd:=14, x1:=74, y1:=4, x2:=91, y2:=11, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00231100, order:=6, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyInt, format:=16#00000024, pCanSel:=1);
+	fbmainEdit_24 : EditBox01 := (wHnd:=15, x1:=108, y1:=5, x2:=125, y2:=12, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, bordCol:=16777215, pVar:=16#00230F00, order:=7, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, format:=16#00000024, pCanSel:=1);
 
 	{G:"first_vars"}
 	fbfirst : Drawfirst;
 	fbRefrfirst : Refrfirst;
-	fbfirstButton_1 : Button02 := (wHnd:=14, x1:=3, y1:=6, x2:=122, y2:=16, pFont:=?EWP2_6x8, pText:=?kStr00009, pSelText:=?kStr00009, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=1, bordSelCol:=16777215, pVisVar:=1);
-	fbfirstButton_2 : Button02 := (wHnd:=15, x1:=4, y1:=51, x2:=122, y2:=62, pFont:=?EWP2_6x8, pText:=?kStr00010, pSelText:=?kStr00010, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=4, bordSelCol:=16777215, pVisVar:=1);
-	fbfirstButton_3 : Button02 := (wHnd:=16, x1:=4, y1:=36, x2:=122, y2:=47, pFont:=?EWP2_6x8, pText:=?kStr00011, pSelText:=?kStr00011, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=3, bordSelCol:=16777215, pVisVar:=1);
-	fbfirstButton_4 : Button02 := (wHnd:=17, x1:=4, y1:=21, x2:=122, y2:=32, pFont:=?EWP2_6x8, pText:=?kStr00012, pSelText:=?kStr00011, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=2, bordSelCol:=16777215, pVisVar:=1);
+	fbfirstButton_1 : Button02 := (wHnd:=16, x1:=3, y1:=6, x2:=122, y2:=16, pFont:=?EWP2_6x8, pText:=?kStr00010, pSelText:=?kStr00010, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=1, bordSelCol:=16777215, pVisVar:=1);
+	fbfirstButton_2 : Button02 := (wHnd:=17, x1:=4, y1:=51, x2:=122, y2:=62, pFont:=?EWP2_6x8, pText:=?kStr00011, pSelText:=?kStr00011, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=4, bordSelCol:=16777215, pVisVar:=1);
+	fbfirstButton_3 : Button02 := (wHnd:=18, x1:=4, y1:=36, x2:=122, y2:=47, pFont:=?EWP2_6x8, pText:=?kStr00012, pSelText:=?kStr00012, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=3, bordSelCol:=16777215, pVisVar:=1);
+	fbfirstButton_4 : Button02 := (wHnd:=19, x1:=4, y1:=21, x2:=122, y2:=32, pFont:=?EWP2_6x8, pText:=?kStr00013, pSelText:=?kStr00012, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=2, bordSelCol:=16777215, pVisVar:=1);
 
 	{G:"SetupRS2_vars"}
 	fbSetupRS2 : DrawSetupRS2;
 	fbRefrSetupRS2 : RefrSetupRS2;
-	fbSetupRS2String_1 : Static01 := (wHnd:=18, x:=3, y:=18, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00013, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbSetupRS2String_2 : Static01 := (wHnd:=19, x:=3, y:=31, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00014, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=7);
-	fbSetupRS2String_3 : Static01 := (wHnd:=20, x:=2, y:=42, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00015, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbSetupRS2String_4 : Static01 := (wHnd:=21, x:=2, y:=55, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00016, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbSetupRS2String_5 : Static01 := (wHnd:=22, x:=73, y:=31, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00017, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbSetupRS2String_6 : Static01 := (wHnd:=23, x:=74, y:=18, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00018, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbSetupRS2Edit_7 : EditBox01 := (wHnd:=24, x1:=50, y1:=18, x2:=67, y2:=25, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003D9E00, order:=1, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupRS2Edit_8 : EditBox01 := (wHnd:=25, x1:=50, y1:=30, x2:=67, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DA000, order:=2, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMin:=8, pVarMax:=8, format:=16#0001400C, pCanSel:=1);
-	fbSetupRS2Edit_9 : EditBox01 := (wHnd:=26, x1:=50, y1:=42, x2:=67, y2:=49, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DA100, order:=3, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMin:=1, pVarMax:=2, format:=16#0001400C, pCanSel:=1);
-	fbSetupRS2Edit_10 : EditBox01 := (wHnd:=27, x1:=50, y1:=54, x2:=67, y2:=61, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DA200, order:=4, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=2, format:=16#0001400C, pCanSel:=1);
-	fbSetupRS2Edit_11 : EditBox01 := (wHnd:=28, x1:=106, y1:=18, x2:=123, y2:=25, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003D9F00, order:=5, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMin:=2, pVarMax:=4, format:=16#0001400C, pCanSel:=1);
-	fbSetupRS2Edit_12 : EditBox01 := (wHnd:=29, x1:=106, y1:=30, x2:=123, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DA300, order:=6, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=5, format:=16#0001400C, pCanSel:=1);
+	fbSetupRS2String_1 : Static01 := (wHnd:=20, x:=3, y:=18, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00014, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbSetupRS2String_2 : Static01 := (wHnd:=21, x:=3, y:=31, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00015, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=7);
+	fbSetupRS2String_3 : Static01 := (wHnd:=22, x:=2, y:=42, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00016, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbSetupRS2String_4 : Static01 := (wHnd:=23, x:=2, y:=55, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00017, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbSetupRS2String_5 : Static01 := (wHnd:=24, x:=73, y:=31, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00018, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbSetupRS2String_6 : Static01 := (wHnd:=25, x:=74, y:=18, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00019, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbSetupRS2Edit_7 : EditBox01 := (wHnd:=26, x1:=50, y1:=18, x2:=67, y2:=25, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003D9E00, order:=1, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupRS2Edit_8 : EditBox01 := (wHnd:=27, x1:=50, y1:=30, x2:=67, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DA000, order:=2, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMin:=8, pVarMax:=8, format:=16#0001400C, pCanSel:=1);
+	fbSetupRS2Edit_9 : EditBox01 := (wHnd:=28, x1:=50, y1:=42, x2:=67, y2:=49, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DA100, order:=3, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMin:=1, pVarMax:=2, format:=16#0001400C, pCanSel:=1);
+	fbSetupRS2Edit_10 : EditBox01 := (wHnd:=29, x1:=50, y1:=54, x2:=67, y2:=61, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DA200, order:=4, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=2, format:=16#0001400C, pCanSel:=1);
+	fbSetupRS2Edit_11 : EditBox01 := (wHnd:=30, x1:=106, y1:=18, x2:=123, y2:=25, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003D9F00, order:=5, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMin:=2, pVarMax:=4, format:=16#0001400C, pCanSel:=1);
+	fbSetupRS2Edit_12 : EditBox01 := (wHnd:=31, x1:=106, y1:=30, x2:=123, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DA300, order:=6, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=5, format:=16#0001400C, pCanSel:=1);
 
 	{G:"SetupIP_vars"}
 	fbSetupIP : DrawSetupIP;
 	fbRefrSetupIP : RefrSetupIP;
-	fbSetupIPString_1 : Static01 := (wHnd:=30, x:=2, y:=19, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00019, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbSetupIPString_2 : Static01 := (wHnd:=31, x:=2, y:=30, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00020, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbSetupIPString_3 : Static01 := (wHnd:=32, x:=2, y:=41, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00021, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbSetupIPString_4 : Static01 := (wHnd:=33, x:=2, y:=51, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00022, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
-	fbSetupIPEdit_5 : EditBox01 := (wHnd:=34, x1:=44, y1:=19, x2:=61, y2:=26, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DB600, order:=1, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_6 : EditBox01 := (wHnd:=35, x1:=65, y1:=19, x2:=82, y2:=26, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DB700, order:=2, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_7 : EditBox01 := (wHnd:=36, x1:=86, y1:=19, x2:=103, y2:=26, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DB800, order:=3, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_8 : EditBox01 := (wHnd:=37, x1:=107, y1:=19, x2:=124, y2:=26, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DB900, order:=4, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_9 : EditBox01 := (wHnd:=38, x1:=107, y1:=30, x2:=124, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DBD00, order:=5, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_10 : EditBox01 := (wHnd:=39, x1:=86, y1:=30, x2:=103, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DBC00, order:=6, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_11 : EditBox01 := (wHnd:=40, x1:=65, y1:=30, x2:=82, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DBB00, order:=7, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_12 : EditBox01 := (wHnd:=41, x1:=44, y1:=30, x2:=61, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DBA00, order:=8, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_13 : EditBox01 := (wHnd:=42, x1:=44, y1:=41, x2:=61, y2:=48, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DBE00, order:=9, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_14 : EditBox01 := (wHnd:=43, x1:=65, y1:=41, x2:=82, y2:=48, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DBF00, order:=10, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_15 : EditBox01 := (wHnd:=44, x1:=86, y1:=41, x2:=103, y2:=48, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DC000, order:=11, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_16 : EditBox01 := (wHnd:=45, x1:=107, y1:=41, x2:=124, y2:=48, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DC100, order:=12, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_17 : EditBox01 := (wHnd:=46, x1:=107, y1:=52, x2:=124, y2:=59, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DC500, order:=13, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_18 : EditBox01 := (wHnd:=47, x1:=86, y1:=52, x2:=103, y2:=59, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DC400, order:=14, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_19 : EditBox01 := (wHnd:=48, x1:=65, y1:=52, x2:=82, y2:=59, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DC300, order:=15, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
-	fbSetupIPEdit_20 : EditBox01 := (wHnd:=49, x1:=44, y1:=52, x2:=61, y2:=59, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DC200, order:=16, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPString_1 : Static01 := (wHnd:=32, x:=2, y:=19, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00020, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbSetupIPString_2 : Static01 := (wHnd:=33, x:=2, y:=30, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00021, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbSetupIPString_3 : Static01 := (wHnd:=34, x:=2, y:=41, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00022, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbSetupIPString_4 : Static01 := (wHnd:=35, x:=2, y:=51, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00023, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=0);
+	fbSetupIPEdit_5 : EditBox01 := (wHnd:=36, x1:=44, y1:=19, x2:=61, y2:=26, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DB600, order:=1, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_6 : EditBox01 := (wHnd:=37, x1:=65, y1:=19, x2:=82, y2:=26, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DB700, order:=2, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_7 : EditBox01 := (wHnd:=38, x1:=86, y1:=19, x2:=103, y2:=26, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DB800, order:=3, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_8 : EditBox01 := (wHnd:=39, x1:=107, y1:=19, x2:=124, y2:=26, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DB900, order:=4, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_9 : EditBox01 := (wHnd:=40, x1:=107, y1:=30, x2:=124, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DBD00, order:=5, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_10 : EditBox01 := (wHnd:=41, x1:=86, y1:=30, x2:=103, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DBC00, order:=6, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_11 : EditBox01 := (wHnd:=42, x1:=65, y1:=30, x2:=82, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DBB00, order:=7, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_12 : EditBox01 := (wHnd:=43, x1:=44, y1:=30, x2:=61, y2:=37, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DBA00, order:=8, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_13 : EditBox01 := (wHnd:=44, x1:=44, y1:=41, x2:=61, y2:=48, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DBE00, order:=9, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_14 : EditBox01 := (wHnd:=45, x1:=65, y1:=41, x2:=82, y2:=48, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DBF00, order:=10, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_15 : EditBox01 := (wHnd:=46, x1:=86, y1:=41, x2:=103, y2:=48, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DC000, order:=11, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_16 : EditBox01 := (wHnd:=47, x1:=107, y1:=41, x2:=124, y2:=48, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DC100, order:=12, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_17 : EditBox01 := (wHnd:=48, x1:=107, y1:=52, x2:=124, y2:=59, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DC500, order:=13, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_18 : EditBox01 := (wHnd:=49, x1:=86, y1:=52, x2:=103, y2:=59, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DC400, order:=14, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_19 : EditBox01 := (wHnd:=50, x1:=65, y1:=52, x2:=82, y2:=59, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DC300, order:=15, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
+	fbSetupIPEdit_20 : EditBox01 := (wHnd:=51, x1:=44, y1:=52, x2:=61, y2:=59, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#003DC200, order:=16, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUInt, pVarMax:=255, format:=16#0001400C, pCanSel:=1);
 
 	{G:"updateCounter_vars"}
 	fbupdateCounter : DrawupdateCounter;
 	fbRefrupdateCounter : RefrupdateCounter;
-	fbupdateCounterString_1 : Static01 := (wHnd:=50, x:=2, y:=3, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00023, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=18);
-	fbupdateCounterString_3 : Static01 := (wHnd:=51, x:=2, y:=27, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00024, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=19);
-	fbupdateCounterEdit_2 : EditBox01 := (wHnd:=53, x1:=3, y1:=16, x2:=62, y2:=23, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#00230300, order:=1, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUDInt, format:=16#0000000C, pCanSel:=1);
-	fbupdateCounterEdit_4 : EditBox01 := (wHnd:=54, x1:=3, y1:=38, x2:=62, y2:=45, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#00230100, order:=2, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUDInt, format:=16#0000000C, pCanSel:=1);
-	fbupdateCounterButton_5 : Button02 := (wHnd:=52, x1:=83, y1:=47, x2:=121, y2:=60, pFont:=?EWP2_6x8, pText:=?kStr00025, pSelText:=?kStr00025, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=3, bordSelCol:=16777215, pVisVar:=1);
+	fbupdateCounterString_1 : Static01 := (wHnd:=52, x:=2, y:=3, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00024, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=18);
+	fbupdateCounterString_3 : Static01 := (wHnd:=53, x:=2, y:=27, pFont:=?EWP2_6x8, bckCol:=16777215, pString:=?kStr00025, pVisVar:=1, format:=16#0020, bordPts:=0, selForeCol:=16777215, pRefrVar:=0, pSelVar:=0, numChars:=19);
+	fbupdateCounterEdit_2 : EditBox01 := (wHnd:=55, x1:=3, y1:=16, x2:=62, y2:=23, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#00230300, order:=1, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUDInt, format:=16#0000000C, pCanSel:=1);
+	fbupdateCounterEdit_4 : EditBox01 := (wHnd:=56, x1:=3, y1:=38, x2:=62, y2:=45, pFont:=?EWP2_6x8, bckCol:=16777215, bordPts:=1, rw:=TRUE, pVar:=16#00230100, order:=2, pVisVar:=1, foreSelCol:=16777215, refr:=TRUE, type:=tyUDInt, format:=16#0000000C, pCanSel:=1);
+	fbupdateCounterButton_5 : Button02 := (wHnd:=54, x1:=83, y1:=47, x2:=121, y2:=60, pFont:=?EWP2_6x8, pText:=?kStr00026, pSelText:=?kStr00026, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=3, bordSelCol:=16777215, pVisVar:=1);
 
 	{G:"Back page manager"}
 	fbBackPage : DrawBackPage;
@@ -113,31 +115,32 @@ END_VAR
 
 VAR_GLOBAL CONSTANT
 
-	kStr00022 :STRING[7] := 'PrDNS:';
-	kStr00020 :STRING[7] := 'DGTWY:';
+	kStr00023 :STRING[7] := 'PrDNS:';
+	kStr00021 :STRING[7] := 'DGTWY:';
 	kStr00006 :STRING[4] := 'L2:';
 	kStr00002 :STRING[19] := '$D0$B1$D0$B0$D1$80';
-	kStr00013 :STRING[37] := '$D0$90$D0$B4$D1$80$D0$B5$D1$81$D0$B0';
-	kStr00012 :STRING[79] := '$D0$9E$D0$BD$D0$BE$D0$B2$D0$B8$D1$82$D0$B8 $D0$BF$D0$BE$D0$BA. $D0$BBi$D1$87. ';
-	kStr00009 :STRING[87] := '$D0$94$D0$B0$D0$BDi $D1$81$D0$B2$D0$B5$D1$80$D0$B4$D0$BB$D0$BE$D0$B2$D0$B8$D0$BD$D0$B8';
-	kStr00019 :STRING[4] := 'IP:';
-	kStr00003 :STRING[16] := '$D0$9Bi$D1$87.:';
+	kStr00014 :STRING[37] := '$D0$90$D0$B4$D1$80$D0$B5$D1$81$D0$B0';
+	kStr00013 :STRING[79] := '$D0$9E$D0$BD$D0$BE$D0$B2$D0$B8$D1$82$D0$B8 $D0$BF$D0$BE$D0$BA. $D0$BBi$D1$87. ';
+	kStr00010 :STRING[87] := '$D0$94$D0$B0$D0$BDi $D1$81$D0$B2$D0$B5$D1$80$D0$B4$D0$BB$D0$BE$D0$B2$D0$B8$D0$BD$D0$B8';
+	kStr00009 :STRING[3] := 'AL';
+	kStr00020 :STRING[4] := 'IP:';
+	kStr00003 :STRING[50] := '$D0$9Bi$D1$87$D0$B8$D0$BB$D1$8C$D0$BD$D0$B8$D0$BA';
 	kStr00004 :STRING[8] := '$D0$BC3';
 	kStr00007 :STRING[4] := 'L3:';
-	kStr00025 :STRING[5] := 'Save';
-	kStr00017 :STRING[31] := '$D0$A8$D0$B2$D0$B8$D0$B4$D0$BA';
-	kStr00018 :STRING[25] := '$D0$9F$D1$80$D0$BE$D1$82';
+	kStr00026 :STRING[5] := 'Save';
+	kStr00018 :STRING[31] := '$D0$A8$D0$B2$D0$B8$D0$B4$D0$BA';
+	kStr00019 :STRING[25] := '$D0$9F$D1$80$D0$BE$D1$82';
 	kStr00008 :STRING[3] := 'V:';
 	kStr00001 :STRING[25] := '$D0$A2$D0$B8$D1$81$D0$BA';
-	kStr00015 :STRING[32] := '$D0$A1$D1$82$D0$BE$D0$BF $D0$91';
-	kStr00011 :STRING[76] := '$D0$9D$D0$B0$D0$BB$D0$B0$D1$88$D1$82$D1$83$D0$B2$D0$B0$D0$BD$D0$BD$D1$8F IP';
-	kStr00010 :STRING[76] := '$D0$9D$D0$B0$D0$BB$D0$B0$D1$88$D1$82$D1$83$D0$B2$D0$B0$D0$BD$D0$BD$D1$8F RS';
-	kStr00016 :STRING[44] := '$D0$9F$D0$B0$D1$80$D0$BDi$D1$81$D1$82$D1$8C';
-	kStr00014 :STRING[33] := '$D0$9A-$D1$81$D1$82$D1$8C $D0$91';
+	kStr00016 :STRING[32] := '$D0$A1$D1$82$D0$BE$D0$BF $D0$91';
+	kStr00012 :STRING[76] := '$D0$9D$D0$B0$D0$BB$D0$B0$D1$88$D1$82$D1$83$D0$B2$D0$B0$D0$BD$D0$BD$D1$8F IP';
+	kStr00011 :STRING[76] := '$D0$9D$D0$B0$D0$BB$D0$B0$D1$88$D1$82$D1$83$D0$B2$D0$B0$D0$BD$D0$BD$D1$8F RS';
+	kStr00017 :STRING[44] := '$D0$9F$D0$B0$D1$80$D0$BDi$D1$81$D1$82$D1$8C';
+	kStr00015 :STRING[33] := '$D0$9A-$D1$81$D1$82$D1$8C $D0$91';
 	kStr00005 :STRING[4] := 'L1:';
-	kStr00021 :STRING[7] := 'NtMsk:';
-	kStr00024 :STRING[100] := '$D0$9D$D0$BE$D0$B2$D0$B8$D0$B9 $D0$BF$D0$BE$D0$BA$D0$B0$D0$B7$D0$BD$D0$B8$D0$BA $D0$BA$D0$92$D0$A2:';
-	kStr00023 :STRING[94] := '$D0$9D$D0$BE$D0$B2$D0$B8$D0$B9 $D0$BF$D0$BE$D0$BA$D0$B0$D0$B7$D0$BD$D0$B8$D0$BA $D0$A5$D0$92:';
+	kStr00022 :STRING[7] := 'NtMsk:';
+	kStr00025 :STRING[100] := '$D0$9D$D0$BE$D0$B2$D0$B8$D0$B9 $D0$BF$D0$BE$D0$BA$D0$B0$D0$B7$D0$BD$D0$B8$D0$BA $D0$BA$D0$92$D0$A2:';
+	kStr00024 :STRING[94] := '$D0$9D$D0$BE$D0$B2$D0$B8$D0$B9 $D0$BF$D0$BE$D0$BA$D0$B0$D0$B7$D0$BD$D0$B8$D0$BA $D0$A5$D0$92:';
 
 END_VAR
 VAR_GLOBAL CONSTANT
@@ -731,22 +734,22 @@ FUNCTION_BLOCK Drawfirst
 
 								CASE iNextSel OF
 
-									14:	(* Button: Button_1 - Action: OpenPage 'main' *)
+									16:	(* Button: Button_1 - Action: OpenPage 'main' *)
 									res := Video_Lock( res );
 									guiCallStack[ giStackPtr ] := 1;
 									RETURN;
 
-									15:	(* Button: Button_2 - Action: OpenPage 'SetupRS2' *)
+									17:	(* Button: Button_2 - Action: OpenPage 'SetupRS2' *)
 									res := Video_Lock( res );
 									guiCallStack[ giStackPtr ] := 2;
 									RETURN;
 
-									16:	(* Button: Button_3 - Action: OpenPage 'SetupIP' *)
+									18:	(* Button: Button_3 - Action: OpenPage 'SetupIP' *)
 									res := Video_Lock( res );
 									guiCallStack[ giStackPtr ] := 3;
 									RETURN;
 
-									17:	(* Button: Button_4 - Action: OpenPage 'updateCounter' *)
+									19:	(* Button: Button_4 - Action: OpenPage 'updateCounter' *)
 									res := Video_Lock( res );
 									guiCallStack[ giStackPtr ] := 4;
 									RETURN;
@@ -791,12 +794,14 @@ FUNCTION_BLOCK Drawmain
 	fbmainString_10 : Static01;
 	fbmainString_12 : Static01;
 	fbmainString_14 : Static01;
+	fbmainString_25 : Static01;
 	fbmainEdit_1 : EditBox01;
 	fbmainEdit_5 : EditBox01;
 	fbmainEdit_9 : EditBox01;
 	fbmainEdit_11 : EditBox01;
 	fbmainEdit_13 : EditBox01;
 	fbmainEdit_15 : EditBox01;
+	fbmainEdit_24 : EditBox01;
 	$waitRefresh : BOOL;
 	END_VAR
 
@@ -926,6 +931,20 @@ FUNCTION_BLOCK Drawmain
 			fbmainEdit_15.accMode := kACS_INIT;
 			fbmainEdit_15();
 			fbmainEdit_15.accMode := kACS_PRINT;
+			res := Video_Line( 0, 33, 86, 33, 1, 0 );
+			res := Video_Line( 87, 62, 87, 18, 1, 0 );
+			res := Video_Line( 87, 18, 128, 18, 1, 0 );
+			res := Video_Line( 57, 0, 57, 18, 1, 0 );
+			res := Video_Line( 57, 18, 91, 18, 1, 0 );
+			res := Video_Line( 0, 7, 56, 7, 1, 0 );
+			res := Video_Line( 1, 59, 87, 59, 1, 0 );
+			res := Video_Line( 94, 0, 94, 17, 1, 0 );
+			fbmainEdit_24.accMode := kACS_INIT;
+			fbmainEdit_24();
+			fbmainEdit_24.accMode := kACS_PRINT;
+			fbmainString_25.accMode := kACS_INIT;
+			fbmainString_25();
+			fbmainString_25.accMode := kACS_PRINT;
 
 			(* Select the first selectable control *)
 			iNextSel := Video_FirstLastEdit( TRUE, FALSE );
@@ -965,6 +984,11 @@ FUNCTION_BLOCK Drawmain
 
 					CASE key OF
 
+					12:	(* Key: Right - Action: OpenPage *)
+					res := Video_Lock( res );
+					guiCallStack[ giStackPtr ] := 0;
+					RETURN;
+
 					11:	(* Key: Up - Action: PrevField *)
 						iNextSel := TO_INT( Video_PrevEdit( TRUE ) );
 						IF iNextSel > -1 THEN
@@ -986,7 +1010,7 @@ FUNCTION_BLOCK Drawmain
 
 						CASE iNextSel OF
 
-							8,9,10,11,12,13:
+							9,10,11,12,13,14,15:
 								(* Entering the edit mode *)
 								res := Video_EnterEdit( TO_UINT( iNextSel ) );
 
@@ -1233,7 +1257,7 @@ FUNCTION_BLOCK DrawSetupRS2
 
 						CASE iNextSel OF
 
-							24,25,26,27,28,29:
+							26,27,28,29,30,31:
 								(* Entering the edit mode *)
 								res := Video_EnterEdit( TO_UINT( iNextSel ) );
 
@@ -1512,7 +1536,7 @@ FUNCTION_BLOCK DrawSetupIP
 
 						CASE iNextSel OF
 
-							34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49:
+							36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51:
 								(* Entering the edit mode *)
 								res := Video_EnterEdit( TO_UINT( iNextSel ) );
 
@@ -1731,7 +1755,7 @@ FUNCTION_BLOCK DrawupdateCounter
 
 						CASE iNextSel OF
 
-							53,54:
+							55,56:
 								(* Entering the edit mode *)
 								res := Video_EnterEdit( TO_UINT( iNextSel ) );
 
@@ -1755,7 +1779,7 @@ FUNCTION_BLOCK DrawupdateCounter
 
 								CASE iNextSel OF
 
-									52:	(* Button: Button_5 - Action: OpenPage 'first' *)
+									54:	(* Button: Button_5 - Action: OpenPage 'first' *)
 									res := Video_Lock( res );
 									guiCallStack[ giStackPtr ] := 0;
 									RETURN;
@@ -1862,12 +1886,14 @@ FUNCTION_BLOCK Refrmain
 	fbmainString_10 : Static01;
 	fbmainString_12 : Static01;
 	fbmainString_14 : Static01;
+	fbmainString_25 : Static01;
 	fbmainEdit_1 : EditBox01;
 	fbmainEdit_5 : EditBox01;
 	fbmainEdit_9 : EditBox01;
 	fbmainEdit_11 : EditBox01;
 	fbmainEdit_13 : EditBox01;
 	fbmainEdit_15 : EditBox01;
+	fbmainEdit_24 : EditBox01;
 	$waitRefresh : BOOL;
 	END_VAR
 
@@ -1905,6 +1931,7 @@ FUNCTION_BLOCK Refrmain
 			fbmainEdit_11();
 			fbmainEdit_13();
 			fbmainEdit_15();
+			fbmainEdit_24();
 
 			(* *** REFRESHING BACKGROUND ITEMS *** *)
 			(* Cursor across the call stack *)

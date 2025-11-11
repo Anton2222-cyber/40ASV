@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?xml-stylesheet type ="text/xsl" href="file://C:/Users/Anton/AppData/Local/Temp/LLSymTab.xsl" version="1.0"?>
-<LLSymbolTable Version="1.4" Name="sw37" TargetID="M172P_596p12" CodeId="0x20590B1C" DebugMemoId="0xA190B976" MemoId="0x00009027" DataRelocation="none" DbRelocation="patch" FunctRelocation="patch" dataAddrMode="byte" codeAddrMode="byte" NoIncrAlloc="false" is64bit="false" isBigEndian="false" dataSignature="0x082F39F6">
+<LLSymbolTable Version="1.4" Name="sw37" TargetID="M172P_596p12" CodeId="0xBEFFD9D0" DebugMemoId="0xA190B976" MemoId="0x00009027" DataRelocation="none" DbRelocation="patch" FunctRelocation="patch" dataAddrMode="byte" codeAddrMode="byte" NoIncrAlloc="false" is64bit="false" isBigEndian="false" dataSignature="0x1248BF96">
 	<Resource Name="EWAD" Proc="ARMv7M"/>
 	<CaseSensitive>false</CaseSensitive>
 	<CompilerOptions FBExtCheck="true"/>
@@ -51,7 +51,7 @@
 		<Var Name="ALARMS" OrigName="Alarms" Type="WORD" OrigType="WORD" Addr="0xA0003F18" Group="Status_variables" RelocationRecord="%M110+32" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="110" DataBlockIndex="16" Access="3"/>
 		<Var Name="ATS_RUNTIME_HORS" OrigName="ATS_RunTime_Hors" Type="WORD" OrigType="WORD" Addr="0xA0003F14" Group="Status_variables" RelocationRecord="%M110+28" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="110" DataBlockIndex="14" Access="3"/>
 		<Var Name="ATS_ONTIMES_CNT" OrigName="ATS_OnTimes_Cnt" Type="WORD" OrigType="WORD" Addr="0xA0003F16" Group="Status_variables" RelocationRecord="%M110+30" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="110" DataBlockIndex="15" Access="3"/>
-		<Const Name="$$PARDBLENGTH" OrigName="$$ParDBLength" Type="DWORD" OrigType="DWORD" hidden="true">18</Const>
+		<Const Name="$$PARDBLENGTH" OrigName="$$ParDBLength" Type="DWORD" OrigType="DWORD" hidden="true">19</Const>
 		<Var Name="PAR_POLI" OrigName="Par_POLI" Type="UINT" OrigType="UINT" Addr="0x10000182" Descr="Polycarbonate code" Group="System_Parameters__Parameters_image_in_RAM__read_" RelocationRecord="%M100+386" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="100" DataBlockIndex="193" Access="1"/>
 		<Var Name="Q_START_ATS" OrigName="q_start_ats" Type="BOOL" OrigType="BOOL" Addr="0x100004B3" Descr="DOL8 digital output" Group="IO_Mapping" RelocationRecord="%Q1+7" OnDataBlock="true" DataBlockType="Q" DBDataType="X" DataBlockNumber="1" DataBlockIndex="7" Access="3"/>
 		<Var Name="SYSTIMER" OrigName="sysTimer" Type="UDINT" OrigType="UDINT" Addr="0x1000052C" Descr="System timer [ms]" Group="System_Timers" RelocationRecord="%M0+0" OnDataBlock="true" DataBlockType="M" DBDataType="D" DataBlockNumber="0" DataBlockIndex="0" Access="1"/>
@@ -73,14 +73,16 @@
 		<Var Name="FDI_KW_RESET" OrigName="fdi_kw_reset" Type="BOOL" OrigType="BOOL" Addr="0x100007C1" Descr="FDI1 reset input counter value" Group="IO_Mapping" RelocationRecord="%M50+0" OnDataBlock="true" DataBlockType="M" DBDataType="X" DataBlockNumber="50" DataBlockIndex="0" Access="3"/>
 		<Var Name="FDI_KW_FREQ" OrigName="fdi_kw_freq" Type="UDINT" OrigType="UDINT" Addr="0x100004F4" Descr="FDI1 Input frequency" Group="IO_Mapping" RelocationRecord="%M5+4" OnDataBlock="true" DataBlockType="M" DBDataType="B" DataBlockNumber="5" DataBlockIndex="1" Access="1"/>
 		<Var Name="KW_VALUE" OrigName="kw_value" Type="INT" OrigType="INT" Addr="0xA0003F04" Group="Status_variables" RelocationRecord="%M110+12" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="110" DataBlockIndex="6" Access="3"/>
+		<Var Name="MS_COUNTER" OrigName="ms_counter" Type="UDINT" OrigType="UDINT" Addr="0xA0003F20" Group="Status_variables" RelocationRecord="%M110+40" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="110" DataBlockIndex="20" Access="3"/>
 		<Var Name="FDI_Q_CNT" OrigName="fdi_q_cnt" Type="UDINT" OrigType="UDINT" Addr="0x100004F8" Descr="FDI2 Input counter" Group="IO_Mapping" RelocationRecord="%M500+0" OnDataBlock="true" DataBlockType="M" DBDataType="B" DataBlockNumber="500" DataBlockIndex="0" Access="1"/>
 		<Var Name="Q_COUNTER" OrigName="q_counter" Type="DWORD" OrigType="DWORD" Addr="0xA0003F00" Group="Status_variables" RelocationRecord="%M110+8" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="110" DataBlockIndex="4" Access="3"/>
 		<Var Name="FDI_Q_RESET" OrigName="fdi_q_reset" Type="BOOL" OrigType="BOOL" Addr="0x100007D5" Descr="FDI2 reset input counter value" Group="IO_Mapping" RelocationRecord="%M550+0" OnDataBlock="true" DataBlockType="M" DBDataType="X" DataBlockNumber="550" DataBlockIndex="0" Access="3"/>
 		<Var Name="Q_VALUE" OrigName="q_value" Type="INT" OrigType="INT" Addr="0xA0003F06" Group="Status_variables" RelocationRecord="%M110+14" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="110" DataBlockIndex="7" Access="3"/>
-		<Var Name="EPPROM_KW_CNT" OrigName="epprom_kw_cnt" Type="DWORD" OrigType="DWORD" Addr="0xA00017E8" Group="EEPROM_Parameters" RelocationRecord="%M101+0" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="101" DataBlockIndex="0" Access="1"/>
+		<Var Name="SYSCLOCK" OrigName="sysClock" Type="TYPEDATATIME" OrigType="TypeDataTime" Addr="0x10000472" Descr="System Date and Time Read. It is a structure of type TypeDataTime composed  ..." Group="System_Clock" RelocationRecord="%M1+0" OnDataBlock="true" DataBlockType="M" DBDataType="B" DataBlockNumber="1" DataBlockIndex="0" Access="1"/>
 		<Var Name="EPPROM_Q_CNT" OrigName="epprom_q_cnt" Type="DWORD" OrigType="DWORD" Addr="0xA00017EC" Group="EEPROM_Parameters" RelocationRecord="%M101+4" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="101" DataBlockIndex="2" Access="1"/>
-		<Var Name="I_ADC_PRESSURE" OrigName="i_adc_pressure" Type="INT" OrigType="INT" Addr="0x10000444" Descr="AIL2 analogue input" Group="IO_Mapping" RelocationRecord="%I1+2" OnDataBlock="true" DataBlockType="I" DBDataType="W" DataBlockNumber="1" DataBlockIndex="1" Access="3"/>
-		<Var Name="I_ADC_PRESSURE" OrigName="i_adc_pressure" Type="INT" OrigType="INT" Addr="0xA1A00076" Descr="AIL2 analogue input" Task="Timed"/>
+		<Var Name="EPPROM_KW_CNT" OrigName="epprom_kw_cnt" Type="DWORD" OrigType="DWORD" Addr="0xA00017E8" Group="EEPROM_Parameters" RelocationRecord="%M101+0" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="101" DataBlockIndex="0" Access="1"/>
+		<Var Name="I_ADC_PRESSURE" OrigName="i_adc_pressure" Type="INT" OrigType="INT" Addr="0x10000442" Descr="AIL1 analogue input" Group="IO_Mapping" RelocationRecord="%I1+0" OnDataBlock="true" DataBlockType="I" DBDataType="W" DataBlockNumber="1" DataBlockIndex="0" Access="3"/>
+		<Var Name="I_ADC_PRESSURE" OrigName="i_adc_pressure" Type="INT" OrigType="INT" Addr="0xA1A00096" Descr="AIL1 analogue input" Task="Timed"/>
 		<Var Name="PRESSURE" OrigName="Pressure" Type="INT" OrigType="INT" Addr="0xA0003EF8" Group="Status_variables" RelocationRecord="%M110+0" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="110" DataBlockIndex="0" Access="3"/>
 		<Var Name="PULSE_INPUT_Q" OrigName="pulse_input_q" Type="BOOL" OrigType="BOOL" Addr="0x10000421" Descr="DIL2 digital input" Group="IO_Mapping" RelocationRecord="%I0+1" OnDataBlock="true" DataBlockType="I" DBDataType="X" DataBlockNumber="0" DataBlockIndex="1" Access="1"/>
 		<Var Name="FDI_Q_FREQ" OrigName="fdi_q_freq" Type="UDINT" OrigType="UDINT" Addr="0x100004FC" Descr="FDI2 Input frequency" Group="IO_Mapping" RelocationRecord="%M500+4" OnDataBlock="true" DataBlockType="M" DBDataType="B" DataBlockNumber="500" DataBlockIndex="1" Access="1"/>
@@ -103,7 +105,6 @@
 		<Var Name="SYSTSKTMDSCANTIME" OrigName="sysTskTmdScanTime" Type="UINT" OrigType="UINT" Addr="0x10000ED0" Descr="System Timed's Task Scan Time (ms)" Group="System_Tasks_Execution_Time" RelocationRecord="%M3002+0" OnDataBlock="true" DataBlockType="M" DBDataType="W" DataBlockNumber="3002" DataBlockIndex="0" Access="1"/>
 		<Var Name="SYSTSKBCKMAXEXETIME" OrigName="sysTskBckMaxExeTime" Type="UDINT" OrigType="UDINT" Addr="0xA0274AB8" Descr="System Background's Task Max Execution Time (us)" Group="System_Tasks_Execution_Time" RelocationRecord="%M4000+0" OnDataBlock="true" DataBlockType="M" DBDataType="D" DataBlockNumber="4000" DataBlockIndex="0" Access="3"/>
 		<Var Name="SYSTSKTMDMAXEXETIME" OrigName="sysTskTmdMaxExeTime" Type="UDINT" OrigType="UDINT" Addr="0xA0274AB4" Descr="System Timed's Task Max Execution Time (us)" Group="System_Tasks_Execution_Time" RelocationRecord="%M4001+0" OnDataBlock="true" DataBlockType="M" DBDataType="D" DataBlockNumber="4001" DataBlockIndex="0" Access="3"/>
-		<Var Name="SYSCLOCK" OrigName="sysClock" Type="TYPEDATATIME" OrigType="TypeDataTime" Addr="0x10000472" Descr="System Date and Time Read. It is a structure of type TypeDataTime composed  ..." Group="System_Clock" RelocationRecord="%M1+0" OnDataBlock="true" DataBlockType="M" DBDataType="B" DataBlockNumber="1" DataBlockIndex="0" Access="1"/>
 		<Var Name="SYSCLOCKERROR" OrigName="sysClockError" Type="BOOL" OrigType="BOOL" Addr="0x10000414" Descr="System Date and Time invalid" Group="System_Clock" RelocationRecord="%M2+0" OnDataBlock="true" DataBlockType="M" DBDataType="X" DataBlockNumber="2" DataBlockIndex="0" Access="1"/>
 		<Var Name="SYSIMPULSECOUNTER" OrigName="sysImpulseCounter" Type="STRUCTIMPULSECOUNTER" OrigType="STRUCTIMPULSECOUNTER" Addr="0x100004F0" Descr="System Impulse Counter Input 1 (read). It is a structure of type STRUCTIMPULSECOUNTER composed ..." Group="System_Impulse_Counter_Input" RelocationRecord="%M5+0" OnDataBlock="true" DataBlockType="M" DBDataType="B" DataBlockNumber="5" DataBlockIndex="0" Access="1"/>
 		<Var Name="SYSIMPULSECOUNTER_AS_FDI" OrigName="sysImpulseCounter_as_FDI" Type="BOOL" OrigType="BOOL" Addr="0x100007C0" Descr="System Impulse Counter 1 as Digital Input" Group="System_Impulse_Counter_Input" RelocationRecord="%I5+0" OnDataBlock="true" DataBlockType="I" DBDataType="X" DataBlockNumber="5" DataBlockIndex="0" Access="1"/>
@@ -472,53 +473,51 @@
 		<Var Name="SYSMODBUS_MSG_RECEIVED_RS485_2" OrigName="sysMODBUS_msg_received_RS485_2" Type="UDINT" OrigType="UDINT" Addr="0xA04866A8" Descr="Counter for modbus message received on RS485-2" Group="System_Modbus_messages" RelocationRecord="%M5000+8" OnDataBlock="true" DataBlockType="M" DBDataType="D" DataBlockNumber="5000" DataBlockIndex="2" Access="3"/>
 		<Var Name="SYSMODBUS_MSG_RECEIVED_RS485_PLUGIN" OrigName="sysMODBUS_msg_received_RS485_Plugin" Type="UDINT" OrigType="UDINT" Addr="0xA04866AC" Descr="Counter for modbus message received on RS485/232 Plugin" Group="System_Modbus_messages" RelocationRecord="%M5000+12" OnDataBlock="true" DataBlockType="M" DBDataType="D" DataBlockNumber="5000" DataBlockIndex="3" Access="3"/>
 		<Var Name="$$CODEBASE$$" OrigName="$$CODEBASE$$" Type="UDINT" OrigType="UDINT" Addr="0xA1900000"/>
-		<Var Name="$$CODESTART$$" OrigName="$$CODESTART$$" Type="UDINT" OrigType="UDINT" Addr="0xA1900388"/>
-		<Var Name="$$CODESIZE$$" OrigName="$$CODESIZE$$" Type="UDINT" OrigType="UDINT" Addr="0xA19058D4"/>
+		<Var Name="$$CODESTART$$" OrigName="$$CODESTART$$" Type="UDINT" OrigType="UDINT" Addr="0xA19003AC"/>
+		<Var Name="$$CODESIZE$$" OrigName="$$CODESIZE$$" Type="UDINT" OrigType="UDINT" Addr="0xA1905968"/>
 		<Var Name="$$CODEEND$$" OrigName="$$CODEEND$$" Type="UDINT" OrigType="UDINT" Addr="0xA1A00000"/>
-		<Var Name="$$DATASIZE$$" OrigName="$$DATASIZE$$" Type="UDINT" OrigType="UDINT" Addr="0xA1A000B2"/>
+		<Var Name="$$DATASIZE$$" OrigName="$$DATASIZE$$" Type="UDINT" OrigType="UDINT" Addr="0xA1A00098"/>
 		<Var Name="$$AUXDATASIZE$$" OrigName="$$AUXDATASIZE$$" Type="UDINT" OrigType="UDINT" Addr="0x0"/>
 		<Var Name="$$BITDATASIZE$$" OrigName="$$BITDATASIZE$$" Type="UDINT" OrigType="UDINT" Addr="0x0"/>
 		<Var Name="$$RITDATASIZE$$" OrigName="$$RITDATASIZE$$" Type="UDINT" OrigType="UDINT" Addr="0x0"/>
 	</GlobalVars>
 	<Programs>
-		<Prog Name="ATS_MDB" OrigName="ATS_mdb" SrcType="3" CodeAddr="0xA19044A0" HashCode="F5F90CD6">
+		<Prog Name="ATS_MDB" OrigName="ATS_mdb" SrcType="3" CodeAddr="0xA1904490" HashCode="F5F90CD6">
 			<Var Name="RESP_ETA_LCR" OrigName="resp_eta_lcr" Type="INT" OrigType="INT" Addr="0xA1A0000C" Dims="4"/>
 			<Var Name="RES" OrigName="res" Type="INT" OrigType="INT" Addr="0xA1A00018"/>
 			<TmpVar Name="$$TMP0" OrigName="$$TMP0" Type="@INT" OrigType="@INT" Addr="0xA1A00014"/>
 		</Prog>
-		<Prog Name="INITPARDB" OrigName="InitParDB" SrcType="3" CodeAddr="0xA1904BC0" HashCode="E4384F6B">
+		<Prog Name="INITPARDB" OrigName="InitParDB" SrcType="3" CodeAddr="0xA1904BB0" HashCode="4F946301">
 			<Var Name="WARNINGSKILLER" OrigName="warningsKiller" Type="USINT" OrigType="USINT" Addr="0xA1A00040"/>
 			<Var Name="DUMMYCRC32" OrigName="dummyCrc32" Type="UDINT" OrigType="UDINT" Addr="0xA1A0003C"/>
 		</Prog>
-		<Prog Name="PARCHECK" OrigName="ParCheck" SrcType="3" CodeAddr="0xA1904B50" HashCode="A281779A"/>
-		<Prog Name="SR_ATS_CTRL" OrigName="sr_ATS_Ctrl" SrcType="3" CodeAddr="0xA1905068" HashCode="6085EE6A">
+		<Prog Name="PARCHECK" OrigName="ParCheck" SrcType="3" CodeAddr="0xA1904B40" HashCode="A281779A"/>
+		<Prog Name="SR_ATS_CTRL" OrigName="sr_ATS_Ctrl" SrcType="3" CodeAddr="0xA19050B0" HashCode="6085EE6A">
 			<Var Name="TON_STARTUP_1" OrigName="TON_StartUp_1" Type="TON" OrigType="TON" Addr="0xA1A00044"/>
 			<Var Name="TON_STARTUP_2" OrigName="TON_StartUp_2" Type="TON" OrigType="TON" Addr="0xA1A00058"/>
 		</Prog>
-		<Prog Name="SR_COUNTERS" OrigName="sr_counters" SrcType="3" CodeAddr="0xA1904CBC" HashCode="D1D537C0">
+		<Prog Name="SR_COUNTERS" OrigName="sr_counters" SrcType="3" CodeAddr="0xA1904CAC" HashCode="E7A93BDE">
 			<Var Name="KW_PULSES_PER_ACS" OrigName="kw_pulses_per_acs" Type="UINT" OrigType="UINT" Addr="0xA1A00072"/>
 			<Var Name="Q_PULSES_PER_ACS" OrigName="q_pulses_per_acs" Type="UINT" OrigType="UINT" Addr="0xA1A00074"/>
 			<Var Name="MS_TIMER" OrigName="ms_timer" Type="TON" OrigType="TON" Addr="0xA1A00078"/>
-			<Var Name="MS_COUNTER" OrigName="ms_counter" Type="UDINT" OrigType="UDINT" Addr="0xA1A0008C" Descr="Умовний час у мілісекундах"/>
-			<Var Name="LAST_TICK_TIME" OrigName="last_tick_time" Type="UDINT" OrigType="UDINT" Addr="0xA1A00090"/>
-			<Var Name="TIME_BETWEEN" OrigName="time_between" Type="UDINT" OrigType="UDINT" Addr="0xA1A00094" Descr="Різниця між двома тиками, у мс"/>
+			<Var Name="LAST_TICK_TIME" OrigName="last_tick_time" Type="UDINT" OrigType="UDINT" Addr="0xA1A0008C"/>
+			<Var Name="TIME_BETWEEN" OrigName="time_between" Type="UDINT" OrigType="UDINT" Addr="0xA1A00090" Descr="Різниця між двома тиками, у мс"/>
+			<Var Name="PREVDAY" OrigName="prevDay" Type="USINT" OrigType="USINT" Addr="0xA1A00094"/>
+			<Var Name="PREVMONTH" OrigName="prevMonth" Type="USINT" OrigType="USINT" Addr="0xA1A00076"/>
+			<Var Name="PREVYEAR" OrigName="prevYear" Type="USINT" OrigType="USINT" Addr="0xA1A00077"/>
+			<Var Name="DAYCHANGED" OrigName="dayChanged" Type="BOOL" OrigType="BOOL" Addr="0xA1A00095"/>
 		</Prog>
-		<Prog Name="SR_INIT_COUNTERS" OrigName="sr_init_counters" SrcType="3" CodeAddr="0xA1904AE0" HashCode="C5D31733"/>
-		<Prog Name="SR_PRESSURE" OrigName="sr_pressure" SrcType="3" CodeAddr="0xA1904C40" HashCode="FD173778"/>
-		<Prog Name="SR_SAVE_COUNTERS" OrigName="sr_save_counters" SrcType="3" CodeAddr="0xA1904F44" HashCode="A966EA7C">
-			<Var Name="POWER_ERR" OrigName="power_err" Type="R_TRIG" OrigType="R_TRIG" Addr="0xA1A000AC"/>
-			<Var Name="TON_START_UP" OrigName="ton_start_up" Type="TON" OrigType="TON" Addr="0xA1A00098"/>
-			<Var Name="RES_Q" OrigName="res_q" Type="BOOL" OrigType="BOOL" Addr="0xA1A000B0"/>
-			<Var Name="RES_KW" OrigName="res_kw" Type="BOOL" OrigType="BOOL" Addr="0xA1A000B1"/>
-		</Prog>
+		<Prog Name="SR_INIT_COUNTERS" OrigName="sr_init_counters" SrcType="3" CodeAddr="0xA1904AD0" HashCode="C5D31733"/>
+		<Prog Name="SR_PRESSURE" OrigName="sr_pressure" SrcType="3" CodeAddr="0xA1904C30" HashCode="FD173778"/>
+		<Prog Name="SR_SAVE_COUNTERS" OrigName="sr_save_counters" SrcType="3" CodeAddr="0xA19050B0" HashCode="290CAA97"/>
 	</Programs>
 	<FunctionBlocks>
-		<FBlock Name="R_TRIG" OrigName="R_TRIG" SrcType="0" FrameSize="4" CodeAddr="0xA19043C8" HashCode="45CFD1FC">
+		<FBlock Name="R_TRIG" OrigName="R_TRIG" SrcType="0" FrameSize="4" CodeAddr="0xFFFFFFFFFFFFFFFF" HashCode="00001505">
 			<VarI Name="CLK" OrigName="clk" Type="BOOL" OrigType="BOOL" Addr="0x6[1]" Attribs="relative" Descr="Input for edge detection"/>
 			<VarO Name="Q" OrigName="q" Type="BOOL" OrigType="BOOL" Addr="0x6[2]" Attribs="relative" Descr="Raising edge output"/>
 			<Var Name="M" OrigName="m" Type="BOOL" OrigType="BOOL" Addr="0x6[0]" Attribs="relative"/>
 		</FBlock>
-		<FBlock Name="TON" OrigName="TON" SrcType="0" FrameSize="20" CodeAddr="0xA1904400" HashCode="09CEF9A4">
+		<FBlock Name="TON" OrigName="TON" SrcType="0" FrameSize="20" CodeAddr="0xA19043E8" HashCode="09CEF9A4">
 			<VarI Name="IN" OrigName="IN" Type="BOOL" OrigType="BOOL" Addr="0x6[4]" Attribs="relative" Descr="Timer input source"/>
 			<VarI Name="PT" OrigName="PT" Type="UDINT" OrigType="UDINT" Addr="0x6[8]" Attribs="relative" Descr="Preset time value (ms)"/>
 			<VarO Name="Q" OrigName="Q" Type="BOOL" OrigType="BOOL" Addr="0x6[12]" Attribs="relative" Descr="Timer output"/>

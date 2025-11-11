@@ -25,8 +25,9 @@ ATS_OnTimes_Cnt AT %MW110.15 : WORD;
 Alarms AT %MW110.16 : WORD;
 CMD AT %MW110.17 : WORD := 0;
 ATS_Voltage AT %MW110.18 : INT := 0;
+ms_counter AT %MW110.20 : UDINT := 0;
 	{G:"IO_Mapping"}
-i_adc_pressure AT %IW1.1 : INT;	{ DE:"AIL2 analogue input" }
+i_adc_pressure AT %IW1.0 : INT;	{ DE:"AIL1 analogue input" }
 i_sns_dry AT %IW1.5 : INT;	{ DE:"AIL6 analogue input" }
 i_pb_loc AT %IW1.6 : INT;	{ DE:"AIL7 analogue input" }
 i_pb_rem AT %IW1.7 : INT;	{ DE:"AIL8 analogue input" }
