@@ -51,7 +51,7 @@ VAR_GLOBAL
 	fbfirstButton_1 : Button02 := (wHnd:=16, x1:=3, y1:=6, x2:=122, y2:=16, pFont:=?EWP2_6x8, pText:=?kStr00010, pSelText:=?kStr00010, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=1, bordSelCol:=16777215, pVisVar:=1);
 	fbfirstButton_2 : Button02 := (wHnd:=17, x1:=4, y1:=51, x2:=122, y2:=62, pFont:=?EWP2_6x8, pText:=?kStr00011, pSelText:=?kStr00011, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=4, bordSelCol:=16777215, pVisVar:=1);
 	fbfirstButton_3 : Button02 := (wHnd:=18, x1:=4, y1:=36, x2:=122, y2:=47, pFont:=?EWP2_6x8, pText:=?kStr00012, pSelText:=?kStr00012, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=3, bordSelCol:=16777215, pVisVar:=1);
-	fbfirstButton_4 : Button02 := (wHnd:=19, x1:=4, y1:=21, x2:=122, y2:=32, pFont:=?EWP2_6x8, pText:=?kStr00013, pSelText:=?kStr00012, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=2, bordSelCol:=16777215, pVisVar:=1);
+	fbfirstButton_4 : Button02 := (wHnd:=19, x1:=4, y1:=21, x2:=122, y2:=32, pFont:=?EWP2_6x8, pText:=?kStr00013, pSelText:=?kStr00013, format:=16#0020, bordPts:=1, fillCol:=16777215, order:=2, bordSelCol:=16777215, pVisVar:=1);
 
 	{G:"SetupRS2_vars"}
 	fbSetupRS2 : DrawSetupRS2;

@@ -803,7 +803,7 @@
 						<DESC/>
 						<ZORDER>4</ZORDER>
 						<ORDER>2</ORDER>
-						<SELTEXT>Налаштування IP</SELTEXT>
+						<SELTEXT>Оновити пок. лiч. </SELTEXT>
 						<EVENTS>
 							<EVENT name="OnClick"/>
 							<EVENT name="OnPress"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <plcProject caseSensitive="false" extendedIdNames="false" useCustomWorkspace="true" debugMode="false" extcheck="true" SFCControl="false" strictPointerCheck="false" strictInitValuesCheck="false" verboseWarningMode="false" iecTypeConversionRules="false" PNContactsOnEachNetwork="false" LocalVarsFBAccess="false" strictEnumsCheck="false" copyWarningThreshold="0" version="2.11" useLD2="true" useXPLCFiles="false" useFBMethods="false" customSortOfProjectTree="false" autoDerefPointers="false">
 	<image>sw37.imgx</image>
-	<commSettings>ModbusTCP:255,1000,M6#TCPIP:10.10.10.140/502,5000</commSettings>
+	<commSettings>Modbus:1,1000,M6#COM:3,38400,N,8,1,H</commSettings>
 	<sources>
 		<main>
 			<resources>
@@ -62884,7 +62884,7 @@ PROGRAM InitParDB
 		dummyCrc32: UDINT;
 	END_VAR
 
-	dummyCrc32 := 3239329795;
+	dummyCrc32 := 3965794404;
 
 	warningsKiller := sysDBase_SetExtTable( ADR( $$ParDB ), $$ParDBLength );
 
@@ -62915,7 +62915,7 @@ END_PROGRAM
 			</src>
 		</aux>
 		<workspace>
-			<root name="sw37" nextID="2443">
+			<root name="sw37" nextID="2550">
 				<folder name="VAR" id="372">
 					<GlobalVars name="GVL" id="11"/>
 				</folder>
@@ -63017,7 +63017,7 @@ END_PROGRAM
 								<name>epprom_q_cnt</name>
 								<typepar>3</typepar>
 								<typetarg>DWORD</typetarg>
-								<value>0</value>
+								<value>436170</value>
 								<min/>
 								<max/>
 								<ipamin/>
@@ -64281,7 +64281,7 @@ END_PROGRAM
 							</biosParam>
 							<biosParam>
 								<ipa>10047</ipa>
-								<defval>11</defval>
+								<defval>9</defval>
 								<addToTelevis>0</addToTelevis>
 							</biosParam>
 							<biosParam>
@@ -64471,7 +64471,7 @@ END_PROGRAM
 					<Plugins/>
 					<cfgConfig>
 						<config>
-							<commstring>ModbusTCP:255,1000,M6#TCPIP:10.10.10.140/502,5000</commstring>
+							<commstring>Modbus:1,1000,M6#COM:3,38400,N,8,1,H</commstring>
 							<values stopNodeParsing="true">
 								<value ipa="10000" subidx="0">0</value>
 								<value ipa="10001" subidx="0">2053</value>
@@ -64521,7 +64521,7 @@ END_PROGRAM
 								<value ipa="10044" subidx="0">192</value>
 								<value ipa="10045" subidx="0">168</value>
 								<value ipa="10046" subidx="0">1</value>
-								<value ipa="10047" subidx="0">11</value>
+								<value ipa="10047" subidx="0">9</value>
 								<value ipa="10048" subidx="0">192</value>
 								<value ipa="10049" subidx="0">168</value>
 								<value ipa="10050" subidx="0">1</value>
@@ -64929,7 +64929,7 @@ END_PROGRAM
 								<value ipa="50003" subidx="0">0</value>
 								<value ipa="50004" subidx="0">0</value>
 								<value ipa="0" subidx="0">0</value>
-								<value ipa="1" subidx="0">0</value>
+								<value ipa="1" subidx="0">436170</value>
 								<value ipa="5000" subidx="0">0</value>
 								<value ipa="5001" subidx="0">0</value>
 								<value ipa="5002" subidx="0">0</value>
